@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: At the intersection of economics and political philosophy | UCI News | UCI</title>
+
+    <title>UCI Podcast: At the intersection of economics and political philosophy &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='UCI Podcast: What could cause an election meltdown?' href='https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/' />
+<link rel='next' title='Opinion: A key fix for an unthinkable election disaster' href='https://news.uci.edu/2020/10/05/opinion-a-key-fix-for-an-unthinkable-election-disaster/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=49765' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F05%2Fuci-podcast-at-the-intersection-of-economics-and-political-philosophy%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F05%2Fuci-podcast-at-the-intersection-of-economics-and-political-philosophy%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="Professor Aaron James talks about debt, dollars and how the U.S. monetary system can work for everyone">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: At the intersection of economics and political philosophy"/>
+<meta itemprop="name" content="UCI Podcast: At the intersection of economics and political philosophy"/>
+<meta property="og:url" content="https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-10-05T09:14:48-07:00"/>
+	<meta property="article:modified_time" content="2020-10-06T17:20:02-07:00" />
+<meta property="og:updated_time" content="2020-10-06T17:20:02-07:00" />
+<meta property="article:section" content="Campus Life"/>
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Faculty"/>
+<meta property="article:section" content="Humanities"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="og:description" content="Professor Aaron James talks about debt, dollars and how the U.S. monetary system can work for everyone"/>
+<meta itemprop="description" content="Professor Aaron James talks about debt, dollars and how the U.S. monetary system can work for everyone"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/09/aaronstory-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/09/aaronstory-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">UCI Podcast: At the intersection of economics and political philosophy</h1>
+
+            <h2 class="page-subheadline">Professor Aaron James talks about debt, dollars and how the U.S. monetary system can work for everyone</h2>
+
+            <div class="page-date">
+                
+                October 5, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/09/aaronstory-768x434.jpg" alt="UCI Podcast: At the intersection of economics and political philosophy" class="img-responsive">												<div class="caption">&#8220;This book is for a general audience that pull all the strands of law, economics and philosophy together,” says UCI philosophy professor Aaron James. “We feel that everyone should know how the U.S. money system works and how it might work better for all of us.” School of Humanities / UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Faaron-james-podcast-092920&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p>What is the Federal Reserve? What does it do? When is debt not a bad thing? Is a universal basic income economically sustainable? Why would you take financial advice from philosopher? Aaron James, UCI professor of philosophy, works at the intersection of economics and political philosophy and is co-author of a new book, “Money from Nothing: Or, Why We Should Stop Worrying About Debt and Learn to Love the Federal Reserve,” published by Melville House. He answers those questions and more in this conversation with UCI Podcast.</p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; </strong><a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M"><strong>Google Podcasts</strong></a><strong> &#8211; </strong><a href="https://www.stitcher.com/podcast/the-uci-podcast"><strong>Stitcher</strong></a><strong> &#8211; </strong><a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A"><strong>Spotify</strong></a></p>
+<h1><strong>Transcript</strong></h1>
+<p>Hi, I’m Pat Harriman and this is the UCI Podcast.</p>
+<p>Joining me today is Aaron James, philosophy professor at UCI. We’re going to talk about the U.S. monetary system, universal basic income and building an economy that works for everyone without unwanted taxes and added regulations.</p>
+<p><strong> </strong>You may be wondering why you would take financial advice from a philosopher, but Professor James works at the intersection of economics and political philosophy. He teaches graduate and undergraduate courses on the philosophy of money and is co-author, along with Robert Hockett, of a new book called, “<a href="https://www.penguinrandomhouse.com/books/647222/money-from-nothing-by-aaron-james/">Money from Nothing: Or, Why We Should Stop Worrying About Debt and Learn to Love the Federal Reserve</a>,” published by Melville House. Hockett helped draft Representative Alexandria Ocasio-Cortez’s Green New Deal and has also worked at the International Monetary Fund and The Federal Reserve Bank of New York.</p>
+<p>Professor James, thank you for joining the UCI podcast.</p>
+<p><strong>James: </strong>Thanks a lot. Great to be with you.</p>
+<p><strong>UCI Podcast:</strong>  Let’s talk first about your book title. There’s so much there to unpack and I think that will help us launch into deeper questions. What exactly is the Federal Reserve, what does it do and why should we love it?</p>
+<p><strong>James:</strong>  The Federal Reserve, “The Fed” as we call it, is of course, our central bank. It’s a public bank.  It was established in 1913, and we, when we in effect “socialized” the dollar, in creating a public-private bank partnership that never existed before that became the backbone of American capitalism.  So, the Fed issues the U.S. dollar, which is a kind of government promise. And if you look at a dollar bill, by the way, it says Federal Reserve Note right along the top, so that’s a note; it’s legalese for promissory note, so it says it’s a promise. And what it is in effect is a tax credit for us, which we can use to pay taxes or other debts to the government and, at the same time, a debt of the government to us to recognize those credits.</p>
+<p>So, okay, should we love the Fed?  Why care about it? Well, think of it this way, do you like dollars?  Do you want more dollars?  Are you perhaps organizing a lot of your life around getting your hands on more and more dollars? Well then, you like public debt.  A dollar just is a government debt, issued by the Fed.  If there were no such debt, no one would have any money at all in dollars. So we already in effect already love the Federal Reserve already; we just don’t realize that’s what we love.</p>
+<p><strong>UCI Podcast:</strong>  So much of our common financial literacy is around preventing and getting out of debt, yet, in your book title, you say we should stop worrying about debt. Why is that?</p>
+<p><strong>James:</strong>  Uh yeah. Well, we’re taught to, and rightly, worry about our personal debt or private debt; you know, the debt of a company or a state like California. That’s, in that case, you know, you’re worrying about your income, not meeting your debt obligations, and risk of going broke. But the situation is really different, um, when we’re talking about public debt. It’s special, and we aren’t taught to really understand how it works. I mean, take this as an example. Like the “national debt” figures, which you see posted on billboards in various cities, you know, or online. You know, there’s this giant, really long big number, and it’s flying upwards and that’s supposed to be really scary, alarming.  You’re supposed to think the debt’s out of control and stuff like that. How are we going to pay back that money, etcetera? But now, think about this point of accounting.</p>
+<p>That number is exactly equivalent to private national wealth.  That is to say, the public debt just <em>is</em> private wealth, excluding the foreign sector.  So think about that. Why? Because every dollar that’s, or every dollar denominated debt, that’s the debt of the government, is an asset to someone else. It’s a dollar in your pocket, or a treasury bond or some other kind of. It’s somebody else’s asset, somebody else’s wealth. Now, once you note that point of accounting, look again at the sign, at that giant number. That’s the amount of private wealth in the national economy. That’s our national private assets. So we’re rich! The number’s flying upward!</p>
+<p>Well, but what about all that public debt “being left for the grandkids, then?” Well, that’s all private wealth, the national assets. The grandkids are going to be rich as they inherit all that money. If we were to pay it down, because we’re worried about there being too much of it, well, we’d have to take that wealth away from them.  And why should that be a good idea? Yes, so of course leave it for the grandkids. And note, by the way, that that is just a point of accounting, of national accounting. It’s not controversial, or it shouldn’t be controversial. The fact that it is seems a point of controversy just reflects the fact that so many of us, even sophisticated people, just are fairly ignorant of basic facts about money and public accounting.</p>
+<p>Well, the thing that people often worry about debt issued by the Treasury, which I mentioned Treasury Securities.  What’s going on there is that the government is getting dollars back from the banking system, temporarily, pulling them out of the economy. And it’s promising to re-issue those dollars, really new dollars, with a little extra, an interest rate attached at a certain period of time.  But should we worry there about not being able to pay back those monies? Well we shouldn’t, because the U.S. pays people back in its own money, dollars, which it just simply creates at will. It creates those dollar promises just in the way that you and I create promises about our future whereabouts. We have the authority to do that; the Federal Reserve has the authority to create dollar promises and create them from nothing in just that way.</p>
+<p>And so there’s no risk of not being able to pay back those debts for the government, because it just always issues new dollars to meet the debt obligation, including any interest payments. So we can’t “go broke” as it were, involuntarily. And anyway the U.S., partly because of its distinctive situation, doesn’t have to “borrow” in that way at all.  If we wanted to, we could shift all the government liabilities that are on the Treasury balance sheet, all that Treasure debt, and just move it over onto the Fed balance sheet, the Federal Reserve balance sheet, where they’d be no interest payments due.</p>
+<p>That’s basically the same thing from the government’s point of view, because from the government ‘s point of view, it just has a consolidated balance sheet of all these many different balance sheets. They sort of net out to be the same thing from the government’s perspective, but there’s no interest when their liabilities are booked on the Fed balance sheet versus the Treasury balance sheet. So it’s just like having money in one account versus another account, except on one of the accounts, the Fed account, there’s no interest payment; no interest obligation. Well then you might ask, well why are we so silly as to issue Treasuries at all?  Well, for sort of technical reasons, but it’s not to “raise funds” to pay for stuff. It’s other reasons. For example, to create a safe asset for investors.  So, you know, it’s more “socialism” so to speak, this time for capitalists. Or you know, retirees and pension funds and stuff like that.</p>
+<p><strong>UCI Podcast:</strong> So the idea of a universal basic income no longer seems impossible in the context of COVID-19 and is, in fact, gaining bipartisan support. We’ve seen stimulus payments, rent relief and additional programs geared at putting money in the pockets of Americans during this tumultuous time. Beyond addressing the immediate crisis, how would a universal basic income be economically sustainable?</p>
+<p><strong>James: </strong>Right. So think about those $1200 checks or bank credits that we just received as stimulus payments. Where did that money come from?  Well, the answer is: The Congress just decided it should exist and the Treasury coordinated with the Fed just to create it out of thin air, mainly by typing money into bank accounts, with computer keystrokes. Those are just government promises that it just issued from nothing, the way that you or I issue promises about our whereabouts. You can do that if you have the right authority, just by deciding to do it.</p>
+<p>Now, that was really necessary during the Covid emergency.  But you might say, “Not only is that emergency not over, we’re in a larger emergency about democracy, climate change, and they require us to do similar kinds of things. And we can, in fact, keep giving people money, formed nothing, from nothing, in the same way, indefinitely. We can do that as long as there’s not a problem with unhealthy inflation – “there’s too much money chasing too few goods.”  At the moment we’re struggling against deflation – there’s not enough money out there chasing goods and services. And of course millions of people are not only unemployed, they’ve seen nearly 50 years of stagnating wages when they do work.  That’s a break in our social contract, as it were. How do we make good on our social contract over the longer haul?  Well, it’s as easy a just giving people money and guarding against unhealthy inflation.</p>
+<p><strong>UCI Podcast:</strong>  In your book, you say that the U.S. Federal Reserve Bank can create money “out of thin air.” How would that affect inflation, deficits and/or foreign exchange rates?</p>
+<p><strong>James: </strong>Right. So inflation is really the key thing here. Even when there’s no sign of it, like there isn’t right now, except in the stock market and certain real estate assets, but across the economy overall, there’s no sign of inflation. But still, people, if there’s any hint of it, or any thought of issuing money, people start yelling about hyper-inflation is just around the corner – <em>Zimbabwe</em>, Weimar Germany – so there’s a lot of scaremongering, fearmongering that goes on around this topic. That’s exactly the kind of thing that our book hopes to expose for its silliness, just by giving us a way of understanding what’s going on to see through its silliness. So, money isn’t scarce, we can create as much of it as we need to service important social purposes, whether that’s supplementing people’s incomes, clean technology investment for climate change, securing full employment. Things like that, as long as we hold inflation to a healthy level.  But what people don’t appreciate is that the Fed has plenty of tools – both existing and those we could easily allow it to use – to guarantee that inflation won’t ever become a problem.  So we can guarantee that we can hold inflation. We’re not, we can protect ourselves against hyperinflation, so there’s no reason to be really afraid of it.</p>
+<p>So we outline in the book a bunch of those tools.  The most exiting one, just to mention one of them, is for all of us to have an account at the central bank, in the way that private banks already do. So the Fed would then credit our accounts, with say, $2,000 a month as a basic income payment, and then crucially, it would attach a rate of interest to that, which it would adjust up or down to get us to save or spend.  So it looks at the data coming in and sees that prices are rising too quickly, it starts to worry about inflation. Then the Fed can just raise the interest rate on our accounts, giving us more of an incentive to save our money instead of spend it on stuff. And then the idea would bring inflation under control, and if not, it can do other things. And by the way, that’s exactly what the Fed already does with the big banks, with the accounts that they have with it. So we’re suggesting it could do the same thing, sort of democratically, and far more efficiently, if it did it with all of us, banking with all of us.  We’d have a more efficient monetary system, a more productive economy, and we’d all be better off – especially the worst off among us, who’d have sure money, the basic income payment appearing in the bank.</p>
+<p><strong>UCI Podcast:</strong>  So it might seem unusual at first for a philosopher and an expert in financial regulation to team up and write a book on the U.S. monetary system. But it’s not unusual given your background. Why don’t you tell us a bit about your background and how you and Robert Hockett connected to write this book.</p>
+<p><strong>James: </strong>I’ve been working at the intersection of political philosophy and economics for a long time, especially on the topic of fairness in the global economy.  Bob and I became fast friends when we were collaborating around a documentary that’s based on a different book that I wrote, that’s called, Assholes: A Theory.  Bob and I realized we’re on the same page across a whole range of topics, so we decided to write a book for a general audience that pulls all the strands of law, economics, philosophy together in a way that you can’t really do, at least not in a readable, accessible way, within the confines of a book for an academic audience.  And plus, the ideas, well look, this is a democracy, or supposed to be a democracy, right? So shouldn’t everyone really understand how our monetary system works and how it might all work better for us? And so we felt like it should be available to the general educated reader, so we could all sort of get a handle on it.</p>
+<p><strong>UCI Podcast:</strong>  So what would you tell students who are interested in studying philosophy as a means of effecting societal change?</p>
+<p><strong>James:</strong> Well, I don’t know. I suppose, don’t get your hopes up too high, but philosophy does give you an essential set of tools, and after all, well such as being able to think clearly and identify assumptions that people don’t realize they’re making.  And even just understanding things deeply and seeing new possibilities helps society with “the art of the possible” as it were. And in the big big scheme of things, you know, ideas make a huge difference over time, on, you know, how society is shaped and what kinds of things we do, for better and for worse. And so, you know, be able to engage that is, in a way, it’s important in its own right.</p>
+<p><strong>UCI Podcast:</strong>  So are there any other insights or perspectives on the philosophy of money you’d like to share?</p>
+<p><strong>James:</strong>  Oh I guess one thing that’s worth mentioning that sort of surprised me was that the topic of money, the more I got into it, I realized that it’s mostly been ignored by philosophy, in much the way it’s been ignored by neo-classical economics, at least in recent decades, or fairly long time. So our books isn’t simply popularizing stuff that academics necessarily know already. I mean, some do, and many don’t. So this turns out to be a really important research area as well. And I’m now writing a bunch of things for philosophers or other academics to help them appreciate how important and exciting the topic is.</p>
+<p>Thank you, Professor James. And thank you for listening to the UCI Podcast, which is a production of UCI Strategic Communications &amp; Public Affairs. The theme music is by Jimmy Moreland.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+At+the+intersection+of+economics+and+political+philosophy: https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F05%2Fuci-podcast-at-the-intersection-of-economics-and-political-philosophy%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/&title=UCI Podcast: At the intersection of economics and political philosophy" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: At the intersection of economics and political philosophy&body=Hey, checkout this web page: - https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2019/07/01/margaret-gilbert-awarded-2019-lebowitz-prize-for-achievement-in-field-of-philosophy/"><img src="https://news.uci.edu/wp-content/uploads/2019/07/Margaret-Gilbert-270x180.png" alt="Distinguished Professor is awarded the 2019 Lebowitz Prize for achievement in philosophy" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2019/07/01/margaret-gilbert-awarded-2019-lebowitz-prize-for-achievement-in-field-of-philosophy/"><p class="media-heading">Distinguished Professor is awarded the 2019 Lebowitz Prize for achievement in philosophy</p></a><p><time>July 1, 2019</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2011/05/31/from-plato-to-behind-the-plate/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2011/05/31/from-plato-to-behind-the-plate/"><p class="media-heading">From Plato to behind the plate</p></a><p><time>May 31, 2011</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/07/29/whats-next-the-future-of-food/"><img src="https://news.uci.edu/wp-content/uploads/2020/07/withpig-featurestory-270x180.jpg" alt="What’s next: The future of food" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/07/29/whats-next-the-future-of-food/"><p class="media-heading">What’s next: The future of food</p></a><p><time>July 29, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2018/04/03/uci-doctoral-programs-grab-top-spots-in-2017-18-philosophical-gourmet-report/"><img src="https://news.uci.edu/wp-content/uploads/2018/04/Bill-Maurer_standing-270x180.jpg" alt="UCI doctoral programs grab top spots in Philosophical Gourmet Report for 2017-18" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2018/04/03/uci-doctoral-programs-grab-top-spots-in-2017-18-philosophical-gourmet-report/"><p class="media-heading">UCI doctoral programs grab top spots in Philosophical Gourmet Report for 2017-18</p></a><p><time>April 3, 2018</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div>Pat Harriman</div><div>949-501-1008</div><div>pharrima@uci.edu</div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://www.humanities.uci.edu/SOH/">School of Humanities</a>
+            </div>
+            <div class="list-url">https://www.humanities.uci.edu/SOH/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://www.humanities.uci.edu/philosophy/">Department of Philosophy</a>
+            </div>
+            <div class="list-url">https://www.humanities.uci.edu/philosophy/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://www.faculty.uci.edu/profile.cfm?faculty_id=4884">Aaron James faculty profile</a>
+            </div>
+            <div class="list-url">https://www.faculty.uci.edu/profile.cfm?faculty_id=4884</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-4" href="https://www.humanities.uci.edu/SOH/calendar/story_details.php?recid=2145">Money from Nothing</a>
+            </div>
+            <div class="list-url">https://www.humanities.uci.edu/SOH/calendar/story_details.php?recid=2145</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/debt/" class="" rel="tag">debt</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/dollars/" class="" rel="tag">dollars</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/economy/" class="" rel="tag">economy</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/federal-reserve-bank/" class="" rel="tag">Federal Reserve Bank</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/philosophy/" class="" rel="tag">philosophy</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/u-s-monetary-system/" class="" rel="tag">U.S. monetary system</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/universal-income/" class="" rel="tag">universal income</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

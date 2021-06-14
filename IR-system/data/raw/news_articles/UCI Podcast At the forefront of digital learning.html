@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: At the forefront of digital learning | UCI News | UCI</title>
+
+    <title>UCI Podcast: At the forefront of digital learning &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='UCI is ranked among nation’s top 10 public universities for sixth year in a row' href='https://news.uci.edu/2020/09/14/uci-is-ranked-among-nations-top-10-public-universities-for-sixth-year-in-a-row/' />
+<link rel='next' title='No sign of second wave before election, but U.S. COVID-19 cases could get worse' href='https://news.uci.edu/2020/09/14/no-sign-of-second-wave-before-election-but-u-s-covid-19-cases-could-get-worse/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/09/14/uci-podcast-at-the-forefront-of-digital-learning/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=49248' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F09%2F14%2Fuci-podcast-at-the-forefront-of-digital-learning%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F09%2F14%2Fuci-podcast-at-the-forefront-of-digital-learning%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="Natalie Blair talks about what it takes to develop, design and deliver transformative online educational experiences ">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: At the forefront of digital learning"/>
+<meta itemprop="name" content="UCI Podcast: At the forefront of digital learning"/>
+<meta property="og:url" content="https://news.uci.edu/2020/09/14/uci-podcast-at-the-forefront-of-digital-learning/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-09-14T09:31:37-07:00"/>
+	<meta property="article:modified_time" content="2020-09-14T10:48:06-07:00" />
+<meta property="og:updated_time" content="2020-09-14T10:48:06-07:00" />
+<meta property="article:section" content="Business"/>
+<meta property="article:section" content="Campus Life"/>
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="article:section" content="Staff"/>
+<meta property="og:description" content="Natalie Blair talks about what it takes to develop, design and deliver transformative online educational experiences"/>
+<meta itemprop="description" content="Natalie Blair talks about what it takes to develop, design and deliver transformative online educational experiences"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/09/Natalie-Blair-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/09/Natalie-Blair-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-wrap">
+            <h1 class="page-heading">UCI Podcast: At the forefront of digital learning</h1>
+
+            <h2 class="page-subheadline">Natalie Blair talks about what it takes to develop, design and deliver transformative online educational experiences </h2>
+
+            <div class="page-date">
+                
+                September 14, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/09/Natalie-Blair-768x1152.jpg" alt="UCI Podcast: At the forefront of digital learning" class="img-responsive">												<div class="caption">“Our approach to course design is learner-centered. It’s  holistic. It’s differentiated,&#8221; says Natalie Blair, director of the UCI Paul Merage School of Business Digital Learning Program.  Paul Merage School of Business / UCI </div>
+					                </div>
+            
+            <div class="page-content clearfix"><p>The pandemic-induced pivot to remote instruction has made digital learning the most important issue in education today, for students from pre-K to Ph.D. In 2015, the UCI Paul Merage School of Business launched an in-house Digital Learning Program that designs, develops and produces meaningful online learning experiences. Here, Program Director Natalie Blair tells UCI Podcast what she recognized five years ago that most of academia missed, what makes this program unique and what she sees for the future of digital learning.</p>
+<p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fuci-podcast-at-the-forefront-of-digital-learning&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; </strong><a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M"><strong>Google Podcasts</strong></a><strong> &#8211; </strong><a href="https://www.stitcher.com/podcast/the-uci-podcast"><strong>Stitcher</strong></a><strong> &#8211; </strong><a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A"><strong>Spotify</strong></a></p>
+<p><strong>PODCAST TRANSCRIPT</strong></p>
+<p>Hi, I’m Pat Harriman and this is the UCI Podcast.</p>
+<p>Joining me today is Natalie Blair, director of the Digital Learning Program at the UCI Paul Merage School of Business, to talk about learning in a digitally driven world.</p>
+<p>The Merage School program was launched in 2015, with the goal of creating meaningful learning experiences accessible to everyone. The process involves much more than producing videos and presentations for broadcast over Zoom, YouTube, or other online delivery platforms. The Digital Learning Program team partners with faculty, spending roughly 25 weeks and 200 hours of strategy and production time for <u>each</u> digital course design.</p>
+<p>Natalie, thank you for joining the UCI podcast.</p>
+<p><strong>Blair:</strong> Thanks for having me, Pat.</p>
+<p><strong>UCI Podcast:</strong>  Now, digital learning is now the most important topic in education for students from pre-K to Ph.D., thanks to the sudden pandemic-induced pivot to remote instruction. What did you see five years ago that most of the rest of academia was missing?</p>
+<p><strong>Blair:</strong>  So this is a really interesting question. I would say that five years ago, and it still is today, the student population was moving at a rapid pace when it came to utilizing technology in life and in learning. So students today are <em>digitally native</em> and they’ve grown up in an environment that is far more dependent on technology than many of us were when we were growing up. And I know that’s true for myself. When it comes to how people learn, research tells us some things are absolute. But still, over time, the influence of digital disruption has naturally impacted students’ expectations, their preferences, and desires when it comes to how they choose to process and digest information or ultimately learn.</p>
+<p>So in my opinion, as students have continued to seek and adopt technologies and methods that optimize their ability to study and learn using technology, unfortunately, the teaching community has fallen behind. As a result, it has been slow to pivot in response to this type of digital disruption in the higher education space. You know, it’s hard to get by now or stay relevant as a teaching professional without meeting a certain baseline of competency in learning technology tools, no matter the teaching format being used. And that could be in-person, online, hybrid, flipped or remote.</p>
+<p>Secondly, you know, in the past, or in the past five years when it came to course design, instructional design has been the focus, assisting instructors in transferring their in-person courses into a digital format or an online format. However, we, and when I say we I mean the Digital Learning Department at the Merage School, have learned that transformation is necessary to designing learning for a digital format successfully. Often times, if you simply just try to transfer or transplant an in-person class into a digital one, it’s almost like trying to fit a round peg into a square hole. And the evolution and transformation of the instructional approach, with a learner-centric mindset, is needed to optimize student learning today, in my opinion. This is one of the reasons why instructional design professionals on my team are called “learning experience designers” or, as we like to call them, “LXD’s.”</p>
+<p>Our approach to course design is learner-centered. It’s holistic. It’s differentiated, and combining in our practices, we not only just focus on instructional design, but we look at online pedagogy, UI/UX design, and really look at the expertise to know how the brain learns. And this type of approach is essential, as we collectively respond to this digital disruption in higher education and collectively aim to design transformative learning experiences.</p>
+<p><strong>UCI Podcast: </strong>So tell us more about your background.</p>
+<p><strong>Blair:</strong>  So, I see now that digital learning is my passion and it’s my purpose, but I may not have always known that. In hindsight though, I can see now how my professional path and my desire for continuous informal and formal learning led me here. So my undergraduate studies were in business management, and I received a master&#8217;s degree in Educational Technology from Boise State University. Personally, I would say that my philosophy, and I’m a firm believer that if you <em>stop learning, you stop leading</em>. And so to stay relevant and sharp, I think that I can never stop learning, especially in this field, because it’s always changing. The expectation for myself is that proactive learning has to be constant to stay relevant and influential.</p>
+<p>So with that, you know, I’m very proud to say that I’m very much homegrown in the profession. I started at UCI in September of 2008 with the Division of Continuing Education in the Corporate Education Department. And as our clients at the time began to request more hybrid learning experiences in project management, I was tasked to conduct learner analyses and adapt those current onsite programs that were happening onsite at the company, to a hybrid format, where there was a blend of online and in-person. Much of what I was doing at this time was instructional design related, yet I operated in the function without the title. I eventually transitioned into instructional design with UCI’s distance learning center in 2013. I began to pursue professional development everywhere I could find it. I was a sponge. I wanted to learn everything, and this is where I discovered my innate knack for the profession.</p>
+<p>I’ve always had an entrepreneurial spirit and was drawn to <em>business</em> curriculum particularly, so in 2015 a project opportunity with the Merage School came through the distance learning center, and I jumped at the chance to run lead on the project. <em>This pursuit literally changed my life! </em>And I worked with the Merage School to design and develop a hybrid, fully employed MBA program. The Merage School’s goal was to continue to expand their digital learning initiatives and their online offerings, so they decided to hire a digital learning professional in-house. I applied, and the rest is history!</p>
+<p><strong>UCI Podcast: </strong>That’s great. Now it seems that as you and your team were developing this program, there wasn’t really a defined path or plan to follow. How did you continue to innovate and succeed?</p>
+<p><strong>Blair:</strong>  So that’s a really good question. I think over the years, in my practice and study, I’ve learned about what to do, but I also learned a lot about what <u>not</u> to do, which has proven to be very valuable and highly informative. This enabled me to build a vision of how to scale up a digital learning department while keeping quality and excellence at the forefront.</p>
+<p>And part of that came from first understanding clearly what the Dean and the Merage School’s strategic vision was and how digital learning initiatives aligned with that. I always say, <em>when values are clear, decisions are easy,</em> so knowing what to focus on as we grew our digital learning initiative was imperative. The other part was pulling from past experiences like my study in project management and implementing techniques to support scalability. As a practitioner in instructional design, I also knew the pain points intimately. This helped me to develop a distinct framework that would support staff’s ability to invest and focus on what mattered, and that’s to partner with faculty successfully and create meaningful learner-centric courses.</p>
+<p>Over a two-year period, I would say between 2016 and 2018, I also surrounded myself with a diverse group of really smart people. And I did this intentionally. These people continuously mentored me, and provided constructive feedback during my preparations to establish workflows and frameworks that would not only prove successful at the Merage School, but in my opinion, it also sets us apart.</p>
+<p>During this time I was working especially hard as I aimed to beat that learning curve in multiple areas, such as staff utilization, workload capacity, financial stewardship and fiscal responsibility, project management software. There’s a ton of software out there, which one do we use, how will it support our effectiveness and efficiencies, and organizational leadership and frameworks.</p>
+<p>My team also grew extensively during this time period, from two employees to 11 employees that now make up three distinct units within the department. We have a multimedia production unit, a course support and technology unit, and a learning experience design unit. So I would say now, to continue to innovate and succeed, I’m methodical in my approach to culture, to values, and processes and I never stop learning. I also understand that my ability to lead and inspire others matters. And I strive to cultivate a working environment that values other&#8217;s expertise, it   promotes autonomy, and encourages collaboration. This ultimately creates, I feel, a high producing team that knows that the work that they do is truly meaningful and impactful.</p>
+<p><strong>UCI Podcast: </strong>So what are the steps involved in the process for creating a digital course, and how do you work with faculty?</p>
+<p><strong>Blair:</strong>  Sure. So, setting up our faculty for success in creating learner-centric digital courses with continuity is really important to us. So to do so, as you had mentioned previously, we spend roughly 25 weeks and over 200 hours with faculty working through a five-phase course design process. And throughout this procees, we work through four mapping exercises that have proven successful here at the Merage School.</p>
+<p>The first is vision mapping. Faculty and their learning experience designer create a course vision. We consider what will students be able to do, think and learn by the end of the course. We articulate this into measurable learning outcomes and align those outcomes to learning assessment strategies.</p>
+<p>Second, we focus on strategy mapping. We discuss what type of online instructor the faculty want to be. Working together, we create strategies for the types of learning technologies that should be used, how to effectively facilitate learning online during course delivery, and how to create an effective online presence for students.</p>
+<p>Third, is we take a deep dive into module mapping. This is where we really just transform weekly meetings, discussions, assignments and assessments into a digital learning format.</p>
+<p>And lastly is multimedia mapping. This is where we decide on each specific multimedia component to be used to support the students learning ability. Faculty can film in any of our three state-of-the-art studios and our specialized multimedia production team directs and produces the content for delivery.</p>
+<p>So I think you can see just this methodical approach, that we don’t just build digital courses, but we really design digital learning experiences that support student success throughout their academic journey.</p>
+<p><strong>UCI Podcast</strong>: So what has been the student response?</p>
+<p><strong>Blair:</strong>  So, I’m excited to report that the student response to both our hybrid and fully online initiatives has been overall very positive! And it has also increased access overall for students. So for example, our hybrid Fully Employed MBA option is now the preferred format that students are most willing to refer a friend to. And the hybrid delivery format has increased access to those professionals living outside the greater Orange County area.</p>
+<p>But I think it’s important to mention that we strive for excellence and nothing less, so to do that, we continuously have to research and evaluate our approaches to be able to pursue the most quality of learning experiences for our students. This means that through regular surveys or focused groups, that we are always learning and iterating in our approach.</p>
+<p>In the past few years, for example, we have learned about student preferences regarding user interface and user experience design and their need for a content organization that number one, minimizes clicks, but also creates an easy way for them to find content within the learning management system. So ss a result, we’ve taken several steps to create a more functional course space in Canvas.  And then now, moving into the academic year 20-21, we now have access to a UI/UX tool that maximizes our efforts in this area.</p>
+<p><strong>UCI Podcast:  </strong>So, what do you see as the future of digital learning?</p>
+<p>Pat, this is a really fun question, and I geek out a little bit when people ask me this. But, I think that there are a few things developing that we’ll see come to the forefront in the next few years.</p>
+<p>I hope to see an elevation of instructional design to include more of an emphasis on number one, access and number two, a learner-centered design that takes UI/UX considerations into account during the course design process.</p>
+<p>Second, I think we will see artificial intelligence and machine learning take more of a role in the teaching and learning process. So for example, and this is just one example of how it could be used. In a peer review assignment, AI can support more of that lower-order routine and repetitive cognitive feedback tasks usually handled by instructors, and this is like comments on or feedback on formatting, APA citation, grammatical errors, and so on to free up time for the instructor to focus on more of that higher-order feedback for students.</p>
+<p>Third, I think, well I hope to see an intentional shift to use learning analytics to inform decision making around student success in the learning environment specifically. One of my main interests is to use data to visualize the impact of social learning activities in the online classroom.</p>
+<p>And the last thing is that especially with the influx of remote learning right now, I think that there will be further exploration of extended reality or XR and virtual reality or VR capabilities, and I think these will come to the forefront. It was just reported actually that in the past six months, a VR platform called VirBELA had a revenue growth of 260%, more than a five time increase in monthly active users, and six times increase in new users. And this is an incredible statistic, especially in the time right now of remote teaching and learning, to pay attention to. This tool VirBELA originated out of UC San Diego Rady School of Business and serves several companies and educational institutions by creating virtual workplaces and campuses for students to immerse themselves in.</p>
+<p><strong>UCI Podcast:  </strong>So are there any other insights or perspectives about digital learning you’d like to share?</p>
+<p><strong>Blair:</strong>  Well I think it’s important to note that the Merage School is just getting started when it comes to digital learning, and we’re excited for the future and what the future holds for us. So be on the lookout for future projects and programs we will transform into a digital format. To learn more about digital courses at the Merage School, you can  go to: <a href="https://merage.uci.edu/why-merage/digital-courses.html">merage.uci.edu.</a> Navigate to the site menu and click on why Merage and then  digital courses.</p>
+<p>Also, to learn more about how to get ready when learning in a digital format, I’m excited to share with you that you check out this new resource our digital learning department put together called the launchpad. And you can find that at <a href="https://launchpad.merage.uci.edu/">https://launchpad.merage.uci.edu</a>.</p>
+<p>Thank you, Natalie. And thank you for listening to the UCI Podcast, which is a production of UCI Strategic Communications &amp; Public Affairs.</p>
+<p>&nbsp;</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+At+the+forefront+of+digital+learning: https://news.uci.edu/2020/09/14/uci-podcast-at-the-forefront-of-digital-learning/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F09%2F14%2Fuci-podcast-at-the-forefront-of-digital-learning%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/09/14/uci-podcast-at-the-forefront-of-digital-learning/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/09/14/uci-podcast-at-the-forefront-of-digital-learning/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/09/14/uci-podcast-at-the-forefront-of-digital-learning/&title=UCI Podcast: At the forefront of digital learning" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: At the forefront of digital learning&body=Hey, checkout this web page: - https://news.uci.edu/2020/09/14/uci-podcast-at-the-forefront-of-digital-learning/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/03/18/the-big-residency-reveal/"><img src="https://news.uci.edu/wp-content/uploads/2020/03/oscar-hernandez-news-image-270x180.jpg" alt="The big residency reveal" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/03/18/the-big-residency-reveal/"><p class="media-heading">The big residency reveal</p></a><p><time>March 18, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/05/21/efforts-to-treat-covid-19-patients-chronicled-in-uc-health-medications-data/"><img src="https://news.uci.edu/wp-content/uploads/2021/05/COVID-Drugs-Chart-270x180.jpg" alt="Efforts to treat COVID-19 patients chronicled in UC Health medications data" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/05/21/efforts-to-treat-covid-19-patients-chronicled-in-uc-health-medications-data/"><p class="media-heading">Efforts to treat COVID-19 patients chronicled in UC Health medications data</p></a><p><time>May 21, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/07/08/whats-next-the-future-of-cash/"><img src="https://news.uci.edu/wp-content/uploads/2020/07/Bill-Maurer_with-building-270x180.jpg" alt="What’s next: The future of cash" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/07/08/whats-next-the-future-of-cash/"><p class="media-heading">What’s next: The future of cash</p></a><p><time>July 8, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/08/17/a-midsummer-nights-zoom/"><img src="https://news.uci.edu/wp-content/uploads/2020/08/Midsummer-Zoom-270x180.jpeg" alt="A Midsummer Night’s Zoom" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/08/17/a-midsummer-nights-zoom/"><p class="media-heading">A Midsummer Night’s Zoom</p></a><p><time>August 17, 2020</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://soundcloud.com/theucipodcast">UCI Podcast</a>
+            </div>
+            <div class="list-url">https://soundcloud.com/theucipodcast</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://merage.uci.edu/">Paul Merage School of Business</a>
+            </div>
+            <div class="list-url">https://merage.uci.edu/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://merage.uci.edu/why-merage/digital-courses.html">Digital courses</a>
+            </div>
+            <div class="list-url">https://merage.uci.edu/why-merage/digital-courses.html</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/">Orange County reports 40 more COVID cases, 2 more deaths</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/">San Francisco crime is starting to look more like it did before the pandemic</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/">County health agencies — fighting disease — also have to fight for state funds</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/">CA workplace mask rules in limbo; business owners protest In Santa Ana</a></h5>
+                
+                                <p class="rp-date rp-info">June 10, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/covid-19/" class="" rel="tag">COVID-19</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/digital-learning/" class="" rel="tag">digital learning</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/digital-natives/" class="" rel="tag">digital natives</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/online-learning/" class="" rel="tag">online learning</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/pandemic/" class="" rel="tag">pandemic</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/remote-instruction/" class="" rel="tag">remote instruction</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/remote-learning/" class="" rel="tag">remote learning</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

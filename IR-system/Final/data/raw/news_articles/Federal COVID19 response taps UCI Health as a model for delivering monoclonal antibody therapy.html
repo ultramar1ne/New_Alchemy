@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy | UCI News | UCI</title>
+
+    <title>Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='New recommendations on social distancing after vaccination are coming: Fauci' href='https://news.uci.edu/2021/02/09/new-recommendations-on-social-distancing-after-vaccination-are-coming-fauci/' />
+<link rel='next' title='Business professor Imran Currim co-authors article on how to win over vaccine skeptics' href='https://news.uci.edu/2021/02/09/distinguished-professor-of-business-co-authors-article-on-how-to-win-over-vaccine-skeptics/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2021/02/09/federal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=52686' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2021%2F02%2F09%2Ffederal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2021%2F02%2F09%2Ffederal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="UCI Health treatment method to be shared with healthcare systems nationwide">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy"/>
+<meta itemprop="name" content="Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy"/>
+<meta property="og:url" content="https://news.uci.edu/2021/02/09/federal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-02-09T11:52:12-07:00"/>
+	<meta property="article:modified_time" content="2021-03-09T08:45:03-07:00" />
+<meta property="og:updated_time" content="2021-03-09T08:45:03-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Health"/>
+<meta property="article:section" content="Hospital"/>
+<meta property="article:section" content="Medicine"/>
+<meta property="article:section" content="Press Releases"/>
+<meta property="article:section" content="Research"/>
+<meta property="og:description" content="UCI Health treatment method to be shared with healthcare systems nationwide"/>
+<meta itemprop="description" content="UCI Health treatment method to be shared with healthcare systems nationwide"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2021/02/210114_monoclonal_0275_sz-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2021/02/210114_monoclonal_0275_sz-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy</h1>
+
+            <h2 class="page-subheadline">UCI Health treatment method to be shared with healthcare systems nationwide</h2>
+
+            <div class="page-date">
+                
+                February 9, 2021            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2021/02/210114_monoclonal_0275_sz-768x486.jpg" alt="Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy" class="img-responsive">												<div class="caption">UCI Health’s monoclonal antibody infusion clinic can treat 24 to 36 COVID-19 patients per day, keeping hospital beds free for those most who need them most.
+
+Steve Zylius / UCI
+</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><strong>Irvine, Calif., Feb. 9, 2021 — </strong><a href="https://www.coronaviruspreventionnetwork.org/monoclonal-antibodies/">Monoclonal antibodies</a> are showing promise for improving outcomes for COVID-19 patients, but when a hospital is already beyond capacity, administering them can be a challenge. As hospitalizations soared across California, clinicians with UCI Health created a system for delivering monoclonal antibodies that is keeping hospital beds available for patients with the greatest need.</p>
+<p>“The hospital bed is one of the most valuable resources that we have, which has been stretched thin by the COVID-19 pandemic,” said <a href="https://www.faculty.uci.edu/profile.cfm?faculty_id=6570">Dr. Daniel S. Chow</a>, an assistant professor in residence in radiological sciences and co-director for the Center for Artificial Intelligence in Diagnostic Medicine as well as the project’s co-principal investigator. “Every effort to expand the number of beds available counts, and that includes being proactive about preventing hospitalizations.”</p>
+<p>They are partnering with the federal government’s response to COVID-19 to share their success in delivering monoclonal antibodies with healthcare systems across the country.</p>
+<div class="featured-video"><iframe title="6 Questions with Dr. Alpesh Amin on Monoclonal Antibody Therapy - UCI Health" width="500" height="281" src="https://www.youtube.com/embed/-vL0tp8Z0qU?rel=0&modestbranding=1&autohide=1&showinfo=0&amp;rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p>Despite the increasing availability of COVID-19 vaccines, there is still a critical need to identify, develop and expand the use of therapies for those who have the disease. The FDA provided emergency use authorization for the Eli Lilly and Regeneron monoclonal antibodies in November. The treatment – which uses laboratory-made proteins to block the virus from entering into human cells – is authorized for mild to moderate COVID-19 cases in adults and certain pediatric patients who are at high risk to develop severe symptoms or who may require hospitalization.</p>
+<p>However, according to <a href="https://www.npr.org/sections/health-shots/2020/12/22/948874701/low-demand-for-antibody-drugs-against-covid-19">NPR</a> and other news sources, healthcare systems have been slow to adopt this treatment because of the steps involved in administering it. The therapy requires an infusion that takes one hour, followed by an hour of observation before patients are released to self-monitor at home.</p>
+<p>As of early February, UCI Health had treated about 170 patients with monoclonal antibody therapy and significantly prevented hospitalizations resulting from severe cases of COVID-19.</p>
+<p>“As hospitals across the country reach and exceed their ability to accommodate patients due to COVID-19, it is critical that we use every resource to reduce the burden on the healthcare system,” said Col. Brian Burk, program manager for the federal government’s COVID-19 therapeutics response. “When monoclonal therapies are administered appropriately, they have the potential to reduce disease progression and the need for hospitalization, so we are very excited to see success stories like UCI’s.”</p>
+<p>Since the therapy is only given to patients who have tested positive for COVID-19, the set-up has to be separated from other patients to avoid spreading the disease. With hospitals at or near full capacity, allocating healthcare workers and a safe, designated infusion space is a challenge.</p>
+<p>UCI Health has created a successful system for doing this. They set aside six chairs with dedicated staff in an infusion clinic that allows patients to come in and out of a closed loop system that avoids putting non-COVID patients at risk. Patients who fit the emergency use authorization guidelines are referred to the clinic through their doctors when they test positive for COVID-19. The clinic is capable of infusing 24 to 36 patients with monoclonal antibodies per day.</p>
+<p><strong>Using AI technology to aid treatments<br />
+</strong>UCI is also investigating whether its existing <a href="https://news.uci.edu/2020/12/17/uci-researchers-create-model-to-calculate-covid-19-health-outcomes/">machine-learning tool</a> – which is designed to predict the probability that a COVID-19 patient is likely to need a ventilator or ICU bed – can also identify patients who may benefit from monoclonal antibody treatment. The researchers are incorporating EUA guidelines into the model.</p>
+<p>“In combination with EUA recommendations, our tool may help us stratify and identify additional patients who may benefit from monoclonal antibodies,” Chow said.</p>
+<p>Of the first 86 patients who received monoclonal antibody therapy at UCI – which included Latino, white, Asian-American and Black patients – only about 3 percent afterward had to be admitted to the emergency department. This tracks with the FDA’s <a href="https://www.defense.gov/Explore/News/Article/Article/2425689/warp-speed-readies-to-distribute-new-therapeutics-for-covid-19/">findings</a> that only about 3 percent of high-risk patients treated with the therapy required hospitalization or emergency department visits, compared with 9 percent of patients in the control group.</p>
+<p>“If we can avoid ambulatory patients that are symptomatic and COVID-positive from ever having to touch our emergency department or our hospital setting, that helps the community and manages bed flow,” said <a href="https://www.faculty.uci.edu/profile.cfm?faculty_id=5173">Dr. Alpesh N. Amin</a>, the Thomas &amp; Mary Cesario Chair of Medicine and the project’s principal investigator.</p>
+<p>“The average hospitalization for a COVID patient at UCI is a little over seven days,” added Chow. “So this is actually a very big impact, especially when you consider the associated needs for every hospital day, including nursing and staff needs at a time when personnel are stretched thin, as well as associated medical supplies, etc.”</p>
+<p>Using the federal response’s distribution network, UCI Health is sharing their monoclonal antibody delivery system with other healthcare systems. Interested hospitals can reach out to <a href="mailto:anamin@hs.uci.edu?subject=Monoclonal%20Antibody%20Treatment">Amin</a> for a consultation.</p>
+<p>“Vaccines give us all hope that end of the pandemic is near, but monoclonal antibodies give us ‘more than hope’ because we can now treat high-risk patients with COVID-19 and decrease their risk of becoming hospitalized,” said Col. Deydre Teyhen, deputy program manager for the federal government’s therapeutics response.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=Federal+COVID-19+response+taps+UCI+Health+as+a+model+for+delivering+monoclonal+antibody+therapy: https://news.uci.edu/2021/02/09/federal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2021%2F02%2F09%2Ffederal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2021/02/09/federal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2021/02/09/federal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2021/02/09/federal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy/&title=Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=Federal COVID-19 response taps UCI Health as a model for delivering monoclonal antibody therapy&body=Hey, checkout this web page: - https://news.uci.edu/2021/02/09/federal-covid-19-response-taps-uci-health-as-a-model-for-delivering-monoclonal-antibody-therapy/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2017/09/08/uci-part-of-nsf-funded-project-to-study-big-data-ethics/"><img src="https://news.uci.edu/wp-content/uploads/2017/09/matt_headshot_2-270x180.jpg" alt="UCI part of NSF-funded study of big data ethics" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2017/09/08/uci-part-of-nsf-funded-project-to-study-big-data-ethics/"><p class="media-heading">UCI part of NSF-funded study of big data ethics</p></a><p><time>September 8, 2017</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2016/01/12/sue-and-bill-gross-nursing-gift-to-uci-continues-worldwide-support-of-healthcare-research-and-education/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2016/01/12/sue-and-bill-gross-nursing-gift-to-uci-continues-worldwide-support-of-healthcare-research-and-education/"><p class="media-heading">Sue and Bill Gross’ nursing gift to UCI continues worldwide support of healthcare, research and education</p></a><p><time>January 12, 2016</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/02/17/breaking-the-chain-of-infection-one-call-at-a-time/"><img src="https://news.uci.edu/wp-content/uploads/2021/02/UCI21_Contact_Tracing_1280x720-270x180.jpg" alt="Breaking the chain of infection one call at a time" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/02/17/breaking-the-chain-of-infection-one-call-at-a-time/"><p class="media-heading">Breaking the chain of infection one call at a time</p></a><p><time>February 17, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/05/27/uci-podcast-the-race-for-covid-testing/"><img src="https://news.uci.edu/wp-content/uploads/2020/05/Monuki-pic-270x180.jpg" alt="UCI Podcast: The race for COVID testing" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/05/27/uci-podcast-the-race-for-covid-testing/"><p class="media-heading">UCI Podcast: The race for COVID testing</p></a><p><time>May 27, 2020</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div>Nicole Feldman</div><div>949-501-9192</div><div>nefeldma@uci.edu</div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://www.ucihealth.org/">UCI Health</a>
+            </div>
+            <div class="list-url">https://www.ucihealth.org/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://cohs.uci.edu/">Susan &amp; Henry Samueli College of Health Sciences</a>
+            </div>
+            <div class="list-url">https://cohs.uci.edu/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://news.uci.edu/2020/12/17/uci-researchers-create-model-to-calculate-covid-19-health-outcomes/">Machine-Learning Tool to Calculate COVID-19 Outcomes</a>
+            </div>
+            <div class="list-url">https://news.uci.edu/2020/12/17/uci-researchers-create-model-to-calculate-covid-19-health-outcomes/</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/ai/" class="" rel="tag">AI</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/antibodies/" class="" rel="tag">antibodies</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/big-data/" class="" rel="tag">big data</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/computer-science/" class="" rel="tag">computer science</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/coronavirus/" class="" rel="tag">coronavirus</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/covid-19/" class="" rel="tag">COVID-19</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/health/" class="" rel="tag">health</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/machine-learning/" class="" rel="tag">machine learning</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/medicine/" class="" rel="tag">medicine</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/nursing/" class="" rel="tag">nursing</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/public-health/" class="" rel="tag">public health</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

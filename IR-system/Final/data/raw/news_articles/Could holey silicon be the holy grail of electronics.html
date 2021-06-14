@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>Could holey silicon be the holy grail of electronics? | UCI News | UCI</title>
+
+    <title>Could holey silicon be the holy grail of electronics? &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Chancellor&#8217;s Professor of art history awarded NEH summer stipend to support book project' href='https://news.uci.edu/2018/04/11/chancellors-professor-of-art-history-awarded-neh-summer-stipend-to-support-book-project/' />
+<link rel='next' title='UCI Dream Eaters climb to round of eight in Heroes of the Dorm collegiate esports tourney' href='https://news.uci.edu/2018/04/18/uci-dream-eaters-climb-to-round-of-eight-in-heroes-of-the-dorm-tournament/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2018/04/12/could-holey-silicon-be-the-holy-grail-of-electronics/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=32412' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2018%2F04%2F12%2Fcould-holey-silicon-be-the-holy-grail-of-electronics%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2018%2F04%2F12%2Fcould-holey-silicon-be-the-holy-grail-of-electronics%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="UCI engineers find that innovative material facilitates effective on-chip cooling">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="Could holey silicon be the holy grail of electronics?"/>
+<meta itemprop="name" content="Could holey silicon be the holy grail of electronics?"/>
+<meta property="og:url" content="https://news.uci.edu/2018/04/12/could-holey-silicon-be-the-holy-grail-of-electronics/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-04-12T08:35:08-07:00"/>
+	<meta property="article:modified_time" content="2018-04-18T14:58:52-07:00" />
+<meta property="og:updated_time" content="2018-04-18T14:58:52-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Engineering"/>
+<meta property="article:section" content="Faculty"/>
+<meta property="article:section" content="Press Releases"/>
+<meta property="article:section" content="Research"/>
+<meta property="article:section" content="Science &amp; Technology"/>
+<meta property="article:section" content="Students"/>
+<meta property="og:description" content="UCI engineers find that innovative material facilitates effective on-chip cooling"/>
+<meta itemprop="description" content="UCI engineers find that innovative material facilitates effective on-chip cooling"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2018/04/Lee_nanowire_160608_09a-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2018/04/Lee_nanowire_160608_09a-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">Could holey silicon be the holy grail of electronics?</h1>
+
+            <h2 class="page-subheadline">UCI engineers find that innovative material facilitates effective on-chip cooling</h2>
+
+            <div class="page-date">
+                
+                April 12, 2018            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2018/04/Lee_nanowire_160608_09a-768x500.jpg" alt="Could holey silicon be the holy grail of electronics?" class="img-responsive">												<div class="caption">Jaeho Lee, UCI assistant professor of mechanical &amp; aerospace engineering, believes that holey silicon – microchip material vertically etched with nanoscale orifices – might be a breakthrough in the quest to keep modern electronics cool.
+
+Steve Zylius / UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><strong>Irvine, Calif., April 12, 2018 — </strong>Electronics miniaturization has put high-powered computing capability into the hands of ordinary people, but the ongoing downsizing of integrated circuits is challenging engineers to come up with new ways to thwart component overheating.</p>
+<p>Scientists at the University of California, Irvine made a breakthrough recently in verifying a new material configuration to facilitate cooling. In a study in the journal <a href="http://iopscience.iop.org/article/10.1088/1361-6528/aa9f07"><em>Nanotechnology</em></a>, members of UCI’s <a href="http://faculty.sites.uci.edu/jaeholee/">Nano Thermal Energy Research Group</a> highlight the attributes of holey silicon, a computer chip wafer with tiny, vertically etched orifices that work to shuttle heat to desired locations.</p>
+<p>“We found that heat prefers to travel vertically through but not laterally across holey silicon, which means the material can effectively move the heat from local hot spots to on-chip cooling systems in the vertical direction while sustaining the necessary temperature gradient for thermoelectric junctions in the lateral direction,” said corresponding author <a href="http://engineering.uci.edu/users/jaeho-lee">Jaeho Lee</a>, UCI assistant professor of mechanical &amp; aerospace engineering.</p>
+<p>“This innovation could potentially be ideal for keeping electronic devices such as smartphones cool during operation,” said lead author Zongqing Ren, a graduate student researcher in the NTERG.</p>
+<p>He said that lab simulations demonstrated that the cooling effectiveness of holey silicon is at least 400 percent better than chalcogenides, compounds commonly used in thermoelectric cooling devices.</p>
+<p>The lab’s holey silicon research is a follow-on to a study published in <a href="https://www.nature.com/articles/ncomms14054"><em>Nature Communications</em></a> in early 2017 in which Lee, as lead author, and his UC Berkeley-based collaborators employed nanometer-scale silicon mesh material to investigate properties of phonons, quasiparticles that give scientists insight into thermal transport mechanisms.</p>
+<p>“We know that phonons can show wave-like as well as particle-like behavior during thermal transport,” Lee said. “Using meshes with different hole sizes and spacing, we were able to clarify complex thermal transport mechanisms at the nanoscale.”</p>
+<p>Knowledge gained from the earlier study helped his team understand how small, neck-shaped structures created by the etched holes in holey silicon cause phonon backscattering, a particle effect leading to low in-plane thermal conductivity. High cross-plane thermal conductivity was caused by long-wavelength phonons that help to move heat away.</p>
+<p>Lee said the temperature problem in electronics has grown in the past few years as microchip designers seem to have reached a size boundary. With larger components, manufacturers can use heat sinks, fins and even fans to funnel warmth away from critical hardware. On today’s densely packed chips with billions of nanoscale transistors – often sandwiched in slim, pocketable consumer products – there’s no room for such cooling technologies.</p>
+<p>Other key issues are longevity and reliability. Semiconductor chips are being embedded in many new places – acting as sensors and actuators in cars and appliances and as nodes along the internet of things. These devices are expected to run continuously for years and even decades. Prolonged exposure to heat could cause the failure of such infrastructure.</p>
+<p>“On one hand, nanotechnology has opened up a whole new world of possibilities, but on the other, it’s created a host of challenges,” Lee said. “It’s important that we continue to develop a better understanding of the fundamentals of thermal transport and find ways to control heat transfer at the nanoscale.”</p>
+<p><strong>About the University of California, Irvine:</strong> Founded in 1965, UCI is the youngest member of the prestigious Association of American Universities. The campus has produced three Nobel laureates and is known for its academic achievement, premier research, innovation and anteater mascot. Led by Chancellor Howard Gillman, UCI has more than 30,000 students and offers 192 degree programs. It’s located in one of the world’s safest and most economically vibrant communities and is Orange County’s second-largest employer, contributing $5 billion annually to the local economy. For more on UCI, visit <a href="http://www.uci.edu">www.uci.edu</a>.</p>
+<p><strong>Media access:</strong> Radio programs/stations may, for a fee, use an on-campus ISDN line to interview UCI faculty and experts, subject to availability and university approval. For more UCI news, visit <a href="http://news.uci.edu/">news.uci.edu</a>. Additional resources for journalists may be found at <a href="http://communications.uci.edu/for-journalists/">communications.uci.edu/for-journalists</a>.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=Could+holey+silicon+be+the+holy+grail+of+electronics%3F: https://news.uci.edu/2018/04/12/could-holey-silicon-be-the-holy-grail-of-electronics/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2018%2F04%2F12%2Fcould-holey-silicon-be-the-holy-grail-of-electronics%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2018/04/12/could-holey-silicon-be-the-holy-grail-of-electronics/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2018/04/12/could-holey-silicon-be-the-holy-grail-of-electronics/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2018/04/12/could-holey-silicon-be-the-holy-grail-of-electronics/&title=Could holey silicon be the holy grail of electronics?" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=Could holey silicon be the holy grail of electronics?&body=Hey, checkout this web page: - https://news.uci.edu/2018/04/12/could-holey-silicon-be-the-holy-grail-of-electronics/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2010/02/22/getting-the-lead-out/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2010/02/22/getting-the-lead-out/"><p class="media-heading">Getting the lead out</p></a><p><time>February 22, 2010</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/02/16/radioactive-bone-cement-found-to-be-safer-in-treating-spinal-tumors/"><img src="https://news.uci.edu/wp-content/uploads/2021/02/keyak_p081110_01_daa-270x180.jpg" alt="Radioactive bone cement found to be safer in treating spinal tumors" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/02/16/radioactive-bone-cement-found-to-be-safer-in-treating-spinal-tumors/"><p class="media-heading">Radioactive bone cement found to be safer in treating spinal tumors</p></a><p><time>February 16, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/08/24/uci-provides-consultation-services-for-monarch-beach-resort-coronavirus-mitigation-plan/"><img src="https://news.uci.edu/wp-content/uploads/2020/08/Monarch-Beach-Resort1_lowres-270x180.jpg" alt="UCI provides consultation services for Monarch Beach Resort coronavirus mitigation plan" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/08/24/uci-provides-consultation-services-for-monarch-beach-resort-coronavirus-mitigation-plan/"><p class="media-heading">UCI provides consultation services for Monarch Beach Resort coronavirus mitigation plan</p></a><p><time>August 24, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2017/04/11/daniel-tsang-named-fulbright-scholar-to-study-hong-kong-protest-literature/"><img src="https://news.uci.edu/wp-content/uploads/2017/04/tmp_7548-20170325_104129185210600-e1491924921152-270x180.jpg" alt="Retired librarian named Fulbright scholar to study Hong Kong protest literature" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2017/04/11/daniel-tsang-named-fulbright-scholar-to-study-hong-kong-protest-literature/"><p class="media-heading">Retired librarian named Fulbright scholar to study Hong Kong protest literature</p></a><p><time>April 11, 2017</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div>Brian Bell</div><div>949-824-8249</div><div>bpbell@uci.edu</div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="http://engineering.uci.edu">The Henry Samueli School of Engineering</a>
+            </div>
+            <div class="list-url">http://engineering.uci.edu</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="http://engineering.uci.edu/dept/mae">Department of Mechanical &amp; Aerospace Engineering</a>
+            </div>
+            <div class="list-url">http://engineering.uci.edu/dept/mae</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="http://nter.eng.uci.edu">Nano Thermal Energy Research Group</a>
+            </div>
+            <div class="list-url">http://nter.eng.uci.edu</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/engineering/" class="" rel="tag">engineering</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/nanomaterials/" class="" rel="tag">nanomaterials</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/nanotechnology/" class="" rel="tag">nanotechnology</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/research/" class="" rel="tag">research</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>Days of love and glory | UCI News | UCI</title>
+
+    <title>Days of love and glory &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Actress Laverne Cox inspires at New Narratives event' href='https://news.uci.edu/2015/05/14/laverne-cox-inspires-at-new-narratives-event/' />
+<link rel='next' title='Taking art to extremes' href='https://news.uci.edu/2015/05/15/taking-art-to-extremes/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2015/05/15/days-of-love-and-glory/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=21126' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2015%2F05%2F15%2Fdays-of-love-and-glory%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2015%2F05%2F15%2Fdays-of-love-and-glory%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="Olga Connolly once created an international stir with an Olympic gold medal and a forbidden Cold War-era romance">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="Days of love and glory"/>
+<meta itemprop="name" content="Days of love and glory"/>
+<meta property="og:url" content="https://news.uci.edu/2015/05/15/days-of-love-and-glory/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2015-05-15T14:13:57-07:00"/>
+	<meta property="article:modified_time" content="2017-07-27T11:05:46-07:00" />
+<meta property="og:updated_time" content="2017-07-27T11:05:46-07:00" />
+<meta property="article:section" content="Athletics"/>
+<meta property="article:section" content="Campus Life"/>
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Features"/>
+<meta property="article:section" content="Staff"/>
+<meta property="og:description" content="Olga Connolly once created an international stir with an Olympic gold medal and a forbidden Cold War-era romance"/>
+<meta itemprop="description" content="Olga Connolly once created an international stir with an Olympic gold medal and a forbidden Cold War-era romance"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2015/05/17184920070_1bbafd5e47_o-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2015/05/17184920070_1bbafd5e47_o-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">Days of love and glory</h1>
+
+            <h2 class="page-subheadline">Olga Connolly once created an international stir with an Olympic gold medal and a forbidden Cold War-era romance</h2>
+
+            <div class="page-date">
+                
+	by Kathryn Bold, UC Irvine | 
+
+                May 15, 2015            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2015/05/17184920070_1bbafd5e47_o-768x432.jpg" alt="Days of love and glory" class="img-responsive">												<div class="caption">Olga Connolly leads a workout class in Aldrich Park. Now a staff member with UCI Campus Recreation, she achieved world fame in 1956 when she won an Olympic gold medal for Czechoslovakia – and an American athlete’s heart.
+
+Steve Zylius / UC Irvine</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p>They were two Olympians from countries on opposing sides of the Iron Curtain. She threw the discus for then-communist Czechoslovakia, and he threw the hammer for the United States. Both of them won gold. Then they fell in love, and all hell broke loose.</p>
+<p>It was 1956, and Cold War tensions were running high between the U.S. and the Soviet Union. Olga Fikotová, a native of Prague, and the other athletes on the Czech Olympic team had been warned not to fraternize with Americans at the Summer Games in Melbourne, Australia.</p>
+<p>But the day before the games began, Olga literally stumbled upon a couple U.S. men’s track &amp;amp; field athletes. She had just finished practicing with her discus on the Olympic throwing field and was exiting an equipment trailer when she decided that instead of walking down a few steps, it’d be more fun to jump.</p>
+<p>“I landed on somebody who had a sweatshirt with the big letters U.S.A.,” Olga recalls. One American, hammer thrower Harold Connolly, took special notice of the pretty brunette with powerful arms. The attraction between Olga and Harold proved so strong that even the Iron Curtain couldn’t keep them apart.</p>
+<p>Olga recounts the long-ago meeting with her future husband before a small film crew in a workout room at UC Irvine’s Anteater Recreation Center. She’s Olga Connolly now, and she works as a Campus Recreation personal trainer. At age 82, she still has impressive biceps and unfailing energy. David Wallechinsky, president of the International Society of Olympic Historians, has come to campus to capture her story on camera.</p>
+<p>“I’m working with the International Olympic Committee. We’re trying to interview [Olympians] over 80 and get their memories while we can,” Wallechinksy says between takes.</p>
+<p>Interview highlights will be included in a “Words of Olympians” exhibit that will travel to museums worldwide. All footage will be stored at the Olympic Museum in Lausanne, Switzerland.</p>
+<p>Waltzing to international fame</p>
+<p>At UCI, ARC members know Olga as the white-haired, tanned woman with the winning smile who helps them tone their abs and thighs. Many aren’t aware that she competed in five Olympics and won a gold medal.</p>
+<p>“I don’t like to live in the past,” says Olga, but she’s made an exception to share her story with Wallechinsky because of her affection for the games.</p>
+<p>“The Olympic experience in every respect opened the world for me,” she says. “It made me what I am.”</p>
+<p>As a girl, she excelled at sports, playing basketball and handball for the national Czech teams before taking up the discus in fall 1954 at the relatively advanced age of 22.</p>
+<p>“I was already a well-trained athlete,” she says. “But I wanted to do something I’d never tried before.”</p>
+<p>To sling a discus, competitors perform a kind of dance, whirling around one and a half times to gain enough momentum to send the 2.2-pound (for women) saucer airborne.</p>
+<p>Olga soon mastered the rhythm of throwing, practicing her turns to music: “We’d play ‘The Blue Danube’ over and over” on loudspeakers in the stadium, she says.</p>
+<p>At first, she never dreamed of competing in the Olympics. A medical student at Prague’s Charles University, she’d hoped to become an orthopedic surgeon. Yet she kept hurling the discus farther and farther, moving a towel down the field to measure her progress. With the third-best mark in Europe, she made the Czech team.</p>
+<p>Throwing caution to the wind</p>
+<p>Coming from a closed-off communist country, Olga reveled in her newfound freedom at Melbourne’s Olympic Village. She loved walking around meeting athletes from around the world, exchanging smiles and the occasional T-shirt.</p>
+<p>“If you want to talk to people, you can talk to people – you don’t need language. That was one of my big lessons from the Olympic Games,” she says. “You have a smile. You have a handshake. You have a heart.”</p>
+<p>Olga and Harold began hanging out together and quickly discovered they had a lot in common, despite their language barrier. (She spoke fragmented English, and he spoke a little German.) As Olga once told KCET, “I fascinated Harold because he never could imagine a Communist – which I was not – being so free.”</p>
+<p>Leaders of the Czech team and even some of her fellow athletes criticized her for spending too much time with “that American.” But to Olga, borders were meaningless.</p>
+<p>“At the Olympic Games, you are not a representative of a political regime,” she says. “You are a representative of humanity, of what humans can do.</p>
+<p>“We are all here. We love sports. We are the very best. We are all champions. We are also human beings who are curious about one another.”</p>
+<p>Her shining moment</p>
+<p>Olga competed in her event on the first day of the games, struggling at first to contain her nerves during the qualifying round.</p>
+<p>“My first throw was completely horrible. It was embarrassing,” she says. “But then I just pulled myself somehow together.”</p>
+<p>During the final, held the same day, Olga hurled the discus 53.69 meters, the best mark of her life. It felt to her as if she’d unleashed a fireball.</p>
+<p>“My whole being, my body, mind and soul … was just intent on that throw – just throw it as far as it will go,” she says. “There’s a point where an athlete … reaches this special peak performance, where everything goes into that effort. I knew that was all the energy I had.”</p>
+<p>The only gold medal winner from Czechoslovakia that year, Olga received a hero’s welcome when she returned to Prague. Strangers recognized her on the streets and showered her with gifts. She also endured criticism for enjoying “too much camaraderie with an American fascist.”</p>
+<p>A few months later, Harold followed Olga to Prague. In 1957, after battling with the Czech government for permission to wed, the two were married in the city’s Old Town Square. Although they tried to keep the wedding a secret, word got out. More than 30,000 people jammed into the square to catch a glimpse of the famous couple who had torn down the Iron Curtain in the name of love.</p>
+<p>“The H-bomb overhangs us like a cloud of doom. The subway during rush hours is almost impossible to endure,” The New York Times opined on the day after their marriage. “But Olga and Harold are in love, and the world does not say no to them.”</p>
+<p>A change of address and allegiance</p>
+<p>The newlyweds decided to move to America. They were so broke that Harold had to sell a prized hammer to afford the ship fare to New York.</p>
+<p>“We had 35 cents between the two of us when we arrived in the U.S.,” Olga says.</p>
+<p>Americans treated the athletes as media stars. Olga was a guest on “The Ed Sullivan Show,” where she was serenaded by jazz great Louis Armstrong.</p>
+<p>They settled in Southern California, and Olga continued training, with the hope of throwing the discus for Czechoslovakia in the 1960 Games.</p>
+<p>“But then I got a letter from the Czech Olympic Committee that said, ‘You are no longer considered a representative of this country, so you can’t compete for us,’” she recalls, her voice wavering at the memory. “I was crushed.”</p>
+<p>The officials falsely claimed that Olga had declined to participate on behalf of her country, and many Czechs denounced her as a traitor. The truth eventually came out, but she would not return to her homeland for 50 years.</p>
+<p>Olga became an American citizen and competed for the U.S. women’s track &amp;amp; field team in 1960 (Rome), 1964 (Tokyo), 1968 (Mexico City) and 1972 (Munich). While there would be no more medals, she experienced another shining Olympic moment in Munich, when she carried the American flag in the games’ opening ceremony – the first woman chosen for the honor.</p>
+<p>She’d been selected over the protests of some U.S. Olympic Committee members, who’d considered removing her from the team because of her outspoken opposition to U.S. involvement in the Vietnam War. A few critics even argued that the flag was too heavy to be borne by a woman. With her strong arms, Olga proved them wrong.</p>
+<p>Life after the Olympics</p>
+<p>Olga and Harold divorced in 1974 after having four children. Their son Mark played basketball for Oklahoma State University before turning to boxing, and son Jim was the NCAA decathlon champion for UCLA in 1987. Their daughter Merja Connolly-Freund was captain of the UCLA women’s volleyball team that captured the 1984 national title, and she coached women’s volleyball at UCI from 1995 to 1999. Their youngest, daughter Nina, sings gospel music.</p>
+<p>Harold, the first American to throw the hammer more than 200 feet and a six-time world record holder, died in 2010 at age 79.</p>
+<p>“I was in love with the man, and I still am,” Olga says fondly.</p>
+<p>While she once dreamed of being a doctor, she found a different way to help others: by teaching them how to maintain a lifetime of wellness. She directed intramural sports at Loyola Marymount University and coordinated youth education programs at the California Conservation Corps in Los Angeles before joining UCI nine years ago and becoming a certified specialist in fitness and exercise therapy.</p>
+<p>In addition to working as a personal trainer, Olga leads twice-weekly wellness classes for staff, faculty and students in Aldrich Park through Campus Recreation’s Fit Squad. She has no plans to retire.</p>
+<p>“Are you kidding? For her that’s not an option,” says John Halsey, fitness programs coordinator for Campus Recreation. “She has a strong body and spirit. She stays in the actual moment. She really wants to improve and help other people. That gives her energy.”</p>
+<p>At the end of the interview with Wallechinsky, Olga pulls a small box out of her purse and shows the film crew her gold medal.</p>
+<p>“I don’t collect much memorabilia. I collect memories of people,” she says, quickly tucking the gleaming souvenir back into her bag. “For me, [competing in the Olympics] was wonderful. … I was extremely fortunate to realize that the world is really one big family of humans.”</p>
+<p>&nbsp;</p>
+
+		<style type='text/css'>
+			#gallery-1 {
+				margin: auto;
+			}
+			#gallery-1 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 33%;
+			}
+			#gallery-1 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-1 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id='gallery-1' class='gallery galleryid-21126 gallery-columns-3 gallery-size-thumbnail'><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/17184920070_1bbafd5e47_o.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/17184920070_1bbafd5e47_o-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="Olga Connolly leads a workout class in Aldrich Park" aria-describedby="gallery-1-21130" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21130'>
+				Olga Connolly leads a workout class in Aldrich Park. Now a staff member with UCI Campus Recreation, she achieved world fame in 1956 when she won an Olympic gold medal for Czechoslovakia – and an American athlete’s heart.
+
+Steve Zylius / UC Irvine
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/16749960434_1bc4dc0d17_k-e1431979045495.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/16749960434_1bc4dc0d17_k-e1431979045495-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="Olga Connolly" aria-describedby="gallery-1-21127" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21127'>
+				“When you throw, you basically rotate around the leg and naturally follow through,” says Olga, seen here practicing the discus at UCLA in the 1960s.
+
+Photo courtesy of Olga Connolly
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon portrait'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/16752194703_b4543801af_o.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/16752194703_b4543801af_o-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="At the opening ceremony of the 1972 Olympics in Munich, Olga became the first woman to carry the American flag for the U.S. team." aria-describedby="gallery-1-21128" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21128'>
+				At the opening ceremony of the 1972 Olympics in Munich, Olga became the first woman to carry the American flag for the U.S. team.
+
+Photo courtesy of Olga Connolly
+				</dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon portrait'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/17184893730_5fc01ef30e_o.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/17184893730_5fc01ef30e_o-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="Olga Connolly leads a workout class in Aldrich Park" aria-describedby="gallery-1-21129" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21129'>
+				Exercise and a positive attitude are keys to good health, says Olga, who at 82 has no plans to retire from her job as a fitness trainer.
+
+Steve Zylius / UC Irvine
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/17346518716_c582326bc2_k.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/17346518716_c582326bc2_k-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="Olga Connolly leads a workout class in Aldrich Park" aria-describedby="gallery-1-21131" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21131'>
+				Olga guides participants through stretching exercises in Aldrich Park as part of Campus Recreations Fit Squad program for staff, faculty and students.
+
+Steve Zylius / UC Irvine
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/17370509912_ef3d0467de_k.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/17370509912_ef3d0467de_k-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="Olga Connolly leads a workout class in Aldrich Park" aria-describedby="gallery-1-21132" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21132'>
+				Although she prefers to focus on the present, not the past, Olga recently shared her story for a ”Words of Olympians” video exhibit that will travel to museums worldwide.
+
+Steve Zylius / UC Irvine
+				</dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/17370517622_0954f800a8_o.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/17370517622_0954f800a8_o-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="More than 30,000 people filled Prague’s Old Town Square on March 27, 1957, to catch a glimpse of Olympians Harold and Olga Connolly" aria-describedby="gallery-1-21133" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21133'>
+				More than 30,000 people filled Prague’s Old Town Square on March 27, 1957, to catch a glimpse of Olympians Harold and Olga Connolly (center, wearing hat) on their wedding day.
+
+Photo courtesy of Olga Connolly
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://news.uci.edu/wp-content/uploads/2015/05/17370518292_c06b3b4773_o-e1431979027348.jpg'><img width="270" height="180" src="https://news.uci.edu/wp-content/uploads/2015/05/17370518292_c06b3b4773_o-e1431979027348-270x180.jpg" class="attachment-thumbnail size-thumbnail" alt="Olga Connolly" aria-describedby="gallery-1-21134" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-1-21134'>
+				Olga Connolly (then Fikotová) shows her winning form at the 1956 Olympic Games in Melbourne, Australia, where she earned a gold medal for the longest discus throw.
+
+Photo courtesy of Olga Connolly
+				</dd></dl>
+			<br style='clear: both' />
+		</div>
+
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=Days+of+love+and+glory: https://news.uci.edu/2015/05/15/days-of-love-and-glory/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2015%2F05%2F15%2Fdays-of-love-and-glory%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2015/05/15/days-of-love-and-glory/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2015/05/15/days-of-love-and-glory/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2015/05/15/days-of-love-and-glory/&title=Days of love and glory" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=Days of love and glory&body=Hey, checkout this web page: - https://news.uci.edu/2015/05/15/days-of-love-and-glory/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2018/12/05/campus-recreation-partners-with-southern-california-special-olympics-for-flag-football-skills-clinic/"><img src="https://news.uci.edu/wp-content/uploads/2018/12/special-olympics-football-small-270x180.jpg" alt="Campus Recreation partners with SoCal Special Olympics for flag football clinics" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2018/12/05/campus-recreation-partners-with-southern-california-special-olympics-for-flag-football-skills-clinic/"><p class="media-heading">Campus Recreation partners with SoCal Special Olympics for flag football clinics</p></a><p><time>December 5, 2018</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2019/05/23/uci-table-tennis-team-places-fourth-in-national-championships/"><img src="https://news.uci.edu/wp-content/uploads/2019/04/varsity_team-naitonals-venue-1024x683-270x180.jpg" alt="UCI table tennis team competes for first time in national championships, takes fourth place" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2019/05/23/uci-table-tennis-team-places-fourth-in-national-championships/"><p class="media-heading">UCI table tennis team competes for first time in national championships, takes fourth place</p></a><p><time>May 23, 2019</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2010/10/01/grace-under-pressure/"><img src="https://news.uci.edu/wp-content/uploads/2015/03/8537299555_184289bca5_o-270x180.jpg" alt="Grace under pressure" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2010/10/01/grace-under-pressure/"><p class="media-heading">Grace under pressure</p></a><p><time>October 1, 2010</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2010/02/16/arc-celebrates-10th-anniversary/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2010/02/16/arc-celebrates-10th-anniversary/"><p class="media-heading">ARC celebrates 10th anniversary</p></a><p><time>February 16, 2010</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="http://www.campusrec.uci.edu/">Campus Recreation</a>
+            </div>
+            <div class="list-url">http://www.campusrec.uci.edu/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="http://www.campusrec.uci.edu/arc/index.asp">Anteater Recreation Center</a>
+            </div>
+            <div class="list-url">http://www.campusrec.uci.edu/arc/index.asp</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/">Orange County reports 40 more COVID cases, 2 more deaths</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/">San Francisco crime is starting to look more like it did before the pandemic</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/">County health agencies — fighting disease — also have to fight for state funds</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/">CA workplace mask rules in limbo; business owners protest In Santa Ana</a></h5>
+                
+                                <p class="rp-date rp-info">June 10, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/arc/" class="" rel="tag">ARC</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/campus-recreation/" class="" rel="tag">Campus Recreation</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/olympics/" class="" rel="tag">Olympics</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

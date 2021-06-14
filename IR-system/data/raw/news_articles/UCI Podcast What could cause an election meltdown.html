@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: What could cause an election meltdown? | UCI News | UCI</title>
+
+    <title>UCI Podcast: What could cause an election meltdown? &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Trump &amp;; COVID-19: Could the election be postponed?' href='https://news.uci.edu/2020/10/04/trump-covid-19-could-the-election-be-postponed/' />
+<link rel='next' title='UCI Podcast: At the intersection of economics and political philosophy' href='https://news.uci.edu/2020/10/05/uci-podcast-at-the-intersection-of-economics-and-political-philosophy/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=49779' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F05%2Fuci-podcast-what-could-cause-an-election-meltdown%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F05%2Fuci-podcast-what-could-cause-an-election-meltdown%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="UCI elections expert and law professor Rick Hasen discusses what voters can do to make sure their vote is counted">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: What could cause an election meltdown?"/>
+<meta itemprop="name" content="UCI Podcast: What could cause an election meltdown?"/>
+<meta property="og:url" content="https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-10-05T09:05:44-07:00"/>
+	<meta property="article:modified_time" content="2020-10-05T09:05:44-07:00" />
+<meta property="og:updated_time" content="2020-10-05T09:05:44-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Faculty"/>
+<meta property="article:section" content="Law"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="og:description" content="UCI elections expert and law professor Rick Hasen discusses what voters can do to make sure their vote is counted"/>
+<meta itemprop="description" content="UCI elections expert and law professor Rick Hasen discusses what voters can do to make sure their vote is counted"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/10/Hasen_180215_SRZ3663-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/10/Hasen_180215_SRZ3663-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">UCI Podcast: What could cause an election meltdown?</h1>
+
+            <h2 class="page-subheadline">UCI elections expert and law professor Rick Hasen discusses what voters can do to make sure their vote is counted</h2>
+
+            <div class="page-date">
+                
+                October 5, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/10/Hasen_180215_SRZ3663-768x550.jpg" alt="UCI Podcast: What could cause an election meltdown?" class="img-responsive">												<div class="caption">“Voter fraud is a very small problem in the United States,” UCI Law Chancellor’s Professor Rick Hasen says. “It&#8217;s been that way for, I&#8217;d say, about the last half century in the United States. And when voter fraud does happen, it&#8217;s somewhat more likely to happen with the use of mail-in ballots because they&#8217;re out of the control of election officials, but it&#8217;s still extremely unlikely to happen, and not on the kind of scale that could swing a presidential election.” Steve Zylius / UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fuci-podcast-what-could-cause-an-election-meltdown&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p>The possible scenarios for election night and the days after multiply like a many-branched tree: What if one candidate claims victory even as mail-in ballots continue to be counted? What if states end up sending competing slates of electors to Congress? What if no winner is determined before January 20?</p>
+<p>Rick Hasen, a Chancellor&#8217;s professor of law and political science at UCI, views himself as the nuclear engineer examining the small risks of a total election meltdown. In fact, Hasen, who is also a CNN election law analyst, wrote the book on it: “Election Meltdown: Dirty Tricks, Distrust, and the Threat to American Democracy” (2020).</p>
+<p>Hasen spoke with the UCI Podcast about the risks of election meltdown, how particularly close elections have unfolded before (such as the 2000 election), why there is a low risk of voter fraud, and what voters can do to make sure their vote is counted.</p>
+<p><em>Note: This episode of the UCI Podcast was recorded before reports emerged that President Trump tested positive for COVID-19.</em></p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; <a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M">Google Podcasts</a> &#8211; <a href="https://www.stitcher.com/podcast/the-uci-podcast">Stitcher</a> &#8211; <a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A">Spotify</a></strong></p>
+<p>&nbsp;</p>
+<h1><strong>Transcript</strong></h1>
+<p>AARON ORLOWSKI, HOST</p>
+<p>The November election is just weeks away, and this election season has felt unlike any other. The COVID-19 pandemic has upended the voting process, leading to questions about whether the candidate who is ahead on election night will be the one with the most votes in the end. And to make the stakes even higher, the passing of Ruth Bader Ginsburg has left a vacancy on the Supreme court, and Republicans and Democrats are gearing up for a huge battle over the confirmation of a new Supreme Court justice.</p>
+<p>From the University of California, Irvine, I&#8217;m Aaron Orlowski. And you&#8217;re listening to the UCI Podcast.</p>
+<p>Today, I&#8217;m speaking with Rick Hasen, who&#8217;s a Chancellor&#8217;s professor of law and political science at UCI’s School of Law. He&#8217;s also a CNN election law analyst, and the author of the book, “Election Meltdown: Dirty Tricks, Distrust, and the Threat to American Democracy,” which was published earlier this year.</p>
+<p>Professor Hasen, thank you for joining me today on the UCI Podcast.</p>
+<p>RICK HASEN</p>
+<p>It&#8217;s great to be with you.</p>
+<p>ORLOWSKI</p>
+<p>So this election is so different from previous presidential elections with the pandemic and mail-in balloting, especially. And it&#8217;s always possible that one candidate could achieve an overwhelming victory and the election resolves with a clear winner. Do you think that this is likely?</p>
+<p>HASEN</p>
+<p>I do, if the polling today is correct. I think of myself like an engineer working in a nuclear reactor. I&#8217;m spending my time thinking about the small risks of a total meltdown. And we&#8217;ve gone from a minuscule risk of a major problem to a small risk of a major problem. But I still think that if the polling is correct and the polling stays the same, then it won&#8217;t be particularly close. Things could change. If it gets very close, then I think it could get very uncertain and quite ugly.</p>
+<p>ORLOWSKI</p>
+<p>Well, let&#8217;s look at a couple of ways that could happen, just to make sure that we&#8217;re looking at the worst case scenarios. But so one option seems to be that a candidate could have the lead on election night, but then mail in ballots, which are usually counted later, start to come in and the outcome shifts. How might that possibility play out?</p>
+<p>HASEN</p>
+<p>Well, let&#8217;s talk first about why it takes longer to count mail-in ballots. I think this point is important. When you vote by mail, you&#8217;re not in person at the polling place, and so they need to make sure — those election officials — that you are who you say you are, and that you&#8217;ve done everything right. So it takes a lot longer to process — or it&#8217;s sometimes referred to as pre-canvas — those absentee ballots. In some states, like Florida, which has a lot of vote-by-mail ballots, they start that process 22 days before the election. And so we&#8217;ll have a pretty good sense in Florida about election results on election night, because they&#8217;re going to have a lot of those absentee ballots done. In a place like Pennsylvania — where they used to not allow anyone who wants to vote by mail, but this year they&#8217;ve moved to allowing that — they&#8217;re going to have a flood of absentee ballots, and they&#8217;re not well familiar with processing those.</p>
+<p>So it could be that we&#8217;ll have days or even a week or more before we would know the totals. Now in the past, Democrats and Republicans tended to use vote by mail about the same amount. There wasn&#8217;t really one party using it more than the other. However, in this election, in part because President Trump has made a lot of statements calling into question the validity and the accuracy of mail-in ballots, what we&#8217;re seeing is that Republicans are expressing more interest in voting in person than Democrats. Now even putting aside that shift, one of the things that we have seen historically is the Democrats tend to vote later when they&#8217;re voting by mail. And so that the later counted absentee ballots tend to skew Democratic. This is what&#8217;s known as the blue shift, and it&#8217;s the reason why you may remember a former UCI Professor Katie Porter won her election about two weeks after election day. There were, in fact, seven races in Southern California for Congress in 2018 where Republicans were ahead on election night, but as later-counted, absentee ballots were processed and then counted, Democrats took the lead and ultimately won those races.</p>
+<p>So it could well be the situation. If, say, the election comes down to Pennsylvania, that Trump is ahead as in-person ballots are counted on election night — he can even try to declare victory based on that — but with so many outstanding absentee ballots, maybe Biden ends up being the winner. That would be a very volatile situation, if Trump is claiming he&#8217;s the winner and he&#8217;s casting doubt on the validity of the votes that are being counted afterwards. So that&#8217;s a period that&#8217;s one of the nightmare scenarios, one of the things that keeps me up at night, especially if he tries to sue or otherwise tries to block ballots from being counted. I think that would be quite a volatile and potentially dangerous situation for our democracy.</p>
+<p>ORLOWSKI</p>
+<p>Well, and we&#8217;ve had at least somewhat similar situations like this in the past, or at least one about 20 years ago, when George W. Bush and Al Gore were running for president, and there was a recount in Florida. Can you refresh our memory? What happened in Florida that year?</p>
+<p>HASEN</p>
+<p>So I think the Florida situation is very different than the situation today. It would be the same if we had a very close election. But in Florida, you didn&#8217;t have one candidate claiming that the ballots were fraudulent. Instead of what you had was a very close margin between Bush and Gore. And in the state of Florida — and Florida turned out to the state that was pivotal in terms of the Electoral College, so whoever won Florida was going to be the next president — and it turns out that Florida election officials didn&#8217;t run their election particularly well. We later learned it&#8217;s not just Florida, but in lots of parts of the country, they were using very bad voting machinery and had some confusing voting rules. So one of the things they used were what were called punch-card ballots. So these were pieces of cardboard. They were stuck into a machine and they had these little pre-perforated areas, and you used a little pin to punch them out. These were computer cards that were run through a vote counting machine. This was really state-of-the-art technology in 1960. And so one of the things we learned is that when people would go to punch out the little hole that had to be read in order to figure out if you voting for Bush or core from one of the other candidates, sometimes you didn&#8217;t punch it out all the way, because the machine would get stuck with these little pieces of paper called chad. Sometimes they&#8217;d still be hanging on, hence the name hanging chad. Or sometimes they just would be slightly touched, so they&#8217;d be sticking out. That was the pregnant chad. And Florida election officials had to figure out how they counted these ballots.</p>
+<p>There were other problems, too, for example, there were 13 candidates running for president in that election, and in Florida in Palm Beach County, they put the names of the candidates on both sides of the ballot. So when you went to vote the candidates’ names didn&#8217;t exactly line up. This was so-called butterfly ballot. So people who thought that they were voting for Gore might&#8217;ve been voting for Pat Buchanan, who was a third party candidate. And you know, Pat Buchanan was a very anti-Israel candidate, which was funny (because) in Palm Beach County you had a lot of Jewish voters voting for Pat Buchanan, who they would not have voted for if they were trying. And also the way it was lined up, it looked like if you wanted to vote for Gore and his vice presidential candidate Lieberman, maybe you had to punch the holes twice.</p>
+<p>We also had a situation in Duval County, Florida, where the instructions that were sent to voters said make sure you vote on every page. And again, because there were so many presidential candidates on that ballot, the number of candidates went over on to two pages. So there were 26,000 voters who voted twice for president and their votes were thrown out. So there were a lot of problems with how the election was run. There were also very controversial political decisions, Republican election administrators siding with rulings that would help Bush, (and) Democratic election administrators siding with rulings that would help Gore. And the case ultimately goes to the Supreme Court, where the Court stops the counting. And it&#8217;s just still to this day was one of the most momentous and controversial moments in modern American political history.</p>
+<p>ORLOWSKI</p>
+<p>Well, I have to ask, has our election technology improved since 2000?</p>
+<p>HASEN</p>
+<p>Well, so that is the one bright spot, I would say, in terms of how our elections today compared to 2000. We&#8217;ve gotten rid of the very worst of those voting machines. Those punch card machines are not used anywhere. In most places today, people vote with a piece of paper. Whether they&#8217;re voting electronically or not, it produces a piece of paper that can be recounted. That&#8217;s really important because today we&#8217;re worried about hacking of voting machines and all of that. And the best kind of antidote to a potential hacking is being able to conduct a recount and being able to do an audit, to make sure that the results announced from looking at the totals on the machines match what a human eye would say. In lots of ways, we&#8217;re not better off than 2000. We still have partisans running our election rules and deciding on our election rules. We have social media today, which makes people more hyped up and apt to form onto their respective teams.</p>
+<p>We have more polarized political parties — fewer swing voters than we had in 2000. So in a lot of ways, we&#8217;re in worse shape than we were in 2000, except when it comes to the voting technology, where you&#8217;re much less likely to have your votes thrown out because of bad machinery. But I will point something out in particular on this, and I think this is important. You&#8217;re much more likely to be disenfranchised if you vote by mail than if you vote in person, because voters make a lot of errors in how they fill out their ballots. If you don&#8217;t follow the rules, exactly your ballot might be tossed. So if you have to sign your ballot, or in some states you have to do other things like you need to get a witness. In Pennsylvania, which is a key swing state, we know that if you don&#8217;t put your ballot into the separate secrecy envelope, which is provided to assure you have a secret ballot, your ballot will be thrown out. So there&#8217;s now this “No naked ballot” campaign going on in Pennsylvania. So your chances of inadvertently being disenfranchised are higher because there&#8217;s not an election official there to tell you if you&#8217;re messing up. And so it&#8217;s really important if you&#8217;re gonna vote by mail to make sure you follow all the rules and not in every state are you given the opportunity to cure — to fix — your ballot if for some reason they find that there&#8217;s a problem with it.</p>
+<p>ORLOWSKI</p>
+<p>Well, that&#8217;s really important for all of us to remember, especially if we don&#8217;t want to go to the polls because of pandemic and COVID-19 concerns. Well, you mentioned that the Florida case in 2000 was decided by the Supreme Court, eventually. And so today there&#8217;s a whole new complication on the court, with the passing of Ruth Bader Ginsburg. So in your view, how does her passing change the dynamic on the Supreme Court?</p>
+<p>HASEN</p>
+<p>Well, I think that Justice Ginsburg’s passing is probably not likely to have an impact directly on the election in terms of how if a dispute gets to the Court. First of all, it&#8217;s going to have to be a very close election for a post-election dispute to get to the Supreme Court. Second, even though there are only eight justices right now on the court, they&#8217;re divided five to three along conservative and liberal lines. So it&#8217;s not at all likely that there&#8217;ll be a deadlock, although of course it&#8217;s possible, and a ninth justice could be the one who breaks that deadlock. But you&#8217;d have to have, like in the 2000 election, something outcome-determinative going to the Supreme Court. And the chances of that happening in any particular election, right, it&#8217;s only happened once in our lifetimes. And so yes, lightning can strike twice. And yes, Trump is saying that he wants a ninth justice to decide the election. But that doesn&#8217;t mean that that makes it likely to happen.</p>
+<p>ORLOWSKI</p>
+<p>I think that one of the questions that is probably on so many listeners’ minds, as they&#8217;re thinking about voting, mailing in their ballots, or going to the polls is: Is voter fraud common? Do we need to be concerned about tens of thousands or hundreds of thousands of fake ballots getting into the election and pushing it one way or the other?</p>
+<p>HASEN</p>
+<p>Well, this is something else that the president has been pushing without good evidence. Voter fraud is a very small problem in the United States. It&#8217;s been that way for, I&#8217;d say, about the last half century in the United States. And when voter fraud does happen, it&#8217;s somewhat more likely to happen with the use of mail-in ballots because they&#8217;re out of the control of election officials, but it&#8217;s still extremely unlikely to happen, and not on the kind of scale that could swing a presidential election. I mean, imagine if you were a foreign country, as President Trump or Attorney General (Bill) Barr has said, and you want to send in counterfeit absentee ballots. Well, first of all, you&#8217;re going to have to figure out exactly which ballot you need for a particular voter and, you know, voters live in different districts, so the ballots look different. You have to have the exact kind of paper. Most States that send out these absentee ballots use barcodes on those ballots, which help track the ballots to make sure that they go in and come out properly. You&#8217;d have to do that. You&#8217;d have to do this on a large enough scale, right, thousands of ballots that you could potentially swing at election. And voters who go to vote will be told, well, no, you can&#8217;t vote (because) you already voted with your absentee ballot. So it would be easily detected. It would not work. And you know the only reason that might happen is because the president and Attorney General Barr seem to be asking for it to happen. I mean, I don&#8217;t even know where these ballots would be mailed. If you get a postmarked-from-Moscow (ballot), I think that ballot might look a little suspect. And of course, it would also have to get there in the window to be counted.</p>
+<p>So there are all kinds of problems with these kinds of schemes. Voter fraud is a small problem. It’s not a nonexistent problem. We do see isolated instances. I was just looking at a report of a man who voted his dead mother&#8217;s ballot in 2012, 2014 and 2016, voted by mail. And he was later put in jail. And of course he should be punished for that. But one guy voting his dead mother&#8217;s ballot is not going to swing an election, unless the election is swung by one vote. And typically our elections are not nearly that close; even Florida 2000 was not that close. We have a lot of safeguards in place to make a fraud unlikely, and to make it easy to be caught. And anybody who would try to engage in this kind of activity is potentially committing a felony, which is, I don&#8217;t know about you, but I think of being charged with a felony as a pretty good deterrent against anything that might be illegal.</p>
+<p>ORLOWSKI</p>
+<p>I try and avoid that as well. I think it&#8217;s generally a good practice. So as we&#8217;re thinking about voters submitting their ballots and getting those in the mail or dropping them off at the polling place, so that seems to be step one. But then we see on election night on TV these maps of blue and red states. So what happens in between, essentially? What happens from the level of submitting ballots to actually getting to a result? Because it&#8217;s not exactly simple.</p>
+<p>HASEN</p>
+<p>So when you see those results on TV are unofficial results. When a network declares, “George Bush has won the state of West Virginia,” that&#8217;s not officially true. That is a projection; that is a prediction of what election officials are going to say. It actually takes at least a few weeks for these things to be finalized. Every night, there&#8217;s mistakes made when numbers are sent in — somebody transposes a digit. Everything is double and triple checked. People are tired. They&#8217;ve worked, many, 16 hour days when they&#8217;re providing ballot counts at the end of the election night. And then, of course in places like Orange County and lots of parts of the country, there are many more ballots that are coming in. And in California, there&#8217;s a period of time after election day where ballots that have come in that are postmarked by election day can be counted.</p>
+<p>So, eventually results are certified. It goes through a kind of formal process and winners are announced. With the presidential election, it goes through more complicated steps. After the vote totals are certified, then there are a slate of presidential electors in each state. These electors meet and they vote. It would be interesting to see their socially distant meetings this time. And then those results are sent to Congress by the governor. And those results are then announced and counted in early January. And there area all kinds of nightmare scenarios, where there are two slates of electors and we don&#8217;t know who&#8217;s won a state, and we&#8217;re still fighting in January. Under our system, if we don&#8217;t have a president by January 20th, the current president is no longer president, and we go by the rules of succession and we could have President Nancy Pelosi, for example. I don&#8217;t think any of these things are likely. I think they&#8217;re extremely unlikely to happen, but there are just a number of twists and turns in terms of the contingencies of what could happen.</p>
+<p>ORLOWSKI</p>
+<p>Even though these situations are quite unlikely, maybe it&#8217;s helpful just to know some of the ins and outs. So are the electors required to abide by the popular vote in their state? Or can they go rogue?</p>
+<p>HASEN</p>
+<p>Well, this was an issue that the Supreme Court addressed in a couple of cases last term. And the short answer is that if a state passes a law that says that the electors have to vote the way that the voters of the state as a majority chose — that is, if Trump wins the state, they have to vote for Trump — in that circumstance, if a state has a law that says you have to be faithful and not faithless, then they can be removed if they vote different way. However, not every state has that law. And so it is still possible we could have faithless electors. But you have to recognize that the parties know about this Supreme Court decision, and the parties know that they don&#8217;t want to take any chances. So they are picking the strongest Trump or Biden loyalist you can imagine to be the slate of electors, so that these people would not be subject to influence or some kind of attempt to influence them to vote a different way when it comes to the Electoral College votes. And then of course, these votes are sent to Congress, and there&#8217;s a convoluted set of rules. What if the House and the Senate don&#8217;t agree and you could potentially have a Democratic-led House and a Republican Senate. If there&#8217;s a tie, then we have a different set of rules, where the House votes, where each state delegation is given one vote. So it&#8217;s one state, one vote. And there are more Republican delegations that are Democratic delegations. And it&#8217;s just potentially huge problems. There&#8217;s also a set of federal statutory rules that apply in this context, but there are some arguments that some aspects of the statute violate the Constitution. It would just be a total mess. And it suggests that at some point, this country really needs to get its act together and streamline the process for choosing the president, which is something we should have done years ago.</p>
+<p>ORLOWSKI</p>
+<p>That would make the whole situation a fair bit easier if we had a more streamlined process and something that was not quite so confusing, since it seems like election law experts like yourself are probably some of the few people who actually understand what goes on at stage 10 of a process like this. But as you mentioned earlier, we&#8217;re in this very polarized political moment. And the parties have have grown more separate over the years, even since the year 2000. And so if the election results aren&#8217;t immediately clear on election night that could lead to some unfortunate results. But what can listeners do between now and election (day) to play their part in making sure the process is smooth and fair and that their vote gets counted?</p>
+<p>HASEN</p>
+<p>Well, that&#8217;s a great question. So the first thing I would say is register to vote. California has same-day voter registration, but a lot of states don&#8217;t. A lot of states — 30 days before the election, or you can&#8217;t vote. So register to vote. And have a voting plan. I think if it&#8217;s possible to vote early, either in person or by mail, voting early is sensible. We don&#8217;t know what election day is going to look like, and you can help flatten the absentee ballot curve by getting your mail-in ballot early, and so the post office and election officials can handle your ballot. Especially, we&#8217;ve got a lot of younger voters who are probably listening to this podcast, think about volunteering to be a poll worker, or work on a campaign or get out the vote effort. There&#8217;s a lot of opportunities, especially poll workers are important because we usually rely on older Americans to act as poll workers, but they may be less available because of the pandemic because they&#8217;re particularly susceptible. In addition to that, I think we want to make sure that we demand transparency of our election officials. So we know exactly how they&#8217;re counting the votes when the vote totals will be announced and all of that. And be wary of misinformation and disinformation and make sure that you are not part of the problem by spreading disinformation about the election and how it&#8217;s run and all of that.</p>
+<p>ORLOWSKI</p>
+<p>Well, thank you for that advice, Professor Hasen. And thank you for joining me today on the UCI Podcast.</p>
+<p>HASEN</p>
+<p>It&#8217;s been a pleasure.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+What+could+cause+an+election+meltdown%3F: https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F05%2Fuci-podcast-what-could-cause-an-election-meltdown%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/&title=UCI Podcast: What could cause an election meltdown?" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: What could cause an election meltdown?&body=Hey, checkout this web page: - https://news.uci.edu/2020/10/05/uci-podcast-what-could-cause-an-election-meltdown/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2018/05/11/uci-law-grad-and-super-mom-is-student-commencement-speaker-on-mothers-day-weekend/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2018/05/11/uci-law-grad-and-super-mom-is-student-commencement-speaker-on-mothers-day-weekend/"><p class="media-heading">UCI Law grad and super mom is student commencement speaker on Mother’s Day weekend</p></a><p><time>May 11, 2018</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/05/06/uci-podcast-on-the-front-lines-of-covid-19/"><img src="https://news.uci.edu/wp-content/uploads/2020/05/robert-rowe-270x180.jpeg" alt="UCI Podcast: On the front lines of COVID-19" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/05/06/uci-podcast-on-the-front-lines-of-covid-19/"><p class="media-heading">UCI Podcast: On the front lines of COVID-19</p></a><p><time>May 6, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2019/11/26/uci-researchers-awarded-department-of-justice-grant-to-study-immigration-and-crime/"><img src="https://news.uci.edu/wp-content/uploads/2019/11/johncharisemily_950x535-270x180.png" alt="UCI researchers are awarded Department of Justice grant to study immigration and crime" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2019/11/26/uci-researchers-awarded-department-of-justice-grant-to-study-immigration-and-crime/"><p class="media-heading">UCI researchers are awarded Department of Justice grant to study immigration and crime</p></a><p><time>November 26, 2019</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2012/03/26/brilliant-disguise/"><img src="https://news.uci.edu/wp-content/uploads/2015/02/8135657652_21d2c5790f_o-270x180.jpg" alt="Brilliant disguise" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2012/03/26/brilliant-disguise/"><p class="media-heading">Brilliant disguise</p></a><p><time>March 26, 2012</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://soundcloud.com/theucipodcast">UCI Podcast</a>
+            </div>
+            <div class="list-url">https://soundcloud.com/theucipodcast</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://www.law.uci.edu/">UCI Law</a>
+            </div>
+            <div class="list-url">https://www.law.uci.edu/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://electionlawblog.org/">Election Law Blog</a>
+            </div>
+            <div class="list-url">https://electionlawblog.org/</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/">Orange County reports 40 more COVID cases, 2 more deaths</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/">San Francisco crime is starting to look more like it did before the pandemic</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/">County health agencies — fighting disease — also have to fight for state funds</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/">CA workplace mask rules in limbo; business owners protest In Santa Ana</a></h5>
+                
+                                <p class="rp-date rp-info">June 10, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/democracy/" class="" rel="tag">democracy</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/election/" class="" rel="tag">election</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/electoral-college/" class="" rel="tag">Electoral College</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/law/" class="" rel="tag">law</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/rick-hasen/" class="" rel="tag">Rick Hasen</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/uci-podcast/" class="" rel="tag">UCI Podcast</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/voting/" class="" rel="tag">voting</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

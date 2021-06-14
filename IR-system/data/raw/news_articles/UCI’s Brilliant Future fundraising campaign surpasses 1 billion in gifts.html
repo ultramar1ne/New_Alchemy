@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts | UCI News | UCI</title>
+
+    <title>UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='UCI nabs $500K grant for COVID data collab' href='https://news.uci.edu/2021/04/05/uci-nabs-500k-grant-for-covid-data-collab/' />
+<link rel='next' title='Medical students haven’t been deterred by the stress of Covid on hospitals and staff — they are eager to help' href='https://news.uci.edu/2021/04/06/medical-students-havent-been-deterred-by-the-stress-of-covid-on-hospitals-and-staff-they-are-eager-to-help/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2021/04/06/ucis-brilliant-future-campaign-surpasses-1-billion-in-gifts/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=53968' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2021%2F04%2F06%2Fucis-brilliant-future-campaign-surpasses-1-billion-in-gifts%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2021%2F04%2F06%2Fucis-brilliant-future-campaign-surpasses-1-billion-in-gifts%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="Despite pandemic challenges, alumni and friends donate for scholarships, research">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts"/>
+<meta itemprop="name" content="UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts"/>
+<meta property="og:url" content="https://news.uci.edu/2021/04/06/ucis-brilliant-future-campaign-surpasses-1-billion-in-gifts/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-04-06T07:51:21-07:00"/>
+	<meta property="article:modified_time" content="2021-04-28T14:27:58-07:00" />
+<meta property="og:updated_time" content="2021-04-28T14:27:58-07:00" />
+<meta property="article:section" content="Alumni"/>
+<meta property="article:section" content="Arts"/>
+<meta property="article:section" content="Campus Life"/>
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Engineering"/>
+<meta property="article:section" content="Health"/>
+<meta property="article:section" content="Health Sciences"/>
+<meta property="article:section" content="Integrative Health"/>
+<meta property="article:section" content="Nursing"/>
+<meta property="article:section" content="Press Releases"/>
+<meta property="article:section" content="Research"/>
+<meta property="article:section" content="Science &amp; Technology"/>
+<meta property="og:description" content="Despite pandemic challenges, alumni and friends donate for scholarships, research"/>
+<meta itemprop="description" content="Despite pandemic challenges, alumni and friends donate for scholarships, research"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2021/04/UCIBrilliantFuture-466-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2021/04/UCIBrilliantFuture-466-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts</h1>
+
+            <h2 class="page-subheadline">Despite pandemic challenges, alumni and friends donate for scholarships, research</h2>
+
+            <div class="page-date">
+                
+                April 6, 2021            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2021/04/UCIBrilliantFuture-466-768x512.jpg" alt="UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts" class="img-responsive">												<div class="caption">The Brilliant Future campaign went public in October 2019 with a gala highlighted by an inspirational speech from Jimmy and Sheila Peterson, who serve as campaign chairs. Christopher Todd / for UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><strong>Irvine, Calif., April 6, 2021</strong> – Alumni and friends of the University of California, Irvine have raised more than $1 billion to support scholarships, groundbreaking research, top-notch patient care and world-class educational facilities, among other initiatives.</p>
+<p>The $1 billion total pushes UCI across the halfway mark in its $2 billion philanthropic effort, Brilliant Future: The Campaign for UCI, which has also engaged 44,000 alumni so far – more than half the goal of 75,000 by 2024.</p>
+<p>The Brilliant Future campaign publicly launched in October 2019. It is the most ambitious fundraising and alumni engagement effort in UCI’s history. To date, more than 68,000 supporters have given to the university as part of the campaign.</p>
+<p>Those gifts to UCI and UCI Health have contributed to the construction of new buildings and the creation of more than 140 new scholarships, fellowships and student awards, as well as the establishment of 38 endowed chairs that support pioneering research. Donations of all sizes have bolstered the university’s COVID-19 response by enabling UCI Health to purchase essential equipment and lifesaving supplies.</p>
+<p>“During one of the most challenging health crises in recent times, it’s inspiring to see that the generosity of our UCI alumni and friends has not only endured but intensified,” said Chancellor Howard Gillman. “We are incredibly grateful for all of our alumni and friends as we work to fulfill our mission of research, teaching and public service.”</p>
+<p>In 2020, donors accelerated their giving, both for UCI’s COVID-19 efforts and for longstanding goals. The amount raised for student support alone increased by more than 40 percent between 2019 and 2020. Additionally, the university received 15 more gifts greater than $1 million in 2020 than in 2019. The outlook for 2021 is optimistic.</p>
+<div class="uci-slideshow" data-responsive-breakpoint="300" >
+    <ol>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/04/210323_COHS_construction_8993_sz.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">Construction continues on the Susan & Henry Samueli College of Health Sciences, which is supported through a $200 million gift from the Samuelis. It is one of the largest donations ever to an American university. Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/02/201130_ISEB_0327_sz.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">A $39 million gift from the Samueli Foundation was the foundation for the new Interdisciplinary Science & Engineering Building, which opened this year. Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/04/Nursing_022020_1862_sz.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">A $40 million gift from the William and Sue Gross Family Foundation established the Sue & Bill Gross School of Nursing. Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2018/05/swinden1080.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">Valued at $17 million, the Irvine Museum collection was donated to UCI. The museum was founded in 1992 by Joan Irvine Smith, Athalie Richardson Irvine Clarke and James Irvine Swinden (pictured). Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/04/Buck_072518_0168_sz.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">The Buck Collection gift in 2017 gives UCI one of the world’s greatest collections of California art. Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/04/Steckler_IMG_9976.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">A $10.4 million gift from alumnus Vincent Steckler ’80 and his wife, Amanda, will support art history students and create a new center at the Donald Bren School of Information & Computer Sciences promoting inclusiveness. Courtesy of Donald Bren School of Information & Computer Science</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/04/hellmanfund_3headshots.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">A $6 million grant from the Hellman Fellows Program will empower junior faculty members to conduct diverse and important research in the arts, humanities, social sciences and STEM fields. Among UCI faculty to have benefited from Hellman Fellowships are (from left) Glenda Flores, associate professor of Chicano/Latino studies; Davin L. Phoenix, associate professor of political science; and Stephen Mahler, assistant professor of neurobiology & behavior. Steve Zylius / UCI; School of Biological Sciences</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2020/02/Nicholas_082119_0061_sz-1.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">“It’s so important to support underrepresented students so they’ll have the same chance of success as their more fortunate peers,” says UCI Foundation trustee Stacey Nicholas, whose $5 million gift to the Henry Samueli College of Engineering and the Donald Bren College of Information & Computer Sciences will aid recruitment, retention, graduation of underrepresented STEM students. Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/04/givingday_180425_0070_sz.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">More than $4 million was raised during the second annual online, social media-driven UCI Giving Day in 2018, almost tripling the prior year’s $1.4 million. Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2019/05/Beall_051519_0117_2600px_sz.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">A multimillion-dollar gift from The Beall Family Foundation, led by Donald R. and Joan F. Beall will help support to campus’s entrepreneurial and innovation platform, which has been renamed UCI Beall Applied Innovation. Steve Zylius / UCI</span>
+        </li>
+                        <li data-type="image" data-src="https://news.uci.edu/wp-content/uploads/2021/04/0419UCIM20016b-27.jpg">
+                        <span class="uci-slideshow-media">alt placeholder</span>
+                        <span class="uci-slideshow-caption">A $2.5 million gift from the John and Mary Tu Foundation assisted with COVID-19 research and front-line healthcare workers. Carlos Puma / UCI Health.</span>
+        </li>
+            </ol>
+</div>
+<p>“Reaching this incredible milestone is a testament to the community’s strong confidence in UCI’s mission and capacity to make real change here in Orange County and around the world,” said Sheila Peterson, who serves as a UCI Foundation trustee and Brilliant Future campaign chair, as does her husband, Jimmy Peterson.</p>
+<p>“What we’re all doing together is taking an already successful institution to the next level to impact more lives through top-notch healthcare, crucially important research and scholarship opportunities for deserving students,” he said.</p>
+<p>The donations support the four overarching objectives of the Brilliant Future campaign: advancing the American dream for students, transforming healthcare and wellness, accelerating world-changing research, and exploring the human experience. Major gifts that helped bring UCI to the $1 billion mark include:</p>
+<ul>
+<li><a href="https://news.uci.edu/2017/09/18/uci-receives-200-million-gift-to-name-college-of-health-sciences-and-launch-major-integrative-health-initiative/">$200 million</a> from the Susan and Henry Samueli to create the first-of-its-kind College of Health Sciences</li>
+<li><a href="https://news.uci.edu/2016/01/12/largest-single-gift-ever-to-uci-will-help-address-critical-healthcare-needs/">$40 million</a> from the William and Sue Gross Family Foundation to establish the School of Nursing</li>
+<li><a href="https://news.uci.edu/2021/02/22/uci-researchers-join-forces-to-tackle-challenges-in-human-health-and-the-environment/">$39 million</a> from the Samueli Foundation for the new Interdisciplinary Science and Engineering Building</li>
+<li>Art now valued at <a href="https://news.uci.edu/2016/11/07/the-irvine-museums-store-of-california-impressionism-comes-to-uci/">approximately $20 million</a> from The Irvine Museum</li>
+<li>Art valued at <a href="https://news.uci.edu/2017/11/15/uci-receives-unparalleled-california-modern-art-trove/">tens of millions of dollars</a> from The Buck Collection</li>
+<li><a href="https://news.uci.edu/2021/01/12/alumnus-vincent-steckler-and-his-wife-donate-10-4-million-to-uci/">$10.4 million</a> from alumnus Vincent Steckler ’80 and his wife, Amanda, that will support art history students and create a new center at the Donald Bren School of Information &amp; Computer Sciences promoting inclusiveness</li>
+<li><a href="https://news.uci.edu/2020/08/03/supporting-future-generations-of-researchers/">$6 million</a> from the Hellman Fellows Program to establish permanent endowments and the Society of Hellman Fellows, which will perpetually empower junior faculty members to conduct diverse and important research in the arts, humanities, social sciences and STEM fields</li>
+<li><a href="https://news.uci.edu/2020/02/10/stacey-nicholas-donates-5-million-to-uci-in-support-of-diversity-and-inclusiveness/">$5 million</a> from UCI Foundation trustee Stacey Nicholas that endowed and renamed the UCI Office of Access &amp; Inclusion, which serves both The Henry Samueli School of Engineering and the Donald Bren School of Information &amp; Computer Sciences and supports the recruitment, retention and graduation of students from historically excluded populations who are underrepresented in science, technology, engineering and math</li>
+<li><a href="https://brilliantfuture.uci.edu/second-annual-uci-giving-day-more-than-doubles-last-years-total/">More than $4 million</a> raised during the second annual online, social media-driven UCI Giving Day in 2018, almost tripling the prior year’s $1.4 million</li>
+<li>A <a href="https://news.uci.edu/2019/05/23/in-honor-of-the-beall-familys-support-the-campuss-entrepreneurial-and-innovation-platform-to-be-renamed-uci-beall-applied-innovation/">multimillion-dollar gift</a> from The Beall Family Foundation, led by Donald R. and Joan F. Beall – the largest portion of which will go to the campus’s entrepreneurial and innovation platform, which has been renamed UCI Beall Applied Innovation</li>
+<li><a href="https://news.uci.edu/2020/05/11/tu-foundation-gives-2-5-million-to-uci-to-support-covid-19-patient-care-research">$2.5 million</a> from the John and Mary Tu Foundation for COVID-19 research and front-line healthcare workers</li>
+<li><a href="https://news.uci.edu/2021/01/14/roy-eddleman-gives-1-million-to-establish-new-uci-graduate-fellowship">Two donations totaling $2.5 million</a> from philanthropist Roy Eddleman to the School of Physical Sciences for a graduate fellowship and a research institute focused on quantum science</li>
+</ul>
+<p>Every gift contributes to the Brilliant Future campaign’s ongoing success – and many generate additional dollars from other sources. For instance, <a href="https://news.uci.edu/2019/10/04/stemming-the-tide-of-alzheimers/">a recent $150,000 donation</a> from philanthropist Keith Swayne led to $20 million in funding from the National Institutes of Health to support Alzheimer’s research.</p>
+<p>The achievement of this campaign milestone comes on the heels of the UC Board of Regents’ approval to build a world-class medical center on the northern edge of the UCI campus. The new <a href="https://news.uci.edu/2021/01/21/uci-to-build-world-class-hospital-on-irvine-campus/">UCI Medical Center</a> in Irvine will be a full-service academic health complex that will bring leading-edge care to the coastal and southern regions of Orange County. The project has already received philanthropic funding and will continue to seek further investment from community partners during the remainder of the Brilliant Future campaign.</p>
+<p>“We publicly launched this campaign just a few months before the pandemic,” said Brian Hervey, vice chancellor for university advancement and alumni relations and president of the UCI Foundation. “Yet, despite the challenges, alumni and friends have showed their astonishing support – support that will allow us to build top-notch research and teaching spaces and state-of-the-art health facilities, support our students and benefit our community.”</p>
+<p><strong>About the UCI’s Brilliant Future Campaign: </strong>Publicly launched on October 4, 2019, the Brilliant Future campaign aims to raise awareness and support for UCI. By engaging 75,000 alumni and garnering $2 billion in philanthropic investment, UCI seeks to reach new heights of excellence in student success, health and wellness, research and more. Learn more by visiting <a href="https://brilliantfuture.uci.edu/">brilliantfuture.uci.edu.</a></p>
+<p><strong>About the University of California, Irvine:</strong> Founded in 1965, UCI is the youngest member of the prestigious Association of American Universities and is ranked among the nation’s top 10 public universities by <em>U.S. News &amp; World Report</em>. The campus has produced three Nobel laureates and is known for its academic achievement, premier research, innovation and anteater mascot. Led by Chancellor Howard Gillman, UCI has more than 36,000 students and offers 222 degree programs. It’s located in one of the world’s safest and most economically vibrant communities and is Orange County’s second-largest employer, contributing $7 billion annually to the local economy and $8 billion statewide. For more on UCI, visit <a href="http://www.uci.edu">www.uci.edu</a>.</p>
+<p><strong>Media access:</strong> Radio programs/stations may, for a fee, use an on-campus ISDN line to interview UCI faculty and experts, subject to availability and university approval. For more UCI news, visit <a href="http://news.uci.edu/">news.uci.edu</a>. Additional resources for journalists may be found at <a href="http://communications.uci.edu/for-journalists/">communications.uci.edu/for-journalists</a>.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI%E2%80%99s+Brilliant+Future+fundraising+campaign+surpasses+%241+billion+in+gifts: https://news.uci.edu/2021/04/06/ucis-brilliant-future-campaign-surpasses-1-billion-in-gifts/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2021%2F04%2F06%2Fucis-brilliant-future-campaign-surpasses-1-billion-in-gifts%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2021/04/06/ucis-brilliant-future-campaign-surpasses-1-billion-in-gifts/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2021/04/06/ucis-brilliant-future-campaign-surpasses-1-billion-in-gifts/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2021/04/06/ucis-brilliant-future-campaign-surpasses-1-billion-in-gifts/&title=UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI’s Brilliant Future fundraising campaign surpasses $1 billion in gifts&body=Hey, checkout this web page: - https://news.uci.edu/2021/04/06/ucis-brilliant-future-campaign-surpasses-1-billion-in-gifts/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2018/09/17/thats-the-ticket/"><img src="https://news.uci.edu/wp-content/uploads/2018/09/lovitz_130717_01-270x180.jpg" alt="That’s the ticket!" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2018/09/17/thats-the-ticket/"><p class="media-heading">That’s the ticket!</p></a><p><time>September 17, 2018</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2019/10/04/future-m-d-is-already-helping-others/"><img src="https://news.uci.edu/wp-content/uploads/2019/10/Torosyan_082019_0030_sz-270x180.jpg" alt="Future M.D. is already helping others" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2019/10/04/future-m-d-is-already-helping-others/"><p class="media-heading">Future M.D. is already helping others</p></a><p><time>October 4, 2019</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2015/04/13/uci-alum-returns-to-campus-with-roadtrip-nation/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2015/04/13/uci-alum-returns-to-campus-with-roadtrip-nation/"><p class="media-heading">UCI alum returns to campus with &#8216;Roadtrip Nation&#8217;</p></a><p><time>April 13, 2015</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2019/03/26/on-the-hunt-for-new-knowledge/"><img src="https://news.uci.edu/wp-content/uploads/2019/03/Kelz_190213_0209_sz-270x180.jpg" alt="On the hunt … for new knowledge" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2019/03/26/on-the-hunt-for-new-knowledge/"><p class="media-heading">On the hunt … for new knowledge</p></a><p><time>March 26, 2019</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div>Tom Vasich</div><div>949-285-6455</div><div>tmvasich@uci.edu</div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://brilliantfuture.uci.edu">Brilliant Future campaign</a>
+            </div>
+            <div class="list-url">https://brilliantfuture.uci.edu</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://brilliantfuture.uci.edu/2020-annual-report">Brilliant Future 2020 annual report</a>
+            </div>
+            <div class="list-url">https://brilliantfuture.uci.edu/2020-annual-report</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://engage.alumni.uci.edu">UCI Alumni Association</a>
+            </div>
+            <div class="list-url">https://engage.alumni.uci.edu</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-4" href="https://ucifoundation.org">UCI Foundation</a>
+            </div>
+            <div class="list-url">https://ucifoundation.org</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-5" href="https://give.uci.edu">UCI Giving</a>
+            </div>
+            <div class="list-url">https://give.uci.edu</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/">Orange County reports 40 more COVID cases, 2 more deaths</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/">San Francisco crime is starting to look more like it did before the pandemic</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/">County health agencies — fighting disease — also have to fight for state funds</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/">CA workplace mask rules in limbo; business owners protest In Santa Ana</a></h5>
+                
+                                <p class="rp-date rp-info">June 10, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/alumni/" class="" rel="tag">alumni</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/brilliant-future/" class="" rel="tag">Brilliant Future</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/campaign/" class="" rel="tag">campaign</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/donations/" class="" rel="tag">donations</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/donors/" class="" rel="tag">donors</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/funding/" class="" rel="tag">funding</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/fundraising/" class="" rel="tag">fundraising</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/gifts/" class="" rel="tag">gifts</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/giving/" class="" rel="tag">giving</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/philanthropy/" class="" rel="tag">philanthropy</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/samueli/" class="" rel="tag">Samueli</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/trustees/" class="" rel="tag">trustees</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/uci-foundation/" class="" rel="tag">UCI Foundation</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

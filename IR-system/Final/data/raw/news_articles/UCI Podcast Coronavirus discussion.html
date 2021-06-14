@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: Coronavirus discussion | UCI News | UCI</title>
+
+    <title>UCI Podcast: Coronavirus discussion &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='UCI joins College and University Fund for the Social Sciences' href='https://news.uci.edu/2020/01/28/uci-joins-college-and-university-fund-for-the-social-sciences/' />
+<link rel='next' title='Beating Cancer – One Patient at a Time' href='https://news.uci.edu/2020/01/29/beating-cancer/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/01/29/uci-podcast-cornonavirus-discussion/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=43423' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F01%2F29%2Fuci-podcast-cornonavirus-discussion%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F01%2F29%2Fuci-podcast-cornonavirus-discussion%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="Student Health Center medical director addresses coronavirus issues and misconceptions, and offers advice ">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: Coronavirus discussion"/>
+<meta itemprop="name" content="UCI Podcast: Coronavirus discussion"/>
+<meta property="og:url" content="https://news.uci.edu/2020/01/29/uci-podcast-cornonavirus-discussion/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-01-29T09:29:02-07:00"/>
+	<meta property="article:modified_time" content="2020-02-04T10:21:27-07:00" />
+<meta property="og:updated_time" content="2020-02-04T10:21:27-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Health"/>
+<meta property="article:section" content="Staff"/>
+<meta property="article:section" content="Students"/>
+<meta property="og:description" content="Student Health Center medical director addresses coronavirus issues and misconceptions, and offers advice"/>
+<meta itemprop="description" content="Student Health Center medical director addresses coronavirus issues and misconceptions, and offers advice"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-wrap">
+            <h1 class="page-heading">UCI Podcast: Coronavirus discussion</h1>
+
+            <h2 class="page-subheadline">Student Health Center medical director addresses coronavirus issues and misconceptions, and offers advice </h2>
+
+            <div class="page-date">
+                
+                January 29, 2020            </div>
+
+            
+            <div class="page-content clearfix"><p>As medical director of the UCI Student Health Center, Dr. Albert Chang has been fielding a steady stream of questions from UCI students, faculty and staff about coronavirus. The respiratory infection was first detected in central China and has spread to several international locations around the world, including the United States. In this episode of the UCI Podcast, Dr. Chang talks with Sheri Ledbetter of UCI’s Office of Strategic Communications &amp; Public Affairs about some of the misconceptions around the illness, and he offers advice on how members of the UCI campus community can protect their own health.</p>
+<p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fcoronavirus-discussion-with-ucis-dr-albert-chang&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<h4><strong>Podcast transcript</strong></h4>
+<p>Sheri Ledbetter:</p>
+<p>From the University of California Irvine. This is the UCI Podcast. I&#8217;m Sheri Ledbetter, the U.S. Centers for Disease Control and Prevention has been keeping an eye on a new strain of virus called the novel Wuhan coronavirus, a respiratory illness detected recently in the city of Wuhan in central China. There have been more than 1000 confirmed cases of the illness in China and it&#8217;s now spread to several international locations including the United States. As you might expect, coronavirus has been a cause for concern in many parts of California, including Irvine and members of the UCI community have been wondering aloud on social media and elsewhere if they and their fellow anteaters are at risk. We&#8217;ve asked Dr. Albert Chang, medical director of the UCI student health center to answer some questions about Coronavirus. Dr Chang, welcome to the UCI Podcast.</p>
+<p>Dr Albert Chang:</p>
+<p>Thanks so much, Sheri. It&#8217;s great to be here.</p>
+<p>Sheri Ledbetter:</p>
+<p>So let&#8217;s go ahead and start with the basics of coronavirus. What is coronavirus?</p>
+<p>Dr Albert Chang:</p>
+<p>So coronaviruses are a family of viruses that are actually incredibly common and they&#8217;re known to cause certain types of infections. These can be very mild infections or they can be very severe. And most recently we&#8217;ve heard about a specific type of coronavirus has been coming from Asia, specifically a city called Wuhan in early evidence is showing us that it is quite a severe infection. Now there are cases that can be mild, but there are also cases that can be fatal. And because of this, there&#8217;s high alert on anyone that&#8217;s traveled to or coming from these regions of China.</p>
+<p>Sheri Ledbetter:</p>
+<p>Great. And so what do we know about how one can catch coronavirus? Can you catch it?</p>
+<p>Dr Albert Chang:</p>
+<p>So many viruses are spread either through kind of contact, through touching, or through particulate, you know, air airborne contact as well. Um, and so the basic information that&#8217;s coming out of, research is showing that this coronavirus is basically one that&#8217;s spread through contact. Now that doesn&#8217;t mean that, you know, if you touch something that someone else has touched, that you&#8217;ll catch this disease. Typically you need to bring this up to your nose, your mouth or another entry point, right? Very much the same way that we spread things like influenza, right? So precautions are always to wash hands to keep clean, right? If you have symptoms, definitely cover your cough with your elbow is best than your hand. And then drinking tons of fluids is always a good thing to stay well hydrated. And one of the most important things we&#8217;re seeing now, try not to touch your face too often. Um, we don&#8217;t think about it, but we as human beings are always touching our face, wiping her nose, doing something. And every time you go back up to your face, you&#8217;re introducing a potential infection. So keeping those hands clean first and then trying not to kind of spread it is the second big thing.</p>
+<p>Sheri Ledbetter:</p>
+<p>So these are sort of the common sense things that we do every year at flu season. Um, you know, we&#8217;re to the students and all of us, we&#8217;re touching our devices, then we scratch our head maybe and all those kinds of things. So the hand-washing really comes into play. Um, is there a vaccine for coronavirus?</p>
+<p>Dr Albert Chang:</p>
+<p>Unfortunately, because this is still somewhat new, there is no vaccination for coronavirus. There&#8217;s definitely efforts to develop one, but the basic information now shows that if there is one that can be developed as probably six months to a year out. So probably not effective for anything that we&#8217;re doing currently. One of the questions that&#8217;s come up is does the influenza vaccination help prevent me from potentially catching this coronavirus infection? Early information is that there&#8217;s no protective effect of the influence of vaccination. However, so Sheri, I have to tell you the truth. We&#8217;ve got so many infections of influenza that we&#8217;ve seen this season. I really want to encourage all students just to be healthy overall. And the influence of vaccine is a huge part of just keeping yourself from getting influenza in addition to the other things that we spoke about. If there is information about a coronavirus vaccine being developed, we will be sure to share that information with you all and, and develop the plan if possible about any type of distribution.</p>
+<p>Sheri Ledbetter:</p>
+<p>Okay, great. Thank you. So you heard it here straight from Dr. Chang, separate from the coronavirus. We still need to be vigilant about getting our flu shots to protect us from influenza, um, just to keep us healthy overall. So I think that covers the basics about just in general what coronaviruses, unless there&#8217;s anything I&#8217;ve left out that you wanted to, um, comment on. I&#8217;d like to maybe shift the conversation here now to UCI and what&#8217;s happening. Okay. So we&#8217;re aware, um, that there is one confirmed positive case of coronavirus in orange County. What do we know about that case? Is there any relation to UCI?</p>
+<p>Dr Albert Chang:</p>
+<p>So we&#8217;ve been working very closely with the orange County healthcare agencies, communicable diseases department, and they&#8217;ve informed us that the positive case is not a UCI student, isn&#8217;t, has not been through our UCI medical centers and does not have a direct connection to UCI at all. Unfortunately, there&#8217;s a lot of false information out there, right. And social media that says that this is either a UCI student or an Irvine Valley college student and that they&#8217;ve been to certain places or even that they live in certain areas with specific addresses. There&#8217;s a lot of information, there are a lot of rumors out there. But we know for a fact that this is the, this positive patient is not a UCI student.</p>
+<p>Sheri Ledbetter:</p>
+<p>Okay. So, and, and we definitely want to get to some of the things we&#8217;re hearing and seeing on social media cause there has been a very, , amount of, of what we&#8217;re now determining is misinformation about this one case in positive case in orange County. Um, and before we get to that, let&#8217;s talk about UCI some more. What is our campus, um, and our, and our medical center. What is the UCI, university doing to, um, prepare or prevent, prepare, prevent, what&#8217;s the correct word for coronavirus?</p>
+<p>Dr Albert Chang:</p>
+<p>So I&#8217;ll share that. You know, as of last week, , the University of California Office of the President took this very seriously and messaging came out to all of our campuses as well as medical centers that this is a top health priority for all of our students and all of our staff and faculty as well. Last Monday morning there was a meeting that was brought together through UCI Health&#8217;s medical center leadership, their infection prevention team as well as our campus leadership involving student affairs. And then myself and my team at the student health center. We were working to go over our plan for not only screening and tracking potential students in staff that were coming in with infections, but what we would do as far as appropriate examinations, testing, um, sending of samples, follow up treatments and then tracking protocols to ensure the safety not only of that student but other students on campus.</p>
+<p>Dr Albert Chang:</p>
+<p>We&#8217;ve informed our providers, we&#8217;ve updated our team, our faculty members on what to do, should these conditions come up. And we&#8217;ve been in enacting those. We came up with our communications earlier this week about exactly what we&#8217;ve been doing and about exactly what you should all be doing to keep yourself healthy and safe. And this is ongoing. So our team here has been working around the clock because new things are popping up all the time. From the moment we first heard about this, it was only one case in Washington state. Now there are two more in California. Now, there&#8217;s one in Arizona, and unfortunately I&#8217;m sure there will be more cases, but it&#8217;s important that we catch them early, we identify them, and we&#8217;re doing our best to do the screening processes.</p>
+<p>Sheri Ledbetter:</p>
+<p>Okay. So there&#8217;s a lot of information that is not known about coronavirus. We don&#8217;t know. You know, there&#8217;s still no vaccine. We don&#8217;t necessarily know exactly the incubation period. We don&#8217;t know exactly, um, how easily or how difficultly is transmitted. So if you&#8217;re a student or staff or faculty or healthcare provider within UCI and you think you have it, what should you do?</p>
+<p>Dr Albert Chang:</p>
+<p>So, very important. So if you think you have may have the coronavirus infection or any other infection for that matter, the first thing is to call your healthcare provider. So for the students that have our student health insurance, a call our student health center, if you&#8217;re a staff or if you have a different insurance call, your healthcare provider calling is more important than just walking in the door. That way they can be prepared if you do have certain symptoms or have had certain exposures to ensure that you&#8217;re not potentially causing more exposure as you in or you may not need to come in depending on the symptoms that you&#8217;re having. It may just be information about right, how to take better care of yourself or what symptoms to watch out for as time moves forward. Now, if you do have an appointment to go in, it&#8217;s best always to make sure that you&#8217;re taking care of yourself and that you share with your provider all the information about exposures about travel.</p>
+<p>Dr Albert Chang:</p>
+<p>So for example, one of the CDC initial criteria for detecting coronavirus was the individual would have to have both symptoms of a fever and cough. Not just a little cough, but a cough that truly has respiratory difficulties, shortness of breath, which typically represents pneumonia. So if this individual has both fever and cough, there was still another requirement and that was traveled to Wuhan and not just travel to Wuhan within 14 days of their first symptoms. For many of our students, even those that came from Wuhan, they came back on the first, second or third of this year, and so 14 days would make the 15th 16th and 17th if their symptoms started after the 17th and they came into the country two weeks before that, they most likely do not have the Wuhan coronavirus. This gets to be confusing. You have to look at the dates of when your symptoms started, right? But these are the exactly the type of screening questions we are asking. It may be that you picked up a different type of infection. It may be that you&#8217;ve got some other symptoms, right, but this is what we&#8217;re asking. This is what we&#8217;re determining here with our team at the student health center. And I&#8217;m expecting this as a type of questions that your provider would ask you as you go into get evaluated.</p>
+<p>Sheri Ledbetter:</p>
+<p>Great. Great. That&#8217;s super helpful. Thank you. So let&#8217;s switch gears a little bit to some of the things that we are both seeing and hearing, um, out and about. So if you walk through campus this week, what are we seeing more of? We&#8217;re seeing a lot more students wearing face masks. Um, are, is that helpful? Is that going to prevent anything? Um, should students or faculty or staff or anybody be wearing them? If so, where should they get them? Talk to us a little bit about the importance or not importance of wearing a face mask. Alright.</p>
+<p>Dr Albert Chang:</p>
+<p>So masks is a very important topic and it&#8217;s a very interesting topic as it is. There&#8217;s no expert evidence and it is not a CDC recommendation that wearing a mask and these, these are typical kind of surgical masks will prevent you from getting the Wan or the coronavirus that&#8217;s going around. There are certain types of masks called N 95 masks that healthcare workers are required to be fitted for if they work in environments where they will be at increased risk of exposure not only to coronavirus but to tuberculosis to many other infectious causes. Now these are specific, once again, they&#8217;re fitted to the individual and they&#8217;re quite costly. These are typically what we&#8217;re seeing going around campus, right? We&#8217;re typically seeing the surgical masks, so for the surgical masks, my thinking is even though there&#8217;s not a recommendation to wear them and they may not be protective if you have any kind of cough or any type of respiratory symptoms, I actually think it&#8217;s smart to wear that mask because that means that you&#8217;re not spreading that to others.</p>
+<p>Dr Albert Chang:</p>
+<p>For example, if you come into our student health center and you have cough, my staff is instructed to ask you if you could please wear a mask so that you&#8217;re not spreading anything that&#8217;s in the environment. Now if you don&#8217;t have cough and you&#8217;re just wondering about wearing a mask to protect yourself, even though it&#8217;s not evidence-based, we&#8217;re noticing that some students wear the mask so that they&#8217;re not touching their noses and their mouths as much as they would have done before. As I explained previously, one of the ways that you can get this infection is by touching something and then touching your nose or touching your mouth and if you&#8217;re wearing a mask, the thought is, well that may prevent me from touching my face as often. Once again, not proven. Once again, not a recommendation, but there&#8217;s no reason I can see why you should not wear a mask, so although there may be some type of a protective effect from touching your face or your mouth. Once again, there&#8217;s no evidence based or expert recommendation for wearing a mask. We are looking to have increased supply here on campus and we&#8217;ll be sharing with the campus and our students where they may potentially have more availability.</p>
+<p>Sheri Ledbetter:</p>
+<p>Let&#8217;s talk a little bit about some of the things we&#8217;re hearing now on some of the chatter. There&#8217;s definitely some fear and anxiety happening and it&#8217;s showing itself through the various social media channels. Um, particularly amongst the UCI student body. We&#8217;re hearing questions like, , classes should be canceled. The campus should be closed. , very sort of high level questions like that. Um, you know, or lecture halls, big giant lecture halls. Those classes should be canceled or the, the sort of, , fear of being in a public place where there might be lots of people. Um, what do you say to some of those kinds of fears and anxieties that we&#8217;re hearing and seeing?</p>
+<p>Dr Albert Chang:</p>
+<p>Unfortunately with a lot of the media that&#8217;s out right now and especially social media, um, there are some truly false, um, statements about number one, who these infected individuals are and a lot of concerns about the level of infection that&#8217;s on our campus. So first and foremost, once again, if you do feel that you&#8217;re sick, right? Taking care of yourself, staying at home, we as the student health center are keeping close track on information from both the state and the County on potentially increasing numbers of this infection. And we will be directed by the communicable diseases department in the County. If we should take further measures of students gathering either in classrooms, in public areas and what we may need to do in the dormitories as well. However, until we get that directive, it would be premature to take any actions that would potentially compromise classes, housing or the regular daily activity and function of our student body.</p>
+<p>Sheri Ledbetter:</p>
+<p>Okay. So to be clear at as the, as of the date and time of this podcast, campus is open for normal operations and everyone who is healthy, you know, not at home with a, with a cold or something should plan on, coming to class as normal.</p>
+<p>Dr Albert Chang:</p>
+<p>That&#8217;s exactly correct. Yeah. And you know, that&#8217;s my message year after year, right? So influenza is kind of more of a true concern. We have, the student health center has been seeing a lot of this. I know probably some of our listeners right now have been diagnosed with influenza. So if you&#8217;re sick, once again, stay home, take care of yourself, see your provider, get diagnosed early and get treatment.</p>
+<p>Sheri Ledbetter:</p>
+<p>And let&#8217;s talk for a second about the mental aspect of this. The stress and concern and fear and anxiety just in for all of being in public places of being in big lecture halls, you&#8217;re sitting there, somebody else coughs, you suddenly feel stress. You know, we&#8217;re trying, you know, through this podcast and other communications to kind of quell that with, with information that we have at hand. Um, or there might be students out there who even have family in China that are stressed about what&#8217;s happening back home and those kinds of things. Um, what can those students do that are feeling sort of the mental impact of, of what&#8217;s happening? Right?</p>
+<p>Dr Albert Chang:</p>
+<p>So first and foremost, we have resources on campus. So coming into us at student health center, right? This is for our physical ailments. This is for illness, but also of stress, anxiety, things get to be a bit out of control. All of our providers are trained to support that effort. We also have a wonderful counseling center on campus, so they have trained providers to address these situations. Exactly. Um, on top of that, there are resources through the student wellness. And health promotion center and other resources to our social workers as well. So a lot of avenues of support for our students. And sometimes it just takes reaching out to one because we know that this is been focused on some of our international students. We&#8217;re also reaching out to the international student center. So developing resources, podcast potential like this or just generating information about what we can do for select populations.</p>
+<p>Dr Albert Chang:</p>
+<p>Yeah, I couldn&#8217;t imagine if my family was in China and if either they were in Wuhan or an areas where this infection was spreading. My level of, of anxiety, stress and concern. On top of that, I&#8217;m trying to keep up my studies here and just balancing life across the other side of the world. And we&#8217;ve talked to many students and this definitely is potentially the core of their fear, right? And it&#8217;s very justified. It&#8217;s, it&#8217;s difficult and you see so much media about how things are worsening and the worries are not only for yourself but for potential family members with concerns about closing classes or closing the campus. This is a very kind of strong request and a strong effort. As we&#8217;ve talked to many students. Closing classes would be a very challenging situation for them, especially our graduate students who have projects and courses to complete.</p>
+<p>Being out for two weeks would be devastating to their academic careers. Now potentially accommodations could be made but in many cases they couldn&#8217;t. Getting back to the concern of the fear that&#8217;s there that I may be exposed, something might happen to me or my classmates. I guess this is the true challenge and this is I guess a bit of the trust. We as a student health center and the UCI campus as a whole are committed to keeping the health and safety of each and every one of our staff members, our faculty members and most importantly our students as the highest priority or working hard 24 hours a day doing things that we may not communicate out as quickly as we could, but the health and the wellbeing is our top priority. Once we notice anything that&#8217;s coming on, we&#8217;ll be sure to communicate. If there&#8217;s an effort that we can make, we, we would appreciate your support in also communicating that right best way or taking action to protect yourselves because in protecting yourselves, your particular community as a whole.</p>
+<p>So just to kind of summarize, right, if you are feeling sick personally, please stay home. Do not come to class, get seen by your provider, contacting them first to keep yourself healthy, covering your cough with your, your arm, wearing a mask if that&#8217;s best fit for you, keeping well hydrated and just keeping yourself healthy. So that&#8217;s a healthy diet, that&#8217;s drinking water right and just taking care of yourself. If you have any additional questions or other symptoms, be sure to contact your healthcare provider. And most importantly, as we&#8217;ve discussed here is the mental health resources for anxiety or stress. So us as a student health center, the counseling center, your own provider and many other resources are being made available to you here on campus.</p>
+<p>Sheri Ledbetter:</p>
+<p>Dr. Chang, we know that you are a very busy person just in your day to day of running the student health center. And we know you&#8217;ve been pulled in a lot of directions in the last, 36 hours in trying to understand coronavirus along with the rest of the medical community. And we&#8217;re so appreciative of you making time to be with us here today. To set the record straight, at least as we know it today, we know this is still evolving and, and maybe we&#8217;ll have you back on again. We&#8217;ll see what happens. But again, thank you so much for your time today.</p>
+<p>Dr Albert Chang:</p>
+<p>It&#8217;s my pleasure. And once again, our commitment is to our students, so we&#8217;d be happy to do updates as they come up.</p>
+<p>Sheri Ledbetter:</p>
+<p>To get the latest information about coronavirus, go to ehs.uci.edu/publichealth/coronavirus.</p>
+<p>The UCI podcast is a production of Strategic Communications and Public Affairs. I&#8217;m Sheri Ledbetter. Thank you for listening.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+Coronavirus+discussion: https://news.uci.edu/2020/01/29/uci-podcast-cornonavirus-discussion/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F01%2F29%2Fuci-podcast-cornonavirus-discussion%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/01/29/uci-podcast-cornonavirus-discussion/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/01/29/uci-podcast-cornonavirus-discussion/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/01/29/uci-podcast-cornonavirus-discussion/&title=UCI Podcast: Coronavirus discussion" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: Coronavirus discussion&body=Hey, checkout this web page: - https://news.uci.edu/2020/01/29/uci-podcast-cornonavirus-discussion/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/02/25/uci-podcast-covid-19-long-haulers-and-lasting-neurological-damage/"><img src="https://news.uci.edu/wp-content/uploads/2021/02/210224_Lane_4286_sz-270x180.jpg" alt="UCI Podcast: COVID-19 long haulers and lasting neurological damage" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/02/25/uci-podcast-covid-19-long-haulers-and-lasting-neurological-damage/"><p class="media-heading">UCI Podcast: COVID-19 long haulers and lasting neurological damage</p></a><p><time>February 25, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/07/17/inventive-medicine/"><img src="https://news.uci.edu/wp-content/uploads/2020/07/0716UCI20036-718-270x180.jpg" alt="Inventive medicine" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/07/17/inventive-medicine/"><p class="media-heading">Inventive medicine</p></a><p><time>July 17, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/12/17/science-made-simple-in-spanish/"><img src="https://news.uci.edu/wp-content/uploads/2020/12/Loh-Down-on-Science-Espanol-1024x805-270x180.jpg" alt="Science made simple – in Spanish" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/12/17/science-made-simple-in-spanish/"><p class="media-heading">Science made simple – in Spanish</p></a><p><time>December 17, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/02/14/uci-podcast-inclusivity-during-challenging-times/"><img src="https://news.uci.edu/wp-content/uploads/2019/01/Haynes_140203_05_sz-270x180.jpg" alt="UCI Podcast: Douglas Haynes urges inclusivity during coronavirus scare" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/02/14/uci-podcast-inclusivity-during-challenging-times/"><p class="media-heading">UCI Podcast: Douglas Haynes urges inclusivity during coronavirus scare</p></a><p><time>February 14, 2020</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://shc.uci.edu/">Student Health Center</a>
+            </div>
+            <div class="list-url">https://shc.uci.edu/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://ehs.uci.edu/PublicHealth/coronavirus.html">Coronavirus resources and updates</a>
+            </div>
+            <div class="list-url">https://ehs.uci.edu/PublicHealth/coronavirus.html</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/coronavirus/" class="" rel="tag">coronavirus</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/student-health-center/" class="" rel="tag">Student Health Center</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

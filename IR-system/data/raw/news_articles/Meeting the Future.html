@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>Meeting the Future | UCI News | UCI</title>
+
+    <title>Meeting the Future &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Lessons Learned' href='https://news.uci.edu/2021/05/31/lessons-learned/' />
+<link rel='next' title='Seizing Opportunities to Improve Campus Health' href='https://news.uci.edu/2021/05/31/seizing-opportunities-to-improve-campus-health/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2021/05/31/meeting-the-future/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=55028' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2021%2F05%2F31%2Fmeeting-the-future%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2021%2F05%2F31%2Fmeeting-the-future%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="With plans for a new medical complex and college of health sciences underway, UCI continues its evolution to help the individual and the broader community">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="Meeting the Future"/>
+<meta itemprop="name" content="Meeting the Future"/>
+<meta property="og:url" content="https://news.uci.edu/2021/05/31/meeting-the-future/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-05-31T20:24:38-07:00"/>
+	<meta property="article:modified_time" content="2021-05-31T20:24:38-07:00" />
+<meta property="og:updated_time" content="2021-05-31T20:24:38-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Hospital"/>
+<meta property="article:section" content="Magazine"/>
+<meta property="og:description" content="With plans for a new medical complex and college of health sciences underway, UCI continues its evolution to help the individual and the broader community"/>
+<meta itemprop="description" content="With plans for a new medical complex and college of health sciences underway, UCI continues its evolution to help the individual and the broader community"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6281_sz_768x512-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6281_sz_768x512-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">Meeting the Future</h1>
+
+            <h2 class="page-subheadline">With plans for a new medical complex and college of health sciences underway, UCI continues its evolution to help the individual and the broader community</h2>
+
+            <div class="page-date">
+                
+	by Cathy Lawhon | UCI Magazine, Spring 2021 | 
+
+                May 31, 2021            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6281_sz_768x512-768x512.jpg" alt="Meeting the Future" class="img-responsive">												<div class="caption">Steve Zylius/UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p>Rebar and steel girders rising at UCI signal a new era in the campus’s growth and healthcare profile. Never shy of a challenge, UCI is emerging from a year defined by COVID-19, realizing a decades-long vision fueled by medical and managerial lessons learned during that time. The clear message: When a once-in-a-century pandemic throws a wrench into the world, use it to build something worthy of transforming lives for the next generation.</p>
+<p>Taking that to heart, UCI has embarked on a building boom that incorporates its expertise in technology, green energy and eco-friendly design and fulfills commitments to healthcare and wellness and world-changing research articulated in the university’s $2 billion Brilliant Future fundraising campaign.</p>
+<p>The strategic growth spurt began with the new Interdisciplinary Science and Engineering Building, which opened in December 2020. Meanwhile, funding and development continues on a permanent home for the UCI Institute and Museum of California Art.</p>
+<p>Two combined healthcare projects kicked off in November 2020, when the campus broke ground on a landmark, 9-acre health sciences complex at Bison and California avenues. That project will be joined by the construction of a new medical center that will anchor the northern edge of university property.</p>
+<p>“We knew when I came here in 2013 that we would get bigger, but we’re not growing just to grow,” says UCI Chancellor Howard Gillman. “We’re continuing to grow in a way that has impact – on our student body, on the community and in the world – with our research and with a vision of health sciences that’s different from what we had originally. We’re realizing a unique opportunity among all of American higher education to build out in accordance with our special mission of working together to serve the whole person and community.”</p>
+<p>For Dr. Steven Goldstein, vice chancellor for health affairs, the combined projects position UCI to serve all of Orange County’s 3.2 million people and provide leadership in the future of healthcare excellence, equity, access, precision and cost control. Accomplishing all that will require collaboration from STEM fields, humanities, arts, social sciences and more – a multidisciplinary approach that has become UCI’s hallmark.</p>
+<hr />
+<h2><span style="color: #1b3d6d">Health Center</span></h2>
+<h3>An academic medical facility serving coastal and southern Orange County</h3>
+<div id="attachment_55155" style="width: 778px" class="wp-caption aligncenter"><a href="https://news.uci.edu/wp-content/uploads/2021/05/Irvine-Newport-Rendering-Oct-2020b_768x432.jpg"><img aria-describedby="caption-attachment-55155" class="img-responsive wp-image-55155 size-full" src="https://news.uci.edu/wp-content/uploads/2021/05/Irvine-Newport-Rendering-Oct-2020b_768x432.jpg" alt="rendering of future UCI Medical Center in Irvine" width="768" height="432" srcset="https://news.uci.edu/wp-content/uploads/2021/05/Irvine-Newport-Rendering-Oct-2020b_768x432.jpg 768w, https://news.uci.edu/wp-content/uploads/2021/05/Irvine-Newport-Rendering-Oct-2020b_768x432-300x169.jpg 300w" sizes="(max-width: 768px) 100vw, 768px" /></a><p id="caption-attachment-55155" class="wp-caption-text">The new hospital will join the previously approved UCI Health Center for Advanced Care to create UCI Medical Center Irvine-Newport, a full-service academic health complex that will bring a broad spectrum of sophisticated healthcare services to coastal and southern Orange County. UCI</p></div>
+<p>A hospital as hub for research, teaching and healing on the UCI campus realizes the dream born when President Lyndon B. Johnson landed in a helicopter a short distance away from the corner of Jamboree Road and Campus Drive 57 years ago to dedicate the land upon which the university would rise. Construction on the UCI Medical Center in Irvine is expected to begin in the latter half of 2021 and be completed in two phases between 2022 and 2025. Philanthropic donations, health operations revenue and loans will fund the $1.2 billion project.</p>
+<p>The plans anticipate demographic changes – including 30 percent growth in those over the age of 65, the population most in need of healthcare – during the next four decades. The new medical campus will allow the community to stay ahead of the demand for the cutting-edge services provided by an academic health center. The COVID-19 pandemic and its associated challenges also highlight the need for the facilities, Goldstein says.</p>
+<p>“The only way to offer the best possible care – now and in the future – is through our mission to discover, teach and heal,” he says. “This new medical center is a central star in that process. The discovery domain includes services like advanced cancer trials, where our patients can benefit from new therapies only available at National Cancer Institute-designated Comprehensive Cancer Centers, like our Chao Family Center. As teachers, we also lead the nation, educating health innovators who form the backbone of the diverse workforce of the future. And this new health campus allows us to continue to attract world-leading physicians, nurses, pharmacists and population health experts to Orange County who promote healing in the most advanced ways.”</p>
+<p>The new medical complex will grow from what has been the peripheral nervous system of the campus since its founding – most recently home to facilities management, transportation and distribution services, and the UCI Arboretum, which will be relocated as part of a new campus “naturescape” project.</p>
+<p>Phase one is the 168,000-square-foot UCI Health Center for Advanced Care, which comprises the Center for Children’s Health, wellness programs, outpatient specialty disciplines and clinical trials in cancer infusion. Phase two is a 144-bed acute care hospital and the Chao Family Comprehensive Cancer Center and Ambulatory Care, focused on oncology, neurosciences, orthopedics, and spine and digestive health, along with emergency services. Opening for the combined 632,000 square feet is planned for 2025.</p>
+<p>Buildings will incorporate sustainable construction and green technology. Low-water-demand plantings and recycled water for irrigation will mitigate water use. High-performance glazing and building insulation, efficient lighting and air conditioning, and other measures will exceed California energy efficiency requirements by at least 20 percent. Electric heating and cooling systems will be served by UC green power – a system of renewable power sources.</p>
+<hr />
+<h2><span style="color: #1b3d6d">“The only way to offer the best possible care –<br />
+now and in the future – is through our mission to<br />
+discover, teach and heal.” </span></h2>
+<hr />
+<p>More visible to patients will be the many innovations in patient-based healing. Imagine cancer infusion suites with expansive views of marshland preserves and outdoor porches that give patients access to the healing power of nature, Goldstein says. Crowded waiting rooms are part of the pre-pandemic past. Instead, patients will find options for outdoor waiting areas and technologically advanced diagnostic hubs. And from intensive care to step-down units, patients will stay in one bed and caregivers will rotate as required, eliminating the need to transfer people from room to room.</p>
+<p>New technology will allow medical teams to leverage UCI’s unique expertise in artificial intelligence to assess care needs. During the COVID-19 pandemic, UCI Health doctors entered patient data into a vulnerability algorithm that predicted who would most likely require intensive care and intubation and advised how best to treat each patient to avoid that outcome.</p>
+<p>“The system was so successful that the U.S. Department of Health and Human Services asked us to share it nationwide, and we were proud to do so,” Goldstein says.</p>
+<p>“These buildings and UCI’s growth at other medical sites throughout the region are designed for the future,” he notes. “Like the cutting-edge clinical care delivered at UCI Medical Center in Orange, the new health center on the main UCI campus will offer the very best patient-focused care and support for lifelong wellness.”</p>
+<h2 style="color: #6aa2b8">STATS</h2>
+<p><strong><span style="color: #0064a4">Acres</span></strong>: 222, including the medical center, a healing garden and the marsh reserve</p>
+<p><strong><span style="color: #0064a4">Buildings</span></strong>: 2, including a 144-bed acute care hospital and the UCI Health Center for Advanced Care, home to children’s services and medical specialties</p>
+<p><strong><span style="color: #0064a4">Square feet</span></strong>: 800,000 combined, with 64,400 square feet of reserved build-out space for future projects</p>
+<p><strong><span style="color: #0064a4">Parking</span></strong>: 1,350 spaces</p>
+<p><strong><span style="color: #0064a4">Jobs created</span></strong>: 2,500 in construction and staffing</p>
+<p><strong><span style="color: #0064a4">Community health benefits</span></strong>: Serving an expected double-digit increase in Orange County population, with 30 percent growth in those over age 65</p>
+<p><strong><span style="color: #0064a4">Cost</span></strong>: $1.2 billion combined, funded by philanthropic donations, health operations revenue and loans</p>
+<p><strong><span style="color: #0064a4">Special features</span></strong>: Includes the Chao Family Comprehensive Cancer Center and Ambulatory Care, one of only 51 nationally designated centers; and offers advanced technology such as artificial intelligence patient vulnerability algorithm programs that allow analysis of patient data to assess best practices for treatment</p>
+<hr />
+<h2><span style="color: #1b3d6d">Health Sciences Complex</span></h2>
+<h3>A national beacon of integrated care</h3>
+<div id="attachment_55152" style="width: 778px" class="wp-caption aligncenter"><a href="https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6332_sz_768x512.jpg"><img aria-describedby="caption-attachment-55152" class="size-full wp-image-55152 img-responsive" src="https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6332_sz_768x512.jpg" alt="" width="768" height="512" srcset="https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6332_sz_768x512.jpg 768w, https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6332_sz_768x512-270x180.jpg 270w, https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6332_sz_768x512-300x200.jpg 300w, https://news.uci.edu/wp-content/uploads/2021/05/210421_COHS_construction_6332_sz_768x512-720x480.jpg 720w" sizes="(max-width: 768px) 100vw, 768px" /></a><p id="caption-attachment-55152" class="wp-caption-text">Steve Zylius/UCI</p></div>
+<p>Just a short walk away from the campus medical center, a teaching facility is rising on 9 acres at the corner of Bison and California avenues. It will stand as a testament to UCI’s commitment to integrated healthcare.</p>
+<p>The 135,111-square-foot, five-floor Susan &amp; Henry Samueli College of Health Sciences building will be home to students in medicine, pharmaceutical sciences, and population and public health and will provide headquarters for the Susan Samueli Integrative Health Institute. The adjoining Sue &amp; Bill Gross School of Nursing, with 77,028 square feet over four floors, will complete the construction. The complex is expected to open in 2022 and is budgeted at $134 million.</p>
+<p>“These two new buildings, part of our expanded health sciences campus, are designed to foster the creation of the team-based, precision healthcare workers of tomorrow,” Goldstein says. “The facilities will enable interprofessional education and train care providers to operate in synchrony.”</p>
+<p>Sharing space with the integrative health institute will allow students to incorporate its focus on wellness and the whole person. The institute aims to discover and promote effective, evidence-based practices that optimize well-being. Students will be trained to evaluate both conventional and complementary therapies, such as nutrition for long-term health, acupuncture as an alternative to addictive opioids for pain control, and meditation as a method of stress reduction.</p>
+<hr />
+<h2><span style="color: #1b3d6d">“These two new buildings, part of our expanded<br />
+health sciences campus, are designed to foster<br />
+the creation of the team-based, precision healthcare<br />
+workers of tomorrow. The facilities will enable<br />
+interprofessional education and train care<br />
+providers to operate in synchrony.”</span></h2>
+<hr />
+<p>The health sciences complex taking advantage of UCI’s unique open space will fulfill the human desire to interact with nature by providing access to light, airy views of vegetation and water and walking trails. The integration of physical locations with natural habitats is deeply rooted in a vision set forth by founding Chancellor Dan Aldrich Jr. to nurture the building of UCI. The design also features a 150-seat auditorium, a central courtyard that connects to the existing Gavin Herbert Eye Institute, spaces for encouraging such health activities as yoga and tai chi in nature, a Zen garden, and a 600-foot-long wellness walk that leads to the School of Medicine’s Biomedical Research Center.</p>
+<p>Susan and Henry Samueli donated $200 million in part to build this first-of-its-kind college of health sciences focused on interdisciplinary healthcare and whole-person care.</p>
+<p>“We are very excited for the UCI College of Health Sciences to become a national model for integrative health,” Henry Samueli said at the time of the donation – one of the largest ever to a public university. “We believe this model will eventually become the standard approach for promoting health and well-being in our society.”</p>
+<p>The William and Sue Gross Family Foundation committed $40 million to establish a nursing school and assist in the construction of a building to house it.</p>
+<h2 style="color: #6aa2b8">STATS</h2>
+<p><strong><span style="color: #0064a4">Acres</span></strong>: 9</p>
+<p><strong><span style="color: #0064a4">Buildings</span></strong>: 2 – the Susan &amp; Henry Samueli College of Health Sciences and the Sue &amp; Bill Gross School of Nursing</p>
+<p><strong><span style="color: #0064a4">Square feet</span></strong>: 212,139 combined</p>
+<p><strong><span style="color: #0064a4">Students served</span></strong>: Medical, nursing, pharmacy and pharmaceutical sciences, population and public health, and integrative health</p>
+<p><strong><span style="color: #0064a4">Cost</span></strong>: $134 million, funded by philanthropic donations</p>
+<p><strong><span style="color: #0064a4">Special feature</span></strong>: Serves as a national model for promoting team-based care and integrative medicine</p>
+<hr />
+<h2><span style="color: #1b3d6d">Naturescape/Public Gardens</span></h2>
+<h3>A living laboratory</h3>
+<div id="attachment_55156" style="width: 778px" class="wp-caption aligncenter"><a href="https://news.uci.edu/wp-content/uploads/2021/05/210325_aloes_0469_sz_768x512.jpg"><img aria-describedby="caption-attachment-55156" class="size-full wp-image-55156 img-responsive" src="https://news.uci.edu/wp-content/uploads/2021/05/210325_aloes_0469_sz_768x512.jpg" alt="Workers carefully transplant a Uitenhage aloe, " width="768" height="512" srcset="https://news.uci.edu/wp-content/uploads/2021/05/210325_aloes_0469_sz_768x512.jpg 768w, https://news.uci.edu/wp-content/uploads/2021/05/210325_aloes_0469_sz_768x512-270x180.jpg 270w, https://news.uci.edu/wp-content/uploads/2021/05/210325_aloes_0469_sz_768x512-300x200.jpg 300w, https://news.uci.edu/wp-content/uploads/2021/05/210325_aloes_0469_sz_768x512-720x480.jpg 720w" sizes="(max-width: 768px) 100vw, 768px" /></a><p id="caption-attachment-55156" class="wp-caption-text">Workers carefully transplant a Uitenhage aloe, an arborescent species of aloe indigenous to the Eastern Cape province of South Africa, to Aldrich Park in March. Steve Zylius/UCI</p></div>
+<p>UCI’s substantial open space, which distinguishes it from most other major research universities, has given a 15-member Naturescape Advisory Committee the opportunity to redefine the concept of “outdoors” at UCI and transform the stewardship of the campus’s open and wildland resources to enhance the university’s mission.</p>
+<p>The vision – defined by a multidisciplinary faculty/staff committee co-chaired by Richard Demerjian, assistant vice chancellor for campus physical &amp; environmental planning, and Travis Huxman, professor of ecology &amp; evolutionary biology – is a campuswide garden that reflects the area’s human and biological heritage. Like the UCI Arboretum before them, the public gardens, learning centers, experimental sites and more will support teaching, research and community engagement.</p>
+<p>UCI’s naturescape emanates from the center of the campus, linking research, ecology, hydrology, wellness and art radially, reaching outward into academic plazas and greenbelts. The public gardens vision highlights five major plant collections representing the state’s Mediterranean-climate ecosystem. It celebrates the biodiversity of native plants in the California garden, which will be flanked by four additional gardens representing the Western Cape, Chilean, Mediterranean and Australian biomes.</p>
+<div id="attachment_55158" style="width: 778px" class="wp-caption aligncenter"><a href="https://news.uci.edu/wp-content/uploads/2021/05/marsh_050619_0402_sz_768x512.jpg"><img aria-describedby="caption-attachment-55158" class="size-full wp-image-55158 img-responsive" src="https://news.uci.edu/wp-content/uploads/2021/05/marsh_050619_0402_sz_768x512.jpg" alt="Over the years, the San Joaquin Marsh Reserve has provided many UCI students the opportunity for hands-on ecological research." width="768" height="513" srcset="https://news.uci.edu/wp-content/uploads/2021/05/marsh_050619_0402_sz_768x512.jpg 768w, https://news.uci.edu/wp-content/uploads/2021/05/marsh_050619_0402_sz_768x512-270x180.jpg 270w, https://news.uci.edu/wp-content/uploads/2021/05/marsh_050619_0402_sz_768x512-300x200.jpg 300w, https://news.uci.edu/wp-content/uploads/2021/05/marsh_050619_0402_sz_768x512-720x480.jpg 720w" sizes="(max-width: 768px) 100vw, 768px" /></a><p id="caption-attachment-55158" class="wp-caption-text">Over the years, the San Joaquin Marsh Reserve has provided many UCI students the opportunity for hands-on ecological research. Steve Zylius/UCI</p></div>
+<p>The university’s core will connect to the new medical complex at UCI’s northern edge via the North Campus Health and Wellness Trail. Traversing the 202-acre, UC-operated San Joaquin Marsh Reserve, outside a protected 150-foot biological buffer zone, the 1-mile pedestrian and bicycle path will feature two outdoor classrooms, information kiosks, research plots and shaded overlooks. Designed to be open to the community, the trail will be fenced to protect sensitive marsh habitat. Its southern end will meet the San Diego Creek bridge, seamlessly linking the central campus to the marsh.</p>
+<p>Gillman credits campus leaders’ bold strategic plan – one that captured the strong aspirations of the UCI community – for the ambitious new growth spurt.</p>
+<p>“Everyone has agreed that we don’t look for incremental growth,” he says. “We look for big leaps that are specifically linked to a distinct vision and a different way of thinking.”</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=Meeting+the+Future: https://news.uci.edu/2021/05/31/meeting-the-future/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2021%2F05%2F31%2Fmeeting-the-future%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2021/05/31/meeting-the-future/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2021/05/31/meeting-the-future/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2021/05/31/meeting-the-future/&title=Meeting the Future" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=Meeting the Future&body=Hey, checkout this web page: - https://news.uci.edu/2021/05/31/meeting-the-future/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/05/31/seizing-opportunities-to-improve-campus-health/"><img src="https://news.uci.edu/wp-content/uploads/2021/05/210329_Hayashida_0867_sz_768x512-270x180.jpg" alt="Seizing Opportunities to Improve Campus Health" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/05/31/seizing-opportunities-to-improve-campus-health/"><p class="media-heading">Seizing Opportunities to Improve Campus Health</p></a></div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/05/20/the-promise-keeper/"><img src="https://news.uci.edu/wp-content/uploads/2021/05/210220-N-JY509-0045_768x512-270x180.jpg" alt="The Promise Keeper" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/05/20/the-promise-keeper/"><p class="media-heading">The Promise Keeper</p></a><p><time>May 20, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/05/31/lessons-learned/"><img src="https://news.uci.edu/wp-content/uploads/2021/05/200820_ME_Student_Shoot-1180_768x512-270x180.jpg" alt="Lessons Learned" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/05/31/lessons-learned/"><p class="media-heading">Lessons Learned</p></a><p><time>May 31, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/05/31/the-anteater-experience/"><img src="https://news.uci.edu/wp-content/uploads/2021/05/210409_Kosai_2834_sz-4_768x512-270x180.jpg" alt="The Anteater Experience" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/05/31/the-anteater-experience/"><p class="media-heading">The Anteater Experience</p></a></div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://news.uci.edu/2021/01/21/uci-to-build-world-class-hospital-on-irvine-campus/">UCI to build world-class hospital on Irvine campus</a>
+            </div>
+            <div class="list-url">https://news.uci.edu/2021/01/21/uci-to-build-world-class-hospital-on-irvine-campus/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://news.uci.edu/2020/08/13/new-uci-health-center-for-advanced-care-to-provide-greater-access-to-world-class-care/">New UCI Health Center for Advanced Care to provide greater access to world-class care</a>
+            </div>
+            <div class="list-url">https://news.uci.edu/2020/08/13/new-uci-health-center-for-advanced-care-to-provide-greater-access-to-world-class-care/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://news.uci.edu/2020/02/16/uci-to-start-construction-on-samueli-college-of-health-sciences-complex/">UCI to start construction on Samueli College of Health Sciences complex</a>
+            </div>
+            <div class="list-url">https://news.uci.edu/2020/02/16/uci-to-start-construction-on-samueli-college-of-health-sciences-complex/</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/orange-county-reports-40-more-covid-cases-2-more-deaths/">Orange County reports 40 more COVID cases, 2 more deaths</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/san-francisco-crime-is-starting-to-look-more-like-it-did-before-the-pandemic/">San Francisco crime is starting to look more like it did before the pandemic</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/11/county-health-agencies-fighting-disease-also-have-to-fight-for-state-funds/">County health agencies — fighting disease — also have to fight for state funds</a></h5>
+                
+                                <p class="rp-date rp-info">June 11, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/10/ca-workplace-mask-rules-in-limbo-business-owners-protest-in-santa-ana/">CA workplace mask rules in limbo; business owners protest In Santa Ana</a></h5>
+                
+                                <p class="rp-date rp-info">June 10, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/uci-magazine-spring-2021/" class="" rel="tag">UCI Magazine - Spring 2021</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

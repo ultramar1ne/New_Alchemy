@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: Michelle Deutchman on the pandemic&#8217;s effect on campus free speech | UCI News | UCI</title>
+
+    <title>UCI Podcast: Michelle Deutchman on the pandemic&#8217;s effect on campus free speech &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Why your traditional Riverside County polling place might not be there Nov. 3' href='https://news.uci.edu/2020/08/10/why-your-traditional-riverside-county-polling-place-might-not-be-there-nov-3/' />
+<link rel='next' title='UCI physicists play a leading role in an international quest to find sterile neutrinos' href='https://news.uci.edu/2020/08/10/uci-physicists-play-a-leading-role-in-an-international-quest-to-find-for-sterile-neutrinos/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/08/10/uci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=48624' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F10%2Fuci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F10%2Fuci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: Michelle Deutchman on the pandemic&#039;s effect on campus free speech"/>
+<meta itemprop="name" content="UCI Podcast: Michelle Deutchman on the pandemic&#039;s effect on campus free speech"/>
+<meta property="og:url" content="https://news.uci.edu/2020/08/10/uci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-10T10:54:51-07:00"/>
+	<meta property="article:modified_time" content="2020-08-10T10:54:51-07:00" />
+<meta property="og:updated_time" content="2020-08-10T10:54:51-07:00" />
+<meta property="article:section" content="Campus Life"/>
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Law"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="article:section" content="Staff"/>
+<meta property="article:section" content="Students"/>
+<meta property="og:description" content="The free speech movement was born on college campuses in the 1960s as students protested the Vietnam War and voiced their support for civil rights. But what will happen as the COVID-19 pandemic suppresses in-person campus gatherings, and as discourse increasingly moves online? The University of"/>
+<meta itemprop="description" content="The free speech movement was born on college campuses in the 1960s as students protested the Vietnam War and voiced their support for civil rights. But what will happen as the COVID-19 pandemic suppresses in-person campus gatherings, and as discourse increasingly moves online? The University of"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/08/winter2019_deutchman_181023_0008_sz-768x512-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/08/winter2019_deutchman_181023_0008_sz-768x512-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">UCI Podcast: Michelle Deutchman on the pandemic&#8217;s effect on campus free speech</h1>
+
+            <h2 class="page-subheadline"></h2>
+
+            <div class="page-date">
+                
+                August 10, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/08/winter2019_deutchman_181023_0008_sz-768x512-768x512.jpg" alt="UCI Podcast: Michelle Deutchman on the pandemic&#8217;s effect on campus free speech" class="img-responsive">												<div class="caption">Michelle Deutchman is the executive director of the University of California&#8217;s National Center for Free Speech and Civic Engagement. Steve Zylius/UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fuci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p><span style="font-weight: 400">The free speech movement was born on college campuses in the 1960s as students protested the Vietnam War and voiced their support for civil rights. But what will happen as the COVID-19 pandemic suppresses in-person campus gatherings, and as discourse increasingly moves online? The University of California&#8217;s National Center for Free Speech and Civic Engagement was formed in 2017 to foster dialogue about these kinds of free speech issues, and it&#8217;s housed at UC’s Washington, D.C. location. UCI Chancellor Howard Gillman is the co-chair and Executive Director Michelle Deutchman is based here at UCI. In this edition of the UCI Podcast, Deutchman discusses her views on how the coronavirus pandemic is affecting campus free speech, plus the future of campus protests in this new environment.</span></p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; <a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M">Google Podcasts</a> &#8211; <a href="https://www.stitcher.com/podcast/the-uci-podcast">Stitcher</a> &#8211; <a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A">Spotify</a></strong></p>
+<p>&nbsp;</p>
+<p><strong>Transcript</strong></p>
+<p><span style="font-weight: 400">AARON ORLOWSKI, HOST</span></p>
+<p><span style="font-weight: 400">The free speech movement was born on college campuses in the 1960s as students protested the Vietnam War and voiced their support for civil rights. But what will happen as the COVID-19 pandemic suppresses in-person campus gatherings, and as discourse increasingly moves online?</span></p>
+<p><span style="font-weight: 400">From the University of California, Irvine, I&#8217;m Aaron Orlowski, and you&#8217;re listening to the UCI Podcast.</span></p>
+<p><span style="font-weight: 400">To learn more about the pandemic’s effect on free speech, especially on college campuses, I reached out to Michelle Deutchman, who&#8217;s the executive director of the University of California&#8217;s National Center for Free Speech and Civic Engagement. The Center was formed in 2017 to foster dialogue about free speech issues, and it&#8217;s housed at UC’s Washington, D.C. location. UCI Chancellor Howard Gillman is the co-chair and Michelle is based here at UCI. Michelle, thank you for joining me today on the UCI Podcast.</span></p>
+<p><span style="font-weight: 400">MICHELLE DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">Hi Aaron. Thanks so much for having me. I&#8217;m really excited.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Well, there is so much happening today in the world that intersects with questions of free speech. There&#8217;s the pandemic and the recent protests over police brutality, and of course in the long term, this ongoing shift to online culture. But I want to ask you about the pandemic first. So university activities moved largely online this spring, and it looks like that will be the case for a lot of the foreseeable future. So what happens to students&#8217; ability to speak freely when they&#8217;re increasingly interacting through the internet?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">You know, Aaron, that&#8217;s a great question. And I actually think it&#8217;s one of the kind of key questions of the moment and it&#8217;s one that I think we don&#8217;t quite yet know the answer to, certainly not in a definitive answer, because this is all a part of a grand experiment. And I think we&#8217;re going to continue to see how the movement online has impacted various aspects of higher ed, including dialogue and debate. In terms of the classroom, I&#8217;ve talked with a lot of experts and stakeholders who are concerned that remote learning will have a detrimental impact on discourse. We&#8217;re overwhelmed with challenging conversations on polarizing topics that are hard enough to facilitate in person. And I think the concern is that it will become even more difficult to facilitate them online. Others, I think, have expressed concern that there&#8217;s a lot of studies that show when people interact online, sometimes they showcase less empathy because the person who&#8217;s speaking can not always see the impact of their comments on others.</span></p>
+<p><span style="font-weight: 400">So I think there are definitely reasons to be concerned. At the same time, I think there is some reason for hopefulness. I was on a call yesterday with the Center&#8217;s </span><a href="https://freespeechcenter.universityofcalifornia.edu/programs-and-resources/voice-initiative/"><span style="font-weight: 400">VOICE</span></a><span style="font-weight: 400"> grant recipients. That&#8217;s our valuing open and inclusive conversation and engagement initiative. And some of the participants were really lauding opportunities that remote learning provides, vis-a-vis expression. For instance, in an in-person setting, right, the major vehicle to participate is you raise your hand and you speak aloud in front of others. And some of the VOICE recipients were talking about how remote learning platforms, because of the chat function, because of the Q&amp;A function, because of the ability to use symbols and emojis like a thumbs up to show support for an idea or a claim, that actually had me provide more opportunities for different ways for students to participate.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">So on the one hand, students may not have as much empathy when they&#8217;re communicating online, but on the other hand, potentially those folks who don&#8217;t speak up as much might be able to speak up more in a medium in which they feel comfortable.</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">I think there&#8217;s going to be, exactly, both positives and negatives. And I think a critical piece is equipping faculty and students, grad students, in particular with skills to facilitate these tough conversations. And I think that&#8217;s something that universities can do a better job of, whether we&#8217;re looking at in class or online. And the same goes for students. Learning how to use your voice is a skill. It&#8217;s a muscle that has to be flexed and it needs to be practiced. And I think that needs to be sort of more integrated into life on campuses. How do you do that as a student? How do you do that as a teacher? How do you do that as a leader?</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Stepping back a little bit because the internet is the context for this conversation right now. We&#8217;re talking about remote learning and that&#8217;s communication that happens over the internet. How has the internet shaped discourse on college campuses in your view?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">Well, I&#8217;m going to confess that the internet did not come into being until I was well into my junior year in college. And even then it was a huge production to have to use it. So it&#8217;s hard for me to fully imagine all the ways I think the internet shapes discourse on campus, but I&#8217;ll share a few of my thoughts. I think that the internet of course expands our knowledge about the world and our access to that knowledge. But I also think that it can have a limiting component, as well. And I think that&#8217;s the part that concerns me when we talk about discourse on campus. It used to be that you really needed to rely on peers and professors and administrators to get information about current events or your academic discipline. But now you can be in your dorm room and create a bubble where you&#8217;re only allowing in certain kinds of information and viewpoints.</span></p>
+<p><span style="font-weight: 400">And in that way I think it could be very limiting. And I also think we have this sort of soundbite culture, 24-7 news cycle, time is at a premium, and the internet and social media contribute to that. And I think when we&#8217;re only using a limited number of characters to express ourselves, I think it&#8217;s hard to get to the nuance. And I think a lot of these issues are kind of like onions. You&#8217;ve got to peel back all of the layers to get to the heart of the matter. And you might not be able to do that in 30 seconds.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">So you&#8217;re saying that when Twitter increased the character limit from 140 to 280, that did not allow us to speak with full nuance on the internet.</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">Some may disagree with me, but I need more characters to be nuanced. Again, I don&#8217;t want to be a downer. I think again, there are also positives. I mean, I think like we talked about before, when it comes to discourse, the internet offers diverse avenues for expression and one of them is of course, what we&#8217;re engaging in, which is podcasting. And I have seen a lot of students use this medium. Three of our VOICE grantees have kicked off different podcasts on different campuses. One through the UCSB daily newspaper called Now We&#8217;re Talking, one from the Blum Center on Poverty, one from some San Diego students who founded something called Triton’s Voice and they have a podcast on activists in progress. So again, I think that it&#8217;s a, it&#8217;s a balancing act, but I think there are things to be concerned about, but I think we have to also focus on some of the positives.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">And I don&#8217;t want to focus unduly on the things to be concerned about either, because as you mentioned, students are taking to internet tools to express themselves in new and interesting ways. Are you also worried about students potentially self-censoring, though, based on the environment online?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">I mean, yes. I&#8217;m always concerned about self-censoring. Though, I will say that when we use the word self-censoring, it can mean so many different things. In some cases we might be happy that people self-censor. I&#8217;m sure people are happy that I don&#8217;t say everything that comes to my mind. So I think, I just want to note that when we talk about the concerning self-censorship, it&#8217;s this fear or feeling intimidated that if you share your viewpoint, then you&#8217;ll be potentially shamed or people will try to cancel you as part of cancel culture. And I do think that is very concerning, about sort of the narrative that&#8217;s being written about what voices and ideas are permitted. And if you have an idea that is sort of outside, whatever those bounds are, that there could be repercussions.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">So let&#8217;s, let&#8217;s talk a little bit about how we uplift the voices of especially marginalized groups, which is so important in this day and age, as we&#8217;re increasingly seeing. What can we do in the digital conversation to try and give those voices more space?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">I wish I could tell you that I have the answer to this, but I think that one of the things that&#8217;s happening out of what&#8217;s happening in this country, the major civil unrest, following the murders of George Floyd and Ahmaud Arbery and Briana Taylor and others is forcing society, including higher education, to really reckon with the role it&#8217;s played and continues to play in furthering systematic racism. For instance, there have been a lot of voices that have been urging the removal of Confederate monuments and urging name changes for institutions of higher learning for a long time. And all of a sudden we&#8217;re seeing more traction and response in a different way. I think five years ago, Princeton would have been fairly dismissive about pulling Woodrow Wilson&#8217;s name. And so I think we&#8217;re going to continue to see that momentum. But then I think it&#8217;s incumbent on everybody to be intentional when we&#8217;re thinking and planning about how we are going to showcase voices that are not normally heard and how that&#8217;s going to happen on every level.</span></p>
+<p><span style="font-weight: 400">That&#8217;s in hiring practices, that&#8217;s in curriculum, that&#8217;s in talking with your trustees, that&#8217;s in the speakers that you choose when you&#8217;re doing a program. And I do think that the digital platform may help in this way and that we all won&#8217;t be as limited by geographic restrictions and that there are increased opportunities to amplify those voices. But I think it needs to be not the usual suspects who are amplifying those voices, and go outside of the people who are normally bearing the burden, which is normally people of color, and for us all to take on that work to diversify and amplify the voices that we don&#8217;t always hear from.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Well, let&#8217;s talk a little bit about something else. You recently worked on a project to rewrite free speech guidelines here on campus. Can you tell us a bit more about that project? What prompted it?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">What prompted it was, I think in large part, what prompted the formation of the Center, which is just a couple of years ago, this issue of speech on campus and speakers being invited or disinvited was just exploding. And I think most noteworthy was what happened at Berkeley with Milo Yiannopoulos and how it resulted in violence. And the Center was formed as a sort of a response to that. And I think one of the things that many campuses, including UCI, did was to think to themselves, how do we rethink and review how we deal with speech on campus? And so Chancellor Gillman basically tasked the UCI campus counsel Kyhm Penfil with creating a group that would be a diverse group of people representing all different parts of the university, whether that’s student affairs or law enforcement, research, to come together and literally look at every free speech regulation that we have. So it&#8217;s an ongoing process, but I would say one of the major accomplishments, and this is where I get a little policy wonky, that I thought was great was we actually rewrote the guidance on protest and disruption. And the idea was to create guidance that student protesters and others could really look at and understand, okay, what are some of the things we&#8217;re going to take into consideration when we&#8217;re trying to decide in a student conduct situation, what&#8217;s protected protest and what&#8217;s disruption?</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">You know, you bring up that really complicated question of different people&#8217;s free speech rights in those situations — the rights of the speaker and the rights of the protestors. How do those things interact? Where does one take precedence over another? Or how do you reconcile those two sets of rights?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">So I&#8217;m going to give a cagey answer that people always think lawyers give, but it&#8217;s the real answer. And then I&#8217;ll extrapolate, which is, it really depends. I mean, I think part of the question becomes what kind of forum? Constitutional law talks about spaces as forums. Where are you? If you&#8217;re on Ring Road, that&#8217;s really different than being in a classroom that it&#8217;s been reserved for a specific speaker on a specific topic. So let&#8217;s take that example. You&#8217;re a student group, you, Aaron, have invited a speaker to speak or you&#8217;ve reserved a room in the student center. You&#8217;ve invited people to attend. So other students come to protest. They have signs they&#8217;re wearing t-shirts, maybe they&#8217;re handing out flyers outside. Maybe they&#8217;re passing out information, while the speaker is talking. Probably all of that is protected protests, and that&#8217;s what should happen. We want a variety of ideas.</span></p>
+<p><span style="font-weight: 400">But if one protester gets up and starts shouting so loudly and for so long that the audience can no longer hear the speaker, that protester has stepped out of the bounds of what is constitutionally protected. The First Amendment does not protect the right of protestors to preclude the speaker from being heard. And we have to remember, I think sometimes we forget that it&#8217;s not just about the speaker and the protesters. There&#8217;s also the people who are listening, and they also have free speech rights to hear that speaker. So I think that&#8217;s the tricky situation. And I think the purpose of the guidance is to answer more of the question of what do you do when that happens? What is the step-by-step process that takes place? What does the moderator say? How many warnings do you give. How do we try to create a resolution that ideally will not involve removing people from the room and will not involve campus law enforcement?</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">And so the guidelines kind of go through that step-by-step process of balancing those two things or balancing those things?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">The guidelines list a number of factors, factors that work — things that are usually considered protected protests and things that are usually not considered protected protest. It has language that a moderator can use to say to protesters, “We&#8217;re glad you&#8217;re here. We&#8217;ve heard your perspective. You&#8217;re welcome to stay and do question and answers, but we&#8217;re going to ask you not to disturb the event any longer.” And there&#8217;s some guidance about how many warnings might take place before you go to the next step. But again, it&#8217;s all very context specific. So for instance, Aaron, and if it&#8217;s your event and you&#8217;re the moderator, and I&#8217;m the protester, if you start talking to me and asking me questions about my perspective, that changes the guidance. Because now you&#8217;re engaging me and you&#8217;re actively asking for my feedback, as opposed to saying, “Thank you so much. I&#8217;d like you to wait like everybody else to ask your questions or make your point.”</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Of course, culture on these topics shifts over time. And, you know, college students today, it seems like they grew up in a different environment than college students in the past. They had many anti-bullying lessons and just a sort of a different environment. So how do you think that affects how they think about hate speech and protests and those issues today?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">I have a lot of thoughts about that, especially as the parent, as a parent of two young kids. I&#8217;m hyper aware of how often I know I&#8217;m talking about words and the power of words, the impact of words, the importance of using kind words, of being an ally, of standing up when you hear things that are offensive to you. In grade school, when someone is bullying you, teachers have a lot more leeway than in college to say, “Hey, stop saying that.” So the bottom line, though, is hate speech is protected in the United States under the Constitution. Now, we can have a very interesting, and there is a very interesting, ongoing discussion about whether that should be the case, but for now that&#8217;s what we have to work with. And what I see is that we give students a lot of training on the anti-bullying piece, but we don&#8217;t pair it with the civics lesson of (how) free speech includes hateful speech. And then you drop them off on a large public university where offensive speakers are invited and everybody is surprised that they&#8217;re angry and confused. And I think that&#8217;s unfair to them. So for me, part of the work of the Center is really to ensure that there&#8217;s education. I mean, the education needs to start way earlier than college, but also when students get to college, not just of which speech is allowed, but if you&#8217;re going to run into really ugly speech that&#8217;s permitted, how are you going to respond? How are we giving students and other campus stakeholders tools to respond as members of the community and to be able to use their voice in a way to respond to a lot of polarizing and ugly things.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Well, and there are so many ways to, as you just said, respond. And I would kind of guess that you would say that in this type of instance, more speech is better. So what do you view as some ways that students can generally respond to that hate speech without just shutting it down?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">Yeah. I mean, I think, yes, I think more speech can be better. But I also think it&#8217;s naive to just assume that everybody has the same power with their speech. I think there are a lot of power dynamics right in the First Amendment and not everybody has the same megaphone or the same platform. And I think that feeds back into the issues we were talking about earlier about students of color, people of color, anti-Black racism, whose voices are heard? So in addition to more speech, I mean, I do think some of the other things is, okay, instead of standing and protesting Milo Yiannopoulos, what about doing a different event at the same time, somewhere else on campus, that&#8217;s really going to further different values and ideas? So we&#8217;re going to bring people, instead of giving the speaker with the hateful ideology the attention that he or she might crave, let&#8217;s go somewhere else and do a different event with different ideas and bring more people there.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">But I have to ask, with this age of physical distancing and fewer group gatherings, is this still an issue?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">I think you&#8217;re right. I sometimes I have a moment where I forget the world that we&#8217;re in. I mean, I do. I think it just has different forms, unfortunately. I mean, I think zoom bombing is one of the ways that we&#8217;ve seen this happen, which is very disruptive. And I think you&#8217;re seeing campuses, including UCI, how do you respond to that? How do you do alternate programming to talk about the pain of this? OIT (Office of Information Technology) has been talking about how do you try to guard against it? So, yeah, I do think that you can do those kinds of things. They might not be people all together in one room, but there are people gathering in online platforms to be together to share ideas collectively, to brainstorm and also just to give each other support. I mean, I think this is a very emotionally and physically draining time, especially if you&#8217;re a protester, whether you&#8217;re protesting on the streets or you&#8217;re doing it online. There&#8217;s been a lot of interesting stuff written about self-care and how are people going to have resilience? And we actually have one of our fellows this year whose whole focus is on resilience for Student Affairs folks. And it&#8217;s fascinating.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Yeah. Well, looking ahead to the coming months here, university campuses have always been places of great activism and a lot of social change has started and spread on college campuses. So how does that activism survive as we continue through this remote learning environment?</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">I have to say that there&#8217;s been so many moments where I think to myself, how different would all of this have looked, this time of civil unrest, if students had been on campus? It was sort of almost, it was weird to see. I mean, there were some in person protests on campus, but to see sort of those empty quads that probably would have been filled with people. I think that activism not only survives, but I think it has an opportunity to thrive. And the Center just did a webinar called The Shifting Landscape: What Will Speech and Activism Look Like in Higher Education. And it featured two of our fellows and a graduate student activist and you know what, it was incredibly helpful. They were able to showcase so many ways that campus activism has adapted to the new virtual world, whether it&#8217;s Strike University or through the Sunrise Movement, taking classes. A lot of discussion about how there&#8217;s just more opportunities for people to join, again, online, you don&#8217;t have to go to a specific place to do it. And we&#8217;re actually going to be publishing the fourth installment of our Speech Spotlight next week, and it&#8217;s all about supporting student activism and it showcases some of the ways that students have been able to adapt to this virtual model.</span></p>
+<p><span style="font-weight: 400">I think that there is incredible creativity and innovation, and I feel very positive about what the potential is, once we can sort of get over that it isn&#8217;t going to be the same as what it once was. I think there is so much possibility.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Michelle, thank you for joining me today on the UCI Podcast.</span></p>
+<p><span style="font-weight: 400">DEUTCHMAN</span></p>
+<p><span style="font-weight: 400">Aaron, thanks so much.</span></p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+Michelle+Deutchman+on+the+pandemic%26%238217%3Bs+effect+on+campus+free+speech: https://news.uci.edu/2020/08/10/uci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F10%2Fuci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/08/10/uci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/08/10/uci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/08/10/uci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech/&title=UCI Podcast: Michelle Deutchman on the pandemic&#8217;s effect on campus free speech" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: Michelle Deutchman on the pandemic&#8217;s effect on campus free speech&body=Hey, checkout this web page: - https://news.uci.edu/2020/08/10/uci-podcast-michelle-deutchman-on-the-pandemics-effect-on-campus-free-speech/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/03/31/chemistry-faculty-launch-antiviral-research-project/"><img src="https://news.uci.edu/wp-content/uploads/2020/03/Martin_DSC_8326-270x180.jpg" alt="Chemistry faculty launch antiviral research project" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/03/31/chemistry-faculty-launch-antiviral-research-project/"><p class="media-heading">Chemistry faculty launch antiviral research project</p></a><p><time>March 31, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><p class="media-heading">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</p></a><p><time>June 9, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/05/20/exploring-exercise-as-medicine/"><img src="https://news.uci.edu/wp-content/uploads/2021/05/rams_160818_04_sz-270x180.jpg" alt="Exploring ‘exercise as medicine’" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/05/20/exploring-exercise-as-medicine/"><p class="media-heading">Exploring ‘exercise as medicine’</p></a><p><time>May 20, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/11/06/uci-podcast-testing-and-tracing/"><img src="https://news.uci.edu/wp-content/uploads/2020/11/Chang_200408-UCI-Student-Health-Center-10-SJG-270x180.jpg" alt="UCI Podcast: Testing and tracing" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/11/06/uci-podcast-testing-and-tracing/"><p class="media-heading">UCI Podcast: Testing and tracing</p></a><p><time>November 6, 2020</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://freespeechcenter.universityofcalifornia.edu/">UC National Center for Free Speech and Civic Engagement</a>
+            </div>
+            <div class="list-url">https://freespeechcenter.universityofcalifornia.edu/</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/coronavirus/" class="" rel="tag">coronavirus</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/covid-19/" class="" rel="tag">COVID-19</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/free-speech/" class="" rel="tag">free speech</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/pandemic/" class="" rel="tag">pandemic</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/protest/" class="" rel="tag">protest</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

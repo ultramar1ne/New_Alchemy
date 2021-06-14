@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: A prescription to reshape healthcare | UCI News | UCI</title>
+
+    <title>UCI Podcast: A prescription to reshape healthcare &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Tackling Coronavirus spread in Anaheim and Santa Ana puts focus on inequity' href='https://news.uci.edu/2020/08/03/tackling-coronavirus-spread-in-anaheim-and-santa-ana-puts-focus-on-inequity/' />
+<link rel='next' title='Single-minded siblings' href='https://news.uci.edu/2020/08/04/single-minded-siblings/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/08/04/uci-podcast-a-prescription-to-reshape-healthcare/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=48471' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F04%2Fuci-podcast-a-prescription-to-reshape-healthcare%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F04%2Fuci-podcast-a-prescription-to-reshape-healthcare%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="Founding Dean Jan Hirsch discusses importance of new School of Pharmacy and Pharmaceutical Sciences at UCI">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: A prescription to reshape healthcare"/>
+<meta itemprop="name" content="UCI Podcast: A prescription to reshape healthcare"/>
+<meta property="og:url" content="https://news.uci.edu/2020/08/04/uci-podcast-a-prescription-to-reshape-healthcare/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-04T06:35:35-07:00"/>
+	<meta property="article:modified_time" content="2020-08-04T06:35:35-07:00" />
+<meta property="og:updated_time" content="2020-08-04T06:35:35-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Faculty"/>
+<meta property="article:section" content="Health"/>
+<meta property="article:section" content="Pharm Sci"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="og:description" content="Founding Dean Jan Hirsch discusses importance of new School of Pharmacy and Pharmaceutical Sciences at UCI"/>
+<meta itemprop="description" content="Founding Dean Jan Hirsch discusses importance of new School of Pharmacy and Pharmaceutical Sciences at UCI"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/08/Hirsch_022420_0397_sz-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/08/Hirsch_022420_0397_sz-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">UCI Podcast: A prescription to reshape healthcare</h1>
+
+            <h2 class="page-subheadline">Founding Dean Jan Hirsch discusses importance of new School of Pharmacy and Pharmaceutical Sciences at UCI</h2>
+
+            <div class="page-date">
+                
+                August 4, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/08/Hirsch_022420_0397_sz-768x522.jpg" alt="UCI Podcast: A prescription to reshape healthcare" class="img-responsive">												<div class="caption">Jan Hirsch is the founding dean of the new School of Pharmacy and Pharmaceutical Sciences at UCI. Steve Zylius / UCI
+photo: Steve Zylius/UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fuci-podcast-a-prescription-to-reshape-healthcare&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p style="margin: 0in;line-height: 150%">UCI is writing the prescription that will reshape healthcare for the 21st century. Last week, the University of California Board of Regents approved the establishment of a new School of Pharmacy and Pharmaceutical Sciences at UCI. As part of the Susan and Henry Samueli College of Health Sciences, the school will approach patient health holistically, conducting research and educating students on the entire continuum from drug discovery to clinical practice. On this episode of the UCI Podcast, Founding Dean Jan Hirsch discusses what differentiates the new school and how it will help solve healthcare’s $528.4 billion problem.</p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; <a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M">Google Podcasts</a> &#8211; <a href="https://www.stitcher.com/podcast/the-uci-podcast">Stitcher</a> &#8211; <a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A">Spotify</a></strong></p>
+<p>&nbsp;</p>
+<p><strong>Transcript</strong></p>
+<p>AARON ORLOWSKI, HOST</p>
+<p>Last week, the University of California Board of Regents approved the establishment of a new School of Pharmacy and Pharmaceutical Sciences at UCI. As part of the Susan and Henry Samueli College of Health Sciences, the school will approach patient health holistically, conducting research and educating students on the entire continuum, from drug discovery to clinical practice.</p>
+<p>From the university of California, Irvine, I&#8217;m Aaron Orlowski, and you&#8217;re listening to the UCI Podcast. Today, I&#8217;m speaking with Jan Hirsch, the founding dean of the School of Pharmacy and Pharmaceutical Sciences. Dean Hirsch, thank you for joining me today on the UCI Podcast.</p>
+<p>JAN HIRSCH, DEAN, SCHOOL OF PHARMACY AND PHARMACEUTICAL SCIENCES</p>
+<p>Hi Aaron, thank you for having me on the podcast.</p>
+<p>ORLOWSKI</p>
+<p>Well, before we start talking about the new School of Pharmacy and Pharmaceutical Sciences, I wanted to ask you about a really jaw-dropping statistic that you&#8217;ve talked about before. And that is $528.4 billion per year. And that&#8217;s how much money is wasted on non-optimized medication therapies. So how did the U.S. arrive at this problem?</p>
+<p>HIRSCH</p>
+<p>It&#8217;s a big number and you&#8217;re right it is jaw dropping, definitely. So we arrived there over many, many, many years. We have a very fragmented healthcare system, and the 528.4 billion is wasted. That number comes from the fact that medications are prescribed to people and to patients and they take them and then they don&#8217;t work. So the treatment fails and then there are downstream costs because of that. Or, they take the medications and there are new medical problems that arise because of the medications. And there are downstream costs from that. Or, you take the medications, it fails and there are new medical problems and there are more downstream costs associated with that. And when you put all that together, then you come up with $528.4 billion wasted because we haven&#8217;t optimized medication therapy. And that&#8217;s one of the things really the new school is focused on because we can help solve that problem with pharmaceutical scientists, with new medications, better diagnoses, better tests and pharmacists to actually help patients utilize those medications more effectively and more safely also.</p>
+<p>ORLOWSKI</p>
+<p>So it sounds like the problem gets solved from at least two ends. And one is the development of the medications and the other is the prescribing of them. And that kind of sounds like essentially two sides of the new school&#8217;s coin, so to speak. It&#8217;s a school of pharmacy and pharmaceutical sciences. So for listeners who aren&#8217;t quite sure what the difference is between those two things, can you tell us, what is the difference between those two different fields?</p>
+<p>HIRSCH</p>
+<p>They sound similar, but they&#8217;re very, very different. And I&#8217;m glad you pointed that out, Aaron, that it is a school of pharmacy and pharmaceutical sciences, and that&#8217;s somewhat of a differentiator for us. Pharmaceutical scientists are more on that beginning end of the continuum of discovering medications, discovering how disease functions, discovering new ways to even detect disease and diagnose diseases. And then you keep moving down that spectrum and you come to more of the clinical practice and that&#8217;s where pharmacists come in. And the pharmacists are actually the ones that are providing clinical care on dispensing medications, yes, but more and more so they&#8217;re providing direct patient care, working in healthcare teams, along with physicians and nurses and clinics, in many different settings, in addition to your normal kind of community pharmacy and hospital settings. And those pharmaceutical scientists are very much trained in the biomedical sciences. Imagine them, they&#8217;re in labs, they&#8217;re in labs discovering and developing. And then the pharmacists are working with patients and patient populations.</p>
+<p>ORLOWSKI</p>
+<p>So why is it so powerful to have both of those aspects inside one school?</p>
+<p>HIRSCH</p>
+<p>It&#8217;s really, really exciting to have that because what we have is we have that whole continuum, from the very beginning of, okay, let&#8217;s help discover new things, new treatments to help improve patients&#8217; health and even keep patients healthier and not even get the diseases. And then we have all the way through to all the pharmacists that are actually going to care for the patient. And being able to look at both ends of that spectrum is exciting from a research standpoint, because we can really do translational research. The early development and discovery can be informed by our clinical faculty that are in the school. That&#8217;s our research. But then also you can imagine it&#8217;s really powerful for our students because then you have people that are teaching them that are looking across the entire spectrum, not just one piece. And truthfully, that&#8217;s how we&#8217;re going to solve a lot of the healthcare problems we have now. And we want to be part of that.</p>
+<p>ORLOWSKI</p>
+<p>Well, let&#8217;s dig a little bit into the specific academic programs. So currently the department has a BS in pharmaceutical sciences and a PhD in pharmacological sciences and a post-baccalaureate in pharmaceutical sciences. So what are going to be some of the new programs?</p>
+<p>HIRSCH</p>
+<p>Right, so we have a on the Pharm D program, which is really the doctor of pharmacy, it&#8217;s a doctorate of pharmacy, but we say Pharm D. And that program will start &#8212; we plan on taking our first group of students in the fall of 2021. And that Pharm D program is the program that prepares pharmacists. So that&#8217;s the more clinical arm function. We also have a master&#8217;s in pharmacology and that program is completely online and it is designed, it&#8217;s fairly new, but it&#8217;s designed for working professionals. And usually those professionals are in the pharmaceutical industry, biotech industry. And they are more of the pharmaceutical scientists, but they want to know more about pharmacology and how drugs work in the body. And that&#8217;s what the focus of that particular program is.</p>
+<p>ORLOWSKI</p>
+<p>You touched on this a little bit, but what are some of the main career tracks that people take after they graduate from these programs?</p>
+<p>HIRSCH</p>
+<p>From the BS program, actually the majority of our BS pharmaceutical scientists and students graduate and go on to pharmacy schools. And almost all go on to health programs of some sort, and it&#8217;s about 80, 85 percent that go on to Pharm D programs. Actually UCI is the number one feeder school for all pharmacy schools in the United States. So that encompasses us, but also biological sciences in there. The master&#8217;s program that I just told you about those are working people already. They advance in their careers. They&#8217;ve had one or two even kind of branch off go into a PhD program. And then the graduates from the PhD program, they&#8217;re going off to be scientists in drug discovery, device discovery and development in academia, for one, but certainly pharmaceutical biotech industries and government agencies also in just research institutes for that. And in the Pharm D program that we&#8217;re going to have is a wide array of practice sites that pharmacists go on to, certainly community pharmacies, hospital pharmacies. But as I mentioned before, the profession is changing and really expanding into more of this team-based care and providing more patient services. And that&#8217;s the area that we expect most of our Pharm D students to move on to.</p>
+<p>ORLOWSKI</p>
+<p>That&#8217;s a huge diversity of tracks for folks depending on whatever program they pursue. Let&#8217;s look a little bit at the history of pharmacy programs. I believe there are about 14 other pharmacy schools in California. So when did these start to appear?</p>
+<p>HIRSCH</p>
+<p>That&#8217;s interesting. And for a long time, there was just a steady-state number of pharmacy schools in the U.S. And then there was actually a report that came out in early 2000, I think it was 2000, about the workforce for pharmacy, specifically and it indicated there was going to be a shortage of pharmacists. So in that, a number of schools started, we started adding more schools of pharmacy in the U.S. and in California. And if you look at California, most of the five or six new schools have been added since 2008, 2010. So it&#8217;s really been in the last 10 years, we&#8217;ve seen some, a good bit of growth in that. And now we&#8217;re kind of, we&#8217;re not in a shortage position anymore, which is great. We&#8217;re sort of at balance, supply equals demand. But then, as I mentioned before, the demand for the type of services that pharmacists are providing is really changing, because the healthcare system is changing to this team based care and much more holistic kind of whole-patient care.</p>
+<p>ORLOWSKI</p>
+<p>And it sounds like that&#8217;s going to be a real differentiator for UCI&#8217;s program. Can you tell us a little bit more about what will really make UCI&#8217;s program special?</p>
+<p>HIRSCH</p>
+<p>The cool thing about the school is that we are building on this tremendously strong pharmaceutical sciences department already here. And actually it&#8217;s rated in the top 10 of pharmaceutical sciences programs in the U.S. already. And I already told you the BS program is the number one feeder of pharmacy schools. So we are in really a unique position. We&#8217;re bringing together these programs, we&#8217;re adding on the doctor of pharmacy degree to kind of round out that spectrum that we&#8217;ve been talking about. And it&#8217;s just a tremendous opportunity to do that in and of itself, but we&#8217;re also doing that within a college of health sciences. And the Susan and Henry Samueli, College of Health Sciences here has the School of Medicine, which has been here a while, School of Nursing, also been here a while, and now we&#8217;re adding school of pharmacy.</p>
+<p>HIRSCH</p>
+<p>And then they&#8217;ll also be adding a school of population health. And you put all those together, and you&#8217;ve got a great foundation for inter-professional education, and also inter-professional practice. And I mentioned that team-based care, that&#8217;s where healthcare is going. Imagine we&#8217;re educating as teams. Then we&#8217;re moving to practice as teams. And we have an academic medical center that we are part of. That makes a really strong program to have that for research and for training, for just the inter-professional practice opportunities. And then the last thing that&#8217;s in that College of Health Sciences, which really is very different, is the integrative health focus that we have. And that&#8217;s going across all the schools. And we have the Susan Samueli Integrative Health Institute, which is part of the College of Health Sciences that we&#8217;re part of. And so the integrative health really permeates both the education and also our research missions.</p>
+<p>ORLOWSKI</p>
+<p>And so how does that integrative health component really intersect with the practice of pharmaceutical sciences and pharmacy?</p>
+<p>HIRSCH</p>
+<p>So, integrative health, you have to look at what is integrative health, and it really is taking whole-person approach, and looking at all of the treatment modalities or prevention modalities that may be utilized. Because we really would like to prevent people from having disease first, not just treat them. So it&#8217;s prevention and treatment modalities, a broad range of those. Certainly from a pharmacy perspective, we think of people taking medications, you take your prescription medications over the counter medications, but patients are also taking a lot of supplements. You think about botanicals, herbs, it&#8217;s a, it&#8217;s a big industry. And they&#8217;re taking those for a reason. And we really need, I think, we need to do a better job in pharmacy of bringing those types of other treatment modalities that patients are using, bringing them into the conversation and be able to help patients more with how to utilize them.</p>
+<p>HIRSCH</p>
+<p>And also the evidence base behind them. What has evidence and what doesn&#8217;t have evidence? A lot of the supplements, etc, they&#8217;re not FDA approved, like your OTCs (over-the-counter medications) and prescription medications. There&#8217;s a lot of need for education, and we will be educating our pharmacy students on that, certainly, but we will also be educating the public and the community and other pharmacists on those types of alternative or complementary treatment modalities. So that&#8217;s the education piece, but there&#8217;s a whole other piece, and it&#8217;s the research side. And like I just mentioned, there&#8217;s some of these other complementary medications, there&#8217;s not a whole body of evidence about their efficacy and/or safety. And part of what we want to do as part of the College of Health Sciences is really look into in very systematic, scientific ways, why is that particular thing working? Or what&#8217;s the mechanism of action? How is it working? So there&#8217;s a research agenda there for us also, to provide more evidence, either safety or efficacy, and then to educate.</p>
+<p>ORLOWSKI</p>
+<p>Well, and speaking of research and looking at these different types of treatments and medications, here in Orange County and in Southern California, it&#8217;s a biotech hub. And obviously that&#8217;s a bit different than the complementary medicines that you&#8217;ve been talking about, but how will the new School of Pharmacy and Pharmaceutical Sciences integrate into that biotech ecosystem?</p>
+<p>HIRSCH</p>
+<p>You&#8217;re right. We are definitely, we&#8217;re in a great place. Yes, it&#8217;s biotech hub for sure. And I&#8217;ll expand that to pharma, diagnostics, the whole kind of ecosystem there. What we&#8217;re going to do is really to start with just build on the relationships that we already have with our pharmaceutical sciences department. Many of our faculty are working with either biotech companies, pharma, or diagnostics companies, both here locally in Orange County and then regionally, in the U.S. and internationally also. And so building on those relationships, I think, gives us a great foundation. And then because as we&#8217;re adding the Pharm D degree, we&#8217;re also adding other departments within the school, the Department of Clinical Pharmacy Practice. And when we add that we will have clinical pharmacist faculty, which, again, gives us the opportunity to expand that continuum of research from that discovery, early on development, all the way out to utilizing these products within patient populations and individual patients. So we&#8217;re really going to be building on the relationships we have, but expanding them because now we have more translational research opportunities, in which we can go out and partner with a much broader range of companies. And even the companies we&#8217;ve been dealing with, or partners we&#8217;ve been dealing with, we can offer them a broader research on conceptual basis in which to partner moving forward.</p>
+<p>ORLOWSKI</p>
+<p>So if there are any companies out there that are interested in starting to partner with the new school, is there anyone in particular they should get in touch with or any particular way they should start forming that partnership?</p>
+<p>HIRSCH</p>
+<p>Certainly. Call me. Yeah, do reach out to me. I would love to have people to reach out and then I can point you in the right direction, whether it&#8217;s more of the basic science side or pharmaceutical sciences, or whether it&#8217;s more of our clinical research. We have faculty in clinical research that have a lot of experience in doing clinical trials and doing health policy kind of research also. All of that part is evolving right now and just adding onto our really stellar ability in pharmaceutical sciences.</p>
+<p>ORLOWSKI</p>
+<p>Well, I think we would be remiss to not mention the biggest thing going on in health today, which is the coronavirus crisis. Right now in the Department of Pharmaceutical Sciences, what are faculty doing to work on creating vaccines or treatments for COVID-19?</p>
+<p>HIRSCH</p>
+<p>We&#8217;re really busy, which I think is a good thing. And, right now, again, we have pharmaceutical science faculty here really, and we&#8217;re building the clinical side, so that&#8217;s not really active. But in our pharmaceutical sciences faculty, we have people that are working on looking at diagnostics, new testing, vaccines also, better vaccines. And also then more of the treatments, antiviral treatments. So our faculty is pretty eclectic. We have a fairly large group who are really RNA experts and the COVID virus is an RNA virus. And so actually their expertise, they&#8217;ve been using on other things for years, is coming into play as they look at things. One particular thing, which is interesting to me, is looking at having an RNA analog, or a synthetic RNA analog, come into the body, and it will fluoresce, or it will glow if the virus is detected. So that&#8217;s helping for diagnosis. And then they&#8217;re doing really magical things with RNA to say, all right, can this synthetic RNA go in and detect the virus in the body and destroy it. So they&#8217;re really doing some really excellent investigations right now.</p>
+<p>ORLOWSKI</p>
+<p>Well, we started the conversation here talking about that half trillion dollar problem of non-optimized medications. So if you&#8217;re looking into the future here, and if the community really rallies around this new school and supports it, what do you think we can achieve together?</p>
+<p>HIRSCH</p>
+<p>Well, it&#8217;s two things. And it goes back to who we are, a School of Pharmacy and Pharmaceutical Sciences. From the pharmaceutical sciences, just think about research. I really think the things we talked about partnering across that continuum, building on our research partnerships we have now, and relationships with companies in the area and certainly in Southern California, all the way through the clinical research and population research. I think we really can help build a very strong infrastructure there and relationships with lots of people, that will be beneficial on both sides, for UCI, but also for the companies. And then the other side is pharmacy practice. It really is building innovations and team-based care, of which pharmacists are the medication experts on those teams, and having inter-professional practice teams. I think we will be able to really add a lot more to the local and regional healthcare system. We need change in our healthcare system and we want to create that change.</p>
+<p>ORLOWSKI</p>
+<p>Dean Hirsch, thank you for joining me today on the UCI Podcast.</p>
+<p>HIRSCH</p>
+<p>Thank you very much for having me, Aaron.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+A+prescription+to+reshape+healthcare: https://news.uci.edu/2020/08/04/uci-podcast-a-prescription-to-reshape-healthcare/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F04%2Fuci-podcast-a-prescription-to-reshape-healthcare%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/08/04/uci-podcast-a-prescription-to-reshape-healthcare/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/08/04/uci-podcast-a-prescription-to-reshape-healthcare/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/08/04/uci-podcast-a-prescription-to-reshape-healthcare/&title=UCI Podcast: A prescription to reshape healthcare" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: A prescription to reshape healthcare&body=Hey, checkout this web page: - https://news.uci.edu/2020/08/04/uci-podcast-a-prescription-to-reshape-healthcare/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2018/10/30/jan-hirsch-named-founding-dean-of-planned-school-of-pharmacy-pharmaceutical-sciences/"><img src="https://news.uci.edu/wp-content/uploads/2018/10/Hirsch_181024_0196_sz-270x180.jpg" alt="Jan Hirsch named founding dean of planned School of Pharmacy &amp; Pharmaceutical Sciences" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2018/10/30/jan-hirsch-named-founding-dean-of-planned-school-of-pharmacy-pharmaceutical-sciences/"><p class="media-heading">Jan Hirsch named founding dean of planned School of Pharmacy &amp; Pharmaceutical Sciences</p></a><p><time>October 30, 2018</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2015/01/23/uci-fellow-chemists-find-a-way-to-unboil-eggs/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2015/01/23/uci-fellow-chemists-find-a-way-to-unboil-eggs/"><p class="media-heading">UCI, fellow chemists find a way to unboil eggs</p></a><p><time>January 23, 2015</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2017/07/10/pharmaceutical-sciences-robert-spitale-named-2017-pew-scholar/"><img src="https://news.uci.edu/wp-content/uploads/2017/07/Robert-Spitale_2-270x180.jpg" alt="Assistant professor is named 2017 Pew scholar" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2017/07/10/pharmaceutical-sciences-robert-spitale-named-2017-pew-scholar/"><p class="media-heading">Assistant professor is named 2017 Pew scholar</p></a><p><time>July 10, 2017</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2018/01/19/uci-lands-1-million-keck-foundation-grant-to-develop-new-rna-tools/"><img src="https://news.uci.edu/wp-content/uploads/2018/01/Spitale_Chaput-e1515718599697-270x180.jpg" alt="UCI lands $1 million Keck Foundation grant to develop new RNA tools" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2018/01/19/uci-lands-1-million-keck-foundation-grant-to-develop-new-rna-tools/"><p class="media-heading">UCI lands $1 million Keck Foundation grant to develop new RNA tools</p></a><p><time>January 19, 2018</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div>Tom Vasich</div><div>949-285-6455</div><div>tmvasich@uci.edu</div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="http://www.pharmsci.uci.edu">School of Pharmacy and Pharmaceutical Sciences</a>
+            </div>
+            <div class="list-url">http://www.pharmsci.uci.edu</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://news.uci.edu/2020/08/04/uci-to-launch-innovative-school-of-pharmacy-and-pharmaceutical-sciences/">UCI to launch innovative School of Pharmacy and Pharmaceutical Sciences</a>
+            </div>
+            <div class="list-url">https://news.uci.edu/2020/08/04/uci-to-launch-innovative-school-of-pharmacy-and-pharmaceutical-sciences/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://news.uci.edu/2020/08/04/single-minded-siblings/">Single-minded siblings</a>
+            </div>
+            <div class="list-url">https://news.uci.edu/2020/08/04/single-minded-siblings/</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/health-sciences/" class="" rel="tag">health sciences</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/pharmaceutical-sciences/" class="" rel="tag">pharmaceutical sciences</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/pharmacy/" class="" rel="tag">pharmacy</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/susan-and-henry-samueli-college-of-health-sciences/" class="" rel="tag">Susan and Henry Samueli College of Health Sciences</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

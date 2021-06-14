@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court | UCI News | UCI</title>
+
+    <title>UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Before letting California theme parks reopen, Newsom is looking out of state' href='https://news.uci.edu/2020/10/12/before-letting-california-theme-parks-reopen-newsom-is-looking-out-of-state/' />
+<link rel='next' title='UCI study points to how skin cells cooperate to thwart cancer' href='https://news.uci.edu/2020/10/13/uci-study-points-to-how-skin-cells-cooperate-to-thwart-cancer/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/10/13/uci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=50004' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F13%2Fuci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F13%2Fuci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court"/>
+<meta itemprop="name" content="UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court"/>
+<meta property="og:url" content="https://news.uci.edu/2020/10/13/uci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-10-13T08:15:45-07:00"/>
+	<meta property="article:modified_time" content="2020-10-13T08:49:19-07:00" />
+<meta property="og:updated_time" content="2020-10-13T08:49:19-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Faculty"/>
+<meta property="article:section" content="Law"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="og:description" content="With just weeks to go before the election, the Senate has launched confirmation hearings for President Trump’s nominee to the U.S. Supreme Court, Judge Amy Coney Barrett. Conservatives have praised her judicial approach, while liberals are worried that she could contribute to undoing the gains t"/>
+<meta itemprop="description" content="With just weeks to go before the election, the Senate has launched confirmation hearings for President Trump’s nominee to the U.S. Supreme Court, Judge Amy Coney Barrett. Conservatives have praised her judicial approach, while liberals are worried that she could contribute to undoing the gains t"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/10/1906345_orig-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/10/1906345_orig-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court</h1>
+
+            <h2 class="page-subheadline"></h2>
+
+            <div class="page-date">
+                
+                October 13, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/10/1906345_orig-768x512.jpg" alt="UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court" class="img-responsive">												<div class="caption">&#8220;The narrative around abortion rights today comes from a perspective that is actually quite ahistorical,&#8221; says Michele Goodwin, a Chancellor&#8217;s professor of law at UCI. &#8220;Actually, of those seven justices who voted in support of Roe v. Wade, five were Republican appointees.&#8221; UCI Law</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fuci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p><span style="font-weight: 400">With just weeks to go before the election, the Senate has launched confirmation hearings for President Trump’s nominee to the U.S. Supreme Court, Judge Amy Coney Barrett. Conservatives have praised her judicial approach, while liberals are worried that she could contribute to undoing the gains they’ve made on social issues in recent decades — and especially on women’s reproductive rights. The one thing both sides seem to agree on is that at stake are some of the most contentious cultural issues of this era.</span></p>
+<p><span style="font-weight: 400">On this episode of the UCI Podcast, Michele Goodwin, a Chancellor’s Professor of law at UCI, discusses how Judge Barrett, if confirmed, could affect the Supreme Court.</span></p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; <a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M">Google Podcasts</a> &#8211; <a href="https://www.stitcher.com/podcast/the-uci-podcast">Stitcher</a> &#8211; <a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A">Spotify</a></strong></p>
+<h1><strong>Transcript</strong></h1>
+<p><span style="font-weight: 400">AARON ORLOWSKI, HOST</span></p>
+<p><span style="font-weight: 400">When Supreme Court Justice, Ruth Bader Ginsburg passed away in September, President Trump wasted no time in nominating as her replacement, Amy Coney Barrett, who he had previously chosen for the U.S. Court of Appeals for the Seventh Circuit. Conservatives rejoiced and liberals expressed alarm that she could reverse the gains they had made on social issues since </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400">. If Judge Barrett is confirmed, how would she reshape the Supreme Court.</span></p>
+<p><span style="font-weight: 400">From the University of California, Irvine, I&#8217;m Aaron Orlowski, and you&#8217;re listening to the UCI Podcast.</span></p>
+<p><span style="font-weight: 400">Today, I&#8217;m speaking with Michele Goodwin, a Chancellor&#8217;s professor of law at UCI and a scholar of constitutional law and health law. She&#8217;s also the author of the book, &#8220;Policing The Womb: Invisible Women and the Criminalization of Motherhood,” which was published earlier this year.</span></p>
+<p><span style="font-weight: 400">Professor Goodwin, thank you for joining me today on the UCI Podcast.</span></p>
+<p><span style="font-weight: 400">MICHELE GOODWIN</span></p>
+<p><span style="font-weight: 400">It&#8217;s a pleasure to be with you. Thank you for doing this, Aaron.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Well, so Judge Amy Coney Barrett&#8217;s confirmation hearings in the Senate start this week, and I wanted to ask you about what do we know about her views on women&#8217;s reproductive rights and specifically, what do we know about her views on </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400">?</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">So to be clear, there are certain things that we don&#8217;t know, and that we probably won&#8217;t learn about during the confirmation hearings, such as explicitly what she would do, were she to become a justice on the U.S. Supreme Court. But the record has been filled in by a number of journalists who have investigated this, and also by Judge Amy Coney Barrett herself. So in terms of her professional views, we see this aligned with the kinds of speeches that she&#8217;s given in recent years, and also what she said when President Trump introduced her as his nominee to the Supreme Court. She made clear that she is a justice right in the same vein as her mentor Justice Scalia. Justice Scalia was ranked as the most conservative justice on the United States Supreme Court while he was there, and likely one of the most conservative U.S. Supreme Court justices that we&#8217;ve ever had. He was unequivocal and quite explicit in his views with regard to abortion. She says that she will follow his jurisprudence. And by that she didn&#8217;t make specific references, but one can intuit from that, given that an anti-abortion stance is what she has articulated in terms of her personal views and also her prior professional speeches, that very likely she will not be a justice, seeking to further expand </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400"> and may very likely be a justice who comes on the court, who likes to see an end to </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400">.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Maybe we can back up just a little bit, because </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400"> was decided back in 1973, nearly 50 years ago. So how have women&#8217;s reproductive rights evolved or changed in that time?</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">That&#8217;s also a very good follow on because </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400"> is used as a speaking point. It&#8217;s a case in which most adult Americans have some reference point for and they connect that to abortion rights. But you&#8217;re right, it&#8217;s nearly 50 years old and there have been a number of cases in between and cases prior to </span><i><span style="font-weight: 400">Roe</span></i><span style="font-weight: 400">. So let me tell your listeners this. </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400"> was a 7-2 decision in 1973. The person who penned that decision was Justice Blackmun and Justice Blackmun was a Nixon appointee. And that&#8217;s really important because the narrative around abortion rights today comes from a perspective that is actually quite ahistorical. So it&#8217;s perceived as this is just something that Democrats have been working on, this is a kind of leftist agenda. And nothing could be further from the truth. Actually, of those seven justices who voted in support of </span><i><span style="font-weight: 400">Roe v. Wade,</span></i><span style="font-weight: 400"> five were Republican appointees. George H.W. Bush — father Bush — his father, Prescott Bush, was the treasurer for Planned Parenthood. This history is really important to know, and to separate it from some of the rhetoric that we see today as being really quite distinct from what has been historically the Republican platform, which was that independent reproductive family planning was something that was to be left to the family and left to women. George H.W. Bush, when he was in Congress, he shepherded through Title X. Title X is legislation that provides for reproductive health care for the poorest of Americans. Who signed that into law, but Richard Nixon, and when he was asked about it, he said this is basic common sense, this is just basic public health.</span></p>
+<p><span style="font-weight: 400">And so that&#8217;s really important to understand around the context of what does </span><i><span style="font-weight: 400">Roe</span></i><span style="font-weight: 400"> mean? What has it historically meant? It&#8217;s not been some left-wing agenda. The majority of the Supreme Court at the time that supported it were Republicans themselves. And much of the legacy that has provided for reproductive health care and rights in the United States was something that was deeply bipartisan and thought of as just common sense and basic public health, which I think is right. Following </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400">, it&#8217;s important to know that there was the Hyde Amendment and the Hyde Amendment itself made it very difficult for poor women to be able to access abortion care services. And that&#8217;s something that&#8217;s important to note.</span></p>
+<p><span style="font-weight: 400">Most recently, what does </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400"> mean? Well, in a lot of ways it&#8217;s been tailored by </span><i><span style="font-weight: 400">Planned Parenthood v. Casey</span></i><span style="font-weight: 400">, a case out of the 1990s, which continued to uphold abortion rights. That was when Justices Sandra Day O&#8217;Connor and Kennedy were still on the court. And then more recently we&#8217;ve seen in </span><i><span style="font-weight: 400">Whole Woman&#8217;s Health v. Hellerstedt</span></i><span style="font-weight: 400"> from 2016 and </span><i><span style="font-weight: 400">June Medical Services, LLC v. Russo</span></i><span style="font-weight: 400"> from 2020, this summer, the Supreme Court continuing to uphold reproductive rights within the abortion context.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">So do you think that President Trump&#8217;s nominations to the court hold different stances than Republican presidents’ nominations of decades past?</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">Absolutely. The nature of the Republican Party has dramatically changed over time, and in just recent years dramatically with the rise of the Tea Party. I mean, let&#8217;s remember that during Barack Obama&#8217;s administration, there were conservatives who lost their seats, the incumbents lost their seat and Republicans who were likely to be more aligned in terms of being bipartisan and supporting bipartisan platforms didn&#8217;t win their elections. There hasn&#8217;t been the kind of journalism that really unpacked just the rise of white supremacy during that time. We see that now and now it&#8217;s being talked about, but it&#8217;s really important to think about that in relation to the Obama administration and what we saw in terms of the shifting nature of local government politics that actually resulted in many Republicans losing their seat in a philosophy of the party, having to contend with a base that was far more Evangelical and a base that was far less, let&#8217;s say, knowledgeable any in many ways about American democracy, American constitutional law and so forth.</span></p>
+<p><span style="font-weight: 400">And why that becomes relevant is that as you asked the question about going forward legislatively, and also with regard to the courts, this has really been the first time in American history that we&#8217;ve seen so many judges come forward in confirmation hearings who are deemed to be unqualified, who actually really have no understanding, solid understanding, of constitutional law, democratic principles, individuals who don&#8217;t say what has been said so often before, that I respect precedent, I respect where the court&#8217;s jurisprudence comes from. I mean, there are people who are nominated who say that they don&#8217;t understand or appreciate the precedential value of </span><i><span style="font-weight: 400">Brown v. Board of Education</span></i><span style="font-weight: 400">, which was thought of as really a foundational case of the 20th century, articulating principles of equality that unite us all. So that&#8217;s important to understand, along with the fact that President Trump has had the opportunity and has nominated more judges for the federal bench than any other president, save George Washington. And of those who are serving on that direct pipeline to the U.S. Supreme Court — that means our federal appellate bench — as of July, of all of the people that he nominated and that were confirmed, not one is African American, not one black person and only one person who was Latino. So all of this matters. What are their capacities? How are they respected as jurists? What is their capacity and knowledge as jurists? And then does it reflect the American population?</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Well, while we&#8217;re looking at the broader context of the approaches and mindsets of these judges that are on the bench, maybe we can talk a bit more about Judge Barrett&#8217;s philosophy. You mentioned that she clerked for Antonin Scalia and has really aligned herself with his views on how the Supreme Court should look at the Constitution. And so as a textualist and an originalist, what are her views? What do those two judicial philosophies really mean?</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">That&#8217;s a very good question. People who generally take that view, they say that their understanding of the Constitution derives from what the framers wrote when they wrote it centuries ago. And that their views of how they will interpret the law will be based on the text as it was written centuries ago, without thinking about the other kinds of things that have moved our society along in years since, which have been racially quality, sexy equality, LGBTQ equality, equality discourse for people with disabilities. Let&#8217;s be clear, the governing documents of our nation were such that slavery could be not only tolerated, but enforced by state and federal law. Women were considered the property of their husbands. People who had disabilities in the United States were, up until even recent decades, shut out from participation in society, in meaningful types of ways. And people who are LGBTQ have actually been tracked, surveilled and actually harmed by the state — talking about the Lavender scare. And so when people say that, “I&#8217;m a textualist and I follow those documents,” it&#8217;s really important to understand that. Or when they speak of originalism, I&#8217;m thinking about how the framers originally understood what the United States should be. Well people who were framers were slaveholders. There were framers who had the views at the time that women lack the capacity — mental and otherwise — to be able to cast a vote, let alone ever run for office. I mean, these are very stereotypic, stigmatic kinds of points of view.</span></p>
+<p><span style="font-weight: 400">Now, for those that say, well, they don&#8217;t strictly adhere to those views, even though they call themselves strict originalists or a strict textualist, they will say, well, we will defer to the legislature and what accounts we can gain from the legislature. And that&#8217;s complicated too, for the United States because the United States is a nation that endured a civil war. And in some ways the vestiges of that civil war continue to endure in the South. And so you see the pivot to the state and state&#8217;s rights as being something that has been very strongly held by those in the South. And especially in the context of reproductive health, rights and justice.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Can you tell us a bit more about what is the relationship between the arguments for states&#8217; rights and women&#8217;s reproductive rights?</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">So in the South, what we see (is) some of the most prolific of the anti-abortion stance, although one should really be clear when we&#8217;re talking about these issues, because we see some of this coming up in the North as well. But the reality is in the United States, in Alabama, in Mississippi, in Arkansas, in Texas, in Louisiana, and you name these states, and these are hot spots for a couple of things. They’re hotspots in terms of anti-abortion provisions, including, in some of these states, anti-abortion provisions that provide no exception if a woman happens to be raped, if a girl happens to have experienced incest, or if the life of the woman or girl happens to be at stake? No abortion.</span></p>
+<p><span style="font-weight: 400">The other thing that&#8217;s important to know about these very same states is that they have incredibly high rates of maternal mortality. So while at the same time that they make it very difficult for a woman to be able to terminate a pregnancy, they also have not done a very good job of keeping women alive when women have been pregnant so that the United States leads the developed world in maternal mortality. The United States ranks around 50, 51st in the world in terms of maternal safety. It&#8217;s safer to have a baby in Bosnia and survive it than it is the Southern states. And that&#8217;s just real. Texas and Louisiana both compete for being the deadliest places in the developed world to be pregnant. That&#8217;s all research based. And so when we think about what then abortion rights mean, and we think about the reasoning and in </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400">, we think about the capacities of those Republican jurists to say … Look, let&#8217;s just be very clear right here. When States engaged in criminalizing abortion, they make it very difficult for women to be able to have a meaningful life in terms of education, in terms of employment, in terms of their own safety and security. This is the exact language that we get from Republican jurists in </span><i><span style="font-weight: 400">Roe v. Wade</span></i><span style="font-weight: 400">, and it&#8217;s very different from what we see on the ground now, in terms of his kind of states rights, evangelical-driven type of platforms around abortion rights.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">So are there any particular cases in the lower courts right now involving abortion rights that could make their way up to the Supreme Court, after Judge Barrett is potentially confirmed?</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">There is a case that the Supreme Court sent back to the Seventh Circuit, and this is very interesting. It&#8217;s </span><i><span style="font-weight: 400">Box v. Planned Parenthood</span></i><span style="font-weight: 400"> and comes out of Indiana. And it&#8217;s part of a new line of strategy with regard to abortion provisions. Let&#8217;s be clear that it&#8217;s not just state legislators that are putting forward these laws. What&#8217;s been happening over the last two decades has been that there are organizations that have been able to access the legislature and access judges, and they&#8217;ve been quite successful at it. And they have actually been the ones that have been writing the laws that then they push on legislators to move through legislative bodies and to get enacted. And then (they) meet with judges, preparing them for upholding these laws. Well in </span><i><span style="font-weight: 400">Box v. Planned Parenthood</span></i><span style="font-weight: 400"> we see that in action. So one of the laws, one of the provisions, related to race. So a way of intervening in this discourse now is to say that, well, if there is an abortion and it relates to race, then it should be something that should be criminally policed. And the laws are written in ways that are really quite broad, which means that if you happen to be part of a minority community, then chances are you&#8217;re carrying a pregnancy that will be a child of color. And then the outgrowth of this, logically, of these laws is that you shouldn&#8217;t be able to terminate those pregnancies. And this is kind of the nature of one slice of this Indiana law. Another slice of the Indiana law deals with the burial remains of fetuses. And then there&#8217;s another slice that relates to young people, teenage girls, being able to obtain abortions without their parents&#8217; consent. And then there&#8217;s so many provisions that are at the state level. There are literally hundreds of them, hundreds of them that have been enacted not over time. This is where it&#8217;s really important to understand what happened during Barack Obama&#8217;s administration, because those who swept into power in state houses, they began doing this anti-abortion work. Between 2010 and 2013, there were more anti-abortion laws and anti-contraception laws that were proposed an enacted than in the 30 years prior combined.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">So this is a very recent phenomenon, which is kind of striking to think about.</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">Yes, it is, right. I mean, and so these hundreds of laws are not hundreds of laws that were tested over time with bipartisan cooperating legislators in the face of courts that had some balance where there were (some) appointed by Democrats, (some) appointed by Republicans. Now you have these laws being tested in the wake of President Donald Trump, who has really had an enormous opportunity to stack the courts. And that is exactly what conservatives have said that he&#8217;s done, so it&#8217;s not hyperbole because they&#8217;ve been very vocal about the ones that they&#8217;ve been able to have in the court. And so these laws are being tested out at a time where we no longer have what one could say was real balance in our judiciary.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Well, we&#8217;ve spent a lot of time talking about abortion rights, but if Judge Barrett has confirmed, what are some other ways that you think she would impact the court? What are some other issues where her influence might be really significant?</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">So that&#8217;s a really terrific question. The Affordable Care aAt is up for debate again before the United States Supreme Court, saved by Justice Roberts, joining with the liberals on the court. With Justice Amy Coney Barrett on the court, that could mean a win for those who would seek to defeat the Affordable Care Act. And what that means, if the Affordable Care Act goes away, it means that individuals who have preexisting conditions, whether they relate to the COVID or they relate to breast cancer or prostate cancer, ovarian cancer, whatever the conditions were, they may lose a future insurance coverage. Families that have been able to cover their kids after college and high school might also then lose being able to do that because the Affordable Care Act provided for the coverage of young people up until the age of 26 on their parents’ insurance. And so, so there&#8217;s so much more that ends up having that ends up at stake, if the Affordable Care Act is somehow defeated.</span></p>
+<p><span style="font-weight: 400">And there are a host of other issues that relate to the Second Amendment that relate to religious freedom. The Supreme Court has been quite expansive in a religious liberty context. We&#8217;ve seen that to a degree that I think has been quite dangerous to the separation of church and state with far greater influence today. And so I think that that&#8217;s something that is also a bit worrying. I also find it a bit worrying that in that the justices on our court who identify as being Catholic or being deeply Catholic influenced — which at this point is the majority of the justices on the court — much of the ways in which they reason seem to also be reflective of some of those values. And, and sometimes that&#8217;s not a problem because Christian values, if one lifts them up, could mean any number of wonderful things, such as making sure that people are fed and making sure that we get rid of poverty, making sure that we lift up the most vulnerable of people in our society. But sadly, that&#8217;s actually not what we&#8217;ve seen amongst some of those jurists. And that would also be disconcerting in cases that would involve then racial justice, cases that could involve poverty, cases that could involve matters that relate to gun rights and more.</span></p>
+<p><span style="font-weight: 400">I think it&#8217;s important that we understand that we don&#8217;t know exactly how Judge Amy Coney Barrett will rule one of the beauties about federal judges being able to have lifetime appointments is that they will not be influenced by the presidents that appoint them, or that nominate them. But so much of that has changed in recent years. And that I think is really the important question to be asked on this podcast, which is, what has changed in terms of the nature of individuals being nominated by the president? Has it moved from mere ideological differences to a space where in what we really do see is partisanship alliances? And that I find to be dangerous. And I think we see more of that over the last four years, which are allegiances to the way in which the president thinks, rather than having an allegiance to the United States Constitution and upholding civil liberties and civil rights. And I think that that&#8217;s where our questioning should be about judge Amy Coney Barrett, as well as the other judges that have been nominated by President Donald Trump.</span></p>
+<p><span style="font-weight: 400">ORLOWSKI</span></p>
+<p><span style="font-weight: 400">Well, Professor Goodwin, thank you for joining me today on the UCI Podcast.</span></p>
+<p><span style="font-weight: 400">GOODWIN</span></p>
+<p><span style="font-weight: 400">It&#8217;s my pleasure.</span></p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+How+Amy+Coney+Barrett+could+reshape+the+Supreme+Court: https://news.uci.edu/2020/10/13/uci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F10%2F13%2Fuci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/10/13/uci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/10/13/uci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/10/13/uci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court/&title=UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: How Amy Coney Barrett could reshape the Supreme Court&body=Hey, checkout this web page: - https://news.uci.edu/2020/10/13/uci-podcast-how-amy-coney-barrett-could-reshape-the-supreme-court/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/08/05/uci-scientists-get-initial-hit-in-developing-drug-to-treat-covid-19/"><img src="https://news.uci.edu/wp-content/uploads/2020/08/inhibitor1_bound_to_Mpro_spheres_blue-270x180.jpg" alt="UCI scientists get ‘initial hit’ in developing drug to treat COVID-19" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/08/05/uci-scientists-get-initial-hit-in-developing-drug-to-treat-covid-19/"><p class="media-heading">UCI scientists get ‘initial hit’ in developing drug to treat COVID-19</p></a><p><time>August 5, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2009/05/04/fighting-for-their-lives/"><img src="https://news.uci.edu/wp-content/uploads/2015/04/9243697610_5f23f68e9c_o-270x180.jpg" alt="Fighting for their lives" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2009/05/04/fighting-for-their-lives/"><p class="media-heading">Fighting for their lives</p></a><p><time>May 4, 2009</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2019/11/17/uci-podcast-hoops-hysteria/"><img src="https://news.uci.edu/wp-content/uploads/2019/11/Inoue-UCSB1-270x180.jpg" alt="UCI Podcast: Hoops hysteria" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2019/11/17/uci-podcast-hoops-hysteria/"><p class="media-heading">UCI Podcast: Hoops hysteria</p></a><p><time>November 17, 2019</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/06/16/whats-next-the-future-of-summer-vacation/"><img src="https://news.uci.edu/wp-content/uploads/2020/06/Edwards_170815_03_sz-270x180.jpg" alt="What’s next: The future of summer vacation" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/06/16/whats-next-the-future-of-summer-vacation/"><p class="media-heading">What’s next: The future of summer vacation</p></a><p><time>June 16, 2020</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/constitution/" class="" rel="tag">Constitution</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/faculty/" class="" rel="tag">faculty</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/law/" class="" rel="tag">law</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/reproductive-rights/" class="" rel="tag">reproductive rights</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/supreme-court/" class="" rel="tag">Supreme Court</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/uci-podcast/" class="" rel="tag">UCI Podcast</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

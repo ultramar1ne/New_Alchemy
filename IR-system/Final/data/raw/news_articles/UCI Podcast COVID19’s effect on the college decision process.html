@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: COVID-19’s effect on the college decision process | UCI News | UCI</title>
+
+    <title>UCI Podcast: COVID-19’s effect on the college decision process &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Labor Day puts focus on protecting OC workers and unemployed facing uphill battles throughout pandemic' href='https://news.uci.edu/2020/09/07/labor-day-puts-focus-on-protecting-oc-workers-and-unemployed-facing-uphill-battles-throughout-pandemic/' />
+<link rel='next' title='Why COVID-19 is more deadly in people with obesity—even if they&#8217;re young' href='https://news.uci.edu/2020/09/08/why-covid-19-is-more-deadly-in-people-with-obesity-even-if-theyre-young/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/09/08/uci-podcast-covid-19s-effect-on-the-college-decision-process/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=49150' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F09%2F08%2Fuci-podcast-covid-19s-effect-on-the-college-decision-process%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F09%2F08%2Fuci-podcast-covid-19s-effect-on-the-college-decision-process%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="Constance Iloh's study will look at the pandemic’s effect on college-going trajectories for Black and Latinx students">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: COVID-19’s effect on the college decision process"/>
+<meta itemprop="name" content="UCI Podcast: COVID-19’s effect on the college decision process"/>
+<meta property="og:url" content="https://news.uci.edu/2020/09/08/uci-podcast-covid-19s-effect-on-the-college-decision-process/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-09-08T09:03:36-07:00"/>
+	<meta property="article:modified_time" content="2020-09-08T09:03:36-07:00" />
+<meta property="og:updated_time" content="2020-09-08T09:03:36-07:00" />
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Education"/>
+<meta property="article:section" content="Education"/>
+<meta property="article:section" content="Faculty"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="article:section" content="Public"/>
+<meta property="article:section" content="Research"/>
+<meta property="og:description" content="Constance Iloh&#039;s study will look at the pandemic’s effect on college-going trajectories for Black and Latinx students"/>
+<meta itemprop="description" content="Constance Iloh&#039;s study will look at the pandemic’s effect on college-going trajectories for Black and Latinx students"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/09/dr-iloh-on-campus-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/09/dr-iloh-on-campus-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-full">
+            <h1 class="page-heading">UCI Podcast: COVID-19’s effect on the college decision process</h1>
+
+            <h2 class="page-subheadline">Constance Iloh's study will look at the pandemic’s effect on college-going trajectories for Black and Latinx students</h2>
+
+            <div class="page-date">
+                
+                September 8, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/09/dr-iloh-on-campus-768x519.jpg" alt="UCI Podcast: COVID-19’s effect on the college decision process" class="img-responsive">												<div class="caption">Constance Iloh, an assistant professor of education at UCI, discusses why the framework of college choice doesn’t accurately reflect the college-going process. “So for me, even just the notion that college decision-making is sequential or that college is this one time event is already deeply flawed and not representative of the very heterogeneous student population that we have now,” says Iloh. Courtesy of Constance Iloh</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fuci-podcast-college-access-and-choice-in-the-pandemic&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p>The COVID-19 pandemic has disrupted college education, including the campus experience, how classes are delivered and, crucially, how students even decide to go to college. Constance Iloh, an assistant professor in UCI’s School of Education, has developed a framework to understand people’s college-going trajectories, and she recently earned a grant <a href="http://education.uci.edu/ucisoe_news/iloh_grant_july20">to examine</a> how the pandemic is affecting the way Black and Latinx students look at college, using her <a href="https://www.academia.edu/41250673/An_Alternative_to_College_Choice_Models_and_Frameworks_The_Iloh_Model_of_College_Going_Decisions_and_Trajectories">Iloh Model of College-Going Decisions and Trajectories</a>. Iloh speaks with the UCI Podcast about the factors that contribute to a person’s college trajectory, why the concept of “college choice” excludes many people and how her model can help leaders in higher education to provide access to more diverse students.</p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; <a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M">Google Podcasts</a> &#8211; <a href="https://www.stitcher.com/podcast/the-uci-podcast">Stitcher</a> &#8211; <a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A">Spotify</a></strong></p>
+<p>&nbsp;</p>
+<p><strong>Transcript</strong></p>
+<p>AARON ORLOWSKI, HOST</p>
+<p>Across the country, in-person college activities are limited and many classes are now online because of the COVID-19 pandemic. It&#8217;s a shift that has forced students to think differently about college, and it&#8217;s tempting to ask: What are students choosing to do? But that way of framing the question — students making a choice — doesn&#8217;t accurately capture the reality of how people launch into a particular college trajectory — or not.</p>
+<p>From the University of California, Irvine, I&#8217;m Aaron Orlowski. And you&#8217;re listening to the UCI Podcast.</p>
+<p>To learn more about the pandemic’s effect on students&#8217; college trajectories and decisions, I reached out to Constance Iloh, who is an assistant professor at UCI’s School of Education.</p>
+<p>Professor Iloh, thank you for joining me today on the UCI Podcast.</p>
+<p>CONSTANCE ILOH</p>
+<p>Absolutely, pleased to join you.</p>
+<p>ORLOWSKI</p>
+<p>Well, across the country students are heading back to college and some of them are going to campus and some of them are going to be doing college remotely. And that&#8217;s all because of the COVID-19 pandemic. So how is the pandemic affecting students as they think about going to college right now?</p>
+<p>ILOH</p>
+<p>The first thing I think of when I think of impact for students is the college going decision process. So everything from recruiters coming to high schools, regarding college, college fairs, if the SAT is required, to campus visits, is totally in contention, given the need for safety protocols and social distancing. This also comes to mind when I think about the many students that are now weighing if it&#8217;s realistic, opportunity-wise and financially, to start or continue college, given any student&#8217;s life circumstances and their very purpose for attending college.</p>
+<p>And the second thing I sort of think of that&#8217;s impacted for students is just the college experience. Many students are facing the prospect of taking courses online, essentially experiencing college remotely. And they may be used to associating college with an on campus experience taking courses physically. So really in essence, the look, the feel, and even the pursuit of college is completely different right now with this pandemic. And it&#8217;s presenting even more complexities and challenges for students than before.</p>
+<p>ORLOWSKI</p>
+<p>That&#8217;s so interesting to hear you talk about not just the students who are freshmen this year, but essentially the high school students, or the pre-college students, who are looking at different schools and they can&#8217;t really visit in the same way. They can&#8217;t go to the fairs. They can&#8217;t experience it in advance in the same way.</p>
+<p>Well, let&#8217;s talk a little bit about how you look at these issues. Because you&#8217;re an anthropologist, and so you kind of have a distinct lens about how you look at the issue of college education. So what is that lens? How do you look at education and the related social issues in a unique way?</p>
+<p>ILOH</p>
+<p>I think about two things a lot, those being context and culture. So as it relates to context and how I think about social issues and education, it&#8217;s important for me to understand what surrounds a person, an issue, a community or a space. So in education one might be inclined to be attentive to what&#8217;s happening in a school. So me as an anthropologist, it&#8217;s important for me to consider there may be very salient things happening outside of the school that are just as likely to inform whatever issue or problem I&#8217;m trying to understand. So there are all of these ecosystems around a particular person or space and understanding that, for me, is critical for any sort of attentive and, really, empathic data collection and solution building.</p>
+<p>But then secondly, I think about culture. So I consider, what is the culture of a department, a school, an institution overall, or just any subgroup, and how that might differ from another. Who or what are indicators of a culture? What can be known about it? So for me, being an anthropologist really means not taking for granted everything from the micro to the macro and all of these contexts that are accessible and meaningful to understanding anything.</p>
+<p>ORLOWSKI</p>
+<p>It sounds like that, essentially, you&#8217;re saying that something like college education — we can&#8217;t view that in a vacuum. These decisions and trajectories and paths that people go on towards college are affected by myriad factors outside of the actual experience of college itself.</p>
+<p>One thing that you&#8217;ve talked about before is that college is often viewed as a choice. That&#8217;s sort of the standard mindset that people in society think about. Students choose to go to a particular college. But you&#8217;ve also said that this framework of college choice doesn&#8217;t really accurately capture the process. Can you tell us why that is?</p>
+<p>ILOH</p>
+<p>So there&#8217;s a few reasons why college choice frameworks don’t accurately capture the process for me. One being that the prevailing one — and many popular ones — tend to look at college-going decisions and decision-making as this sequential process. What becomes problematic about that is that there&#8217;s a number of students who are not pursuing, attending or even deciding on college and these sort of sequential ways. I mean, we think about the fact that college is not even this one time event for a growing number of students. And this is a nod to the growing “some college experience and no degree” population. So it&#8217;s not this sort of, “Oh, well, I sort of thought about an institution, you know, or a kind of institution. I&#8217;ve searched for different kinds of schools that might fit what I want to enroll in. And then I&#8217;ve made a decision.” That could look very different for someone who&#8217;s much older and is really just making a decision based on a recommendation because they&#8217;re so far removed from college-going information that they may have received in high school.</p>
+<p>So for me, even just the notion that college decision-making is sequential or that college is this one time event is already deeply flawed and not representative of the very heterogeneous student population that we have now. I also think about the number of students that come from all these different walks of life and the other kinds of sectors of higher education that are rarely centered in these other frameworks. So I think about the for-profit colleges and community colleges that are more likely to enroll non-first-time students, student-parents, students that are older, students that work part or full time and what that sort of means for college-going. So it&#8217;s one thing to sort of think about a college-going decision for someone who&#8217;s coming out of high school. It&#8217;s another thing to think of someone who&#8217;s doing this at a much later time in their life.</p>
+<p>And we need frameworks that are really attentive and expansive to the different kinds of students in the higher education marketplace. And lastly, I just take issue with the term “choice” itself, which is why I&#8217;ve removed it from the framework I&#8217;ve created all together. Because, really, “choice” — it minimizes the role of privilege and shaping college-going options, as I&#8217;m having these air quotes that you guys can&#8217;t see. For example, there may be some students of the belief now that they don&#8217;t really have options because of the inequities embedded in the higher education ecosystem, and some that have many. So we need frameworks that are attentive to the fact that choice cannot be the lens that we use to understand a process when choice is already in contention for some students, especially when we think about things like race, someone&#8217;s location and other different and important factors in their life.</p>
+<p>ORLOWSKI</p>
+<p>Well, you mentioned the framework that you created. Can you tell us some more about that? It&#8217;s the Iloh Model of College-going Decisions and Trajectories. What&#8217;s involved with that framework?</p>
+<p>ILOH</p>
+<p>So the Iloh Model of College-going Decisions and Trajectories essentially highlights interactions among three dimensions that determine a person&#8217;s college-going decision and trajectory. So those three dimensions are information, time and opportunity. So unlike sequential frameworks, some of which I kind of addressed earlier, the three components of this Iloh model, they really have these nonlinear, but also still codependent relationships with one another. So they&#8217;re their own separate component, but a decision or trajectory is only understood when we think about information, time and opportunity collectively.</p>
+<p>Also information, time and opportunity — they&#8217;re not neutral, but they&#8217;re dimensions that can ultimately expand or reduce one&#8217;s college-going possibilities, based on a person&#8217;s identity, their life circumstances and social position. So I talked about the prospective student who might be much older, someone who might work part or full time, who also then might only be able to consider options, for example, that lend themselves to working part or full time. This model can really be used at different points in someone&#8217;s life to uncover the context and even rationale behind different decisions in addition to their trajectory overall.</p>
+<p>ORLOWSKI</p>
+<p>Well, and you also have a project that you&#8217;re working on right now. You earned a grant to examine how the COVID-19 pandemic, which we started talking about at the beginning of this conversation, and how that pandemic is affecting the college-going trajectories of Black and Latinx students. So can you tell us a bit more about that study and what do you plan to explore there?</p>
+<p>ILOH</p>
+<p>The project is really based on the premise that inequities and byproducts of classism and racism are very much likely to be heightened during a global pandemic. And also it&#8217;s really likely that the narratives, for example, of Black and Latinx students are going to be minimized because it&#8217;s a global pandemic that&#8217;s impacting students from all walks of life. So imagine inequities that are existing beforehand, and now we have a pandemic that&#8217;s impacting all kinds of students, likely only heightening issues for Black and Latinx students. And this is really an opportunity to be more intentional about those groups specifically.</p>
+<p>So I&#8217;m essentially exploring their college-going narratives. And, specifically, the project looks at low-income Black and Latinx students during this COVID-19 era. So I&#8217;m really excited to use the Iloh Model of College-going Decisions and Trajectories, specifically, to explore how their information, time and opportunity contexts amidst this pandemic — what they actually look like. So I&#8217;ll be interviewing a sample of students and I&#8217;ll be using a life history method, which basically seeks to understand their life experiences right now and beforehand through several rounds of interviews. And in doing so my biggest hope is to just honor their realities, document those, but then also be able to identify some class- and race-minded understandings and approaches for this particular moment. And also to think about implications for college access and persistence overall.</p>
+<p>ORLOWSKI</p>
+<p>And it sounds like one of the key things with the project is just documenting the fact that these groups of people are having these experiences, which kind of pushes back against any sort of standard narratives or any privileged narratives that could erase those experiences.</p>
+<p>ILOH</p>
+<p>Absolutely. Just the opportunity to be intentional in this way is such a blessing for me. And it really is at the core of the work that I do because, again, context and culture are so key for me. So I&#8217;m really grateful to be doing this project.</p>
+<p>ORLOWSKI</p>
+<p>Well let&#8217;s look a little bit more at the Iloh model and what it might say about the moment we&#8217;re in with the pandemic. So as you mentioned, the model examines time, information and opportunity. So how is the pandemic affecting each of those elements for students and potential students who are looking at college right now?</p>
+<p>ILOH</p>
+<p>Let&#8217;s just take time for starters. Some students who made college plans prior to the pandemic are now having to adapt or reconsider amidst all these rapid changes, given the pandemic and this distinct time in history that we&#8217;re in. The same goes for institutions, some of whose value propositions, programs, events and services are completely having to be altered, as well.</p>
+<p>So information — it&#8217;s a dimension that situates the quality and quantity of information someone has in making a college-going decision. So, arguably, that&#8217;s an area that&#8217;s affected as well. So simply because of the pandemic, this has created all these uncertainties for colleges that become information uncertainties for students. So there&#8217;s likely students now having to make decisions without as much information that they would have about what college is going to look like in the fall, in the spring, in the winter, than they would have had  in years prior. And also just having to be immersed in institutions that themselves don&#8217;t even know what their plans are because they&#8217;re adapting to and trying to project what&#8217;s feasible and what&#8217;s not feasible due to this pandemic. So I think of so many kinds of information asymmetries that can just come out of this moment and students really having to navigate so many uncertainties because of the time that we&#8217;re in.</p>
+<p>And with opportunity, this really gets us thinking about the real and perceived viability of college for an individual. So for example, college might not be viable at this time for someone because their family&#8217;s facing different kinds of financial hardship and they need assistance. So some students might be challenged with even affording college, potentially because the college itself and it being open was a source and ability for them to afford college. So we&#8217;re really seeing a moment where higher education itself is becoming more and more of a luxury because of this growing economic instability, amongst many things. And another example might be a student who might not even find a particular college an option anymore because the major they really wanted to pursue is facing severe budget cuts, or it&#8217;s just being cut all together. So these are just some examples. But as we think about time, information and opportunity, there&#8217;s so many ways and so many examples of how these elements can be impacted by this moment. And I&#8217;m really excited that I&#8217;ve created something that can be attentive to this time that we&#8217;re in.</p>
+<p>ORLOWSKI</p>
+<p>Looking to the future a bit more, we&#8217;ve talked a lot about how underrepresented groups and underprivileged groups who don&#8217;t have as many financial resources think about college and higher education. So how can your college-going trajectories model help leaders in higher education improve access for those underrepresented groups?</p>
+<p>ILOH</p>
+<p>So the Iloh model, I think is important, one of the reasons which being, because it&#8217;s just sensitive to complex contexts and ecosystems, whether that be a minoritized student or someone else. And this is especially informative for institutions that care about the sorts of complexities and want to do something about them. Overall my model can really help scholars, leaders and practitioners really challenge understandings of high-quality institutions just in the 21st century, as it relates to not just the idea that an institution has about itself or what it markets, but really the reality of that institution through the dimensions of information, time and opportunity, especially from the lens of minoritized and underrepresented students.</p>
+<p>So really the model suggests that institutions that are committed to equity — and I think of equity as excellence — they have to consider the dimensions of information, time and opportunity for the students that they&#8217;re able to enroll, but also the students that they don&#8217;t enroll. So if they&#8217;re finding that there are very low numbers of participation for Black students, for Latinx students, for low-income students, it&#8217;s important for them to really consider these dimensions and how accessible their institutions are. So really it&#8217;s just a framework that forces colleges to consider who their prospective and current students are and also who they aren&#8217;t. So there&#8217;s a lot of work to be done in higher education as it relates to both unearthing and dismantling inequities in college-going. And I believe the framework I created really is an invaluable tool to do so.</p>
+<p>ORLOWSKI</p>
+<p>Professor Iloh, thank you for joining me today on the UCI Podcast.</p>
+<p>ILOH</p>
+<p>Thank you.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+COVID-19%E2%80%99s+effect+on+the+college+decision+process: https://news.uci.edu/2020/09/08/uci-podcast-covid-19s-effect-on-the-college-decision-process/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F09%2F08%2Fuci-podcast-covid-19s-effect-on-the-college-decision-process%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/09/08/uci-podcast-covid-19s-effect-on-the-college-decision-process/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/09/08/uci-podcast-covid-19s-effect-on-the-college-decision-process/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/09/08/uci-podcast-covid-19s-effect-on-the-college-decision-process/&title=UCI Podcast: COVID-19’s effect on the college decision process" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: COVID-19’s effect on the college decision process&body=Hey, checkout this web page: - https://news.uci.edu/2020/09/08/uci-podcast-covid-19s-effect-on-the-college-decision-process/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/08/17/whats-next-the-future-of-museums/"><img src="https://news.uci.edu/wp-content/uploads/2020/08/Kanatani_Diebenkorn_flattened-270x180.jpg" alt="What’s next: The future of museums" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/08/17/whats-next-the-future-of-museums/"><p class="media-heading">What’s next: The future of museums</p></a><p><time>August 17, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2011/07/05/equal-opportunity-educator/"><img src="https://news.uci.edu/wp-content/uploads/2015/02/8138917786_7fd6e7d791_o-270x180.jpg" alt="Equal opportunity educator" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2011/07/05/equal-opportunity-educator/"><p class="media-heading">Equal opportunity educator</p></a><p><time>July 5, 2011</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/11/23/a-dietary-defense-against-disease/"><img src="https://news.uci.edu/wp-content/uploads/2020/11/farmers-market-fruit-and-vegetables-270x180.jpg" alt="A dietary defense against disease" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/11/23/a-dietary-defense-against-disease/"><p class="media-heading">A dietary defense against disease</p></a><p><time>November 23, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2018/09/12/professor-of-education-awarded-john-templeton-foundation-grant/"><img src="https://news.uci.edu/wp-content/uploads/2018/09/Sandra-Simpkins_Prof-of-Ed-270x180.jpg" alt="Professor gets John Templeton Foundation grant to study effect of after-school activities" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2018/09/12/professor-of-education-awarded-john-templeton-foundation-grant/"><p class="media-heading">Professor gets John Templeton Foundation grant to study effect of after-school activities</p></a><p><time>September 12, 2018</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div></div><div></div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://soundcloud.com/theucipodcast">UCI Podcast</a>
+            </div>
+            <div class="list-url">https://soundcloud.com/theucipodcast</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="http://education.uci.edu/">School of Education</a>
+            </div>
+            <div class="list-url">http://education.uci.edu/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="http://www.constanceiloh.com/constance-iloh-research">Constance Iloh</a>
+            </div>
+            <div class="list-url">http://www.constanceiloh.com/constance-iloh-research</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/college-access/" class="" rel="tag">college access</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/constance-iloh/" class="" rel="tag">Constance Iloh</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/coronavirus/" class="" rel="tag">coronavirus</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/covid-19/" class="" rel="tag">COVID-19</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/education/" class="" rel="tag">education</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/pandemic/" class="" rel="tag">pandemic</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/uci-podcast/" class="" rel="tag">UCI Podcast</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips | UCI News | UCI</title>
+
+    <title>UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Orange County bars may shut down again due to rising coronavirus cases' href='https://news.uci.edu/2020/07/01/orange-county-bars-may-shut-down-again-due-to-rising-coronavirus-cases/' />
+<link rel='next' title='&#8220;Ask the doctor&#8221; forum: Medical experts answer common questions about COVID-19' href='https://news.uci.edu/2020/07/02/ask-the-doctor-forum-medical-experts-answer-common-questions-about-covid-19/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/07/02/uci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=47650' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F07%2F02%2Fuci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F07%2F02%2Fuci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips"/>
+<meta itemprop="name" content="UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips"/>
+<meta property="og:url" content="https://news.uci.edu/2020/07/02/uci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-07-02T09:28:05-07:00"/>
+	<meta property="article:modified_time" content="2020-07-09T15:39:02-07:00" />
+<meta property="og:updated_time" content="2020-07-09T15:39:02-07:00" />
+<meta property="article:section" content="Alumni"/>
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Honors &amp; Awards"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="article:section" content="Public"/>
+<meta property="article:section" content="Social Sciences"/>
+<meta property="og:description" content="Melissa King, a 2005 UCI alumna with a bachelor’s degree in cognitive sciences, won Top Chef: All-Stars L.A., the 17th season of the show. In this episode of the UCI Podcast, King dishes on the final moments of the show and her unique California-Asian culinary style. She also shares cooking tips for"/>
+<meta itemprop="description" content="Melissa King, a 2005 UCI alumna with a bachelor’s degree in cognitive sciences, won Top Chef: All-Stars L.A., the 17th season of the show. In this episode of the UCI Podcast, King dishes on the final moments of the show and her unique California-Asian culinary style. She also shares cooking tips for"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/07/Melissa-King-1500x-1-720x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/07/Melissa-King-1500x-1-720x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-wrap">
+            <h1 class="page-heading">UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips</h1>
+
+            <h2 class="page-subheadline"></h2>
+
+            <div class="page-date">
+                
+                July 2, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/07/Melissa-King-1500x-1-768x768.jpg" alt="UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips" class="img-responsive">												<div class="caption">“My mission and my goal for this season was to really show my story and tell my story through my food about the places I’ve been and who I am as a Chinese American,” UCI alumna Melissa King ‘05 says. Nicole Weingart / Bravo</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p>Melissa King, a 2005 UCI alumna with a bachelor’s degree in <a href="https://www.cogsci.uci.edu/index.php">cognitive sciences</a>, won <em>Top</em> <em>Chef: All-Stars L.A.,</em> the 17th season of the show. In this episode of the UCI Podcast, King dishes on the final moments of the show and her unique California-Asian culinary style. She also shares cooking tips for college students and offers advice for young people today who admire her achievements as an Asian American queer woman. “My mission and my goal for this season was to really show my story and tell my story through my food about the places I’ve been and who I am as a Chinese American,” King says. She also describes how cognitive science benefits her as a chef. “I think it comes in handy in a kitchen, to be honest, when I’m around so many types of personalities, especially in a <em>Top Chef</em> scenario when a lot of it is psychology and being able to understand and adapt to people&#8217;s personalities and perspectives,” King says.</p>
+<p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fuci-podcast-top-chef-winner-is-uci-alumna-melissa-king&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; <a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M">Google Podcasts</a> &#8211; <a href="https://www.stitcher.com/podcast/the-uci-podcast">Stitcher</a> &#8211; <a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A">Spotify</a></strong></p>
+<p>&nbsp;</p>
+<p><strong>Transcript</strong></p>
+<p>Melissa King is a San Francisco chef raised in Southern California and she won season 17 of <em>Top Chef</em>, consistently impressing judges with her California and Asian inspired cuisine. A maverick chef, she&#8217;s had more challenge wins than any other competitor in <em>Top Chef</em> history. And she graduated from UCI in 2005, spending her years on campus sharpening your skills by cooking for her roommates.</p>
+<p>Melissa joins the UCI Podcast to discuss her experience on <em>Top Chef</em>, her unique cooking style and her tips for cooking as a college student.</p>
+<p>UCI PODCAST</p>
+<p>Melissa, thank you for joining me today on the UCI Podcast.</p>
+<p>MELISSA</p>
+<p>Hi, how are you?</p>
+<p>UCI PODCAST</p>
+<p>Take us back to that moment in <em>Top Chef</em> when you were announced as the All-Star winner. You were standing in front of the judges with two of the other contestants and Padma Lakshmi says your name. What happened next?</p>
+<p>MELISSA</p>
+<p>I think I just cried a lot. I mean, it&#8217;s such an overwhelming feeling you feel all the feels, you know. I felt like the whole experience journey of <em>Top Chef</em> was sort of like flashing through my head. But yeah, it was extremely overwhelming. I just was so proud of myself in that moment.</p>
+<p>UCI PODCAST</p>
+<p>Were you confident when she said your name, that you are the winner? Or where did you think that maybe &#8230;</p>
+<p>MELISSA</p>
+<p>I remember because she said my name, she was like, “Melissa…” and then she looked really sad. And I was like, oh no, she&#8217;s going to kick me off. You just, you never know at that moment which way it&#8217;s going to go. And I know Bryan (Voltaggio) and Stephanie (Cmar) had produced incredible food that day and all of us felt very proud of what we accomplished so it could have gone any way.</p>
+<p>UCI PODCAST</p>
+<p>For that final meal and that final dessert, I saw that you cooked, you prepared, a Hong Kong milk tea tiramisu, and it brought one of the judges to tears. Can you tell us more about that recipe? Is that something you make often or was that recipe for you?</p>
+<p>MELISSA</p>
+<p>It was a new recipe for me. I had thought about how can I marry a really traditional Italian dessert but kind of bring in a little bit of these Asian flavors, especially flavors that I grew up on. So my family&#8217;s from Hong Kong and they drink Hong Kong milk tea every morning. And, I just thought, coffee is in this, why don&#8217;t we just switch it to tea. And then I also have found a lot of inspiration from these bubble tea places with boba. And they have the milk teas that have the mascarpone cheese foam on top. So it kind of just all blended together in my head and I was like, let&#8217;s give this a try. But it was incredible to see (judge) Dario (Cecchini’s) reaction. I had actually not seen it until the episode on Thursday, when it was live, just exactly how much it moved him. So that that whole moment brought me to tears.</p>
+<p>UCI PODCAST</p>
+<p>So is that something that you do frequently? Kind of improvise for the recipes that you&#8217;re producing, or that you were producing, for the show?</p>
+<p>MELISSA</p>
+<p>Everything I make on the show I&#8217;ve never made before in its entirety. I&#8217;ve made pieces of it, maybe. The fish sauce caramel I&#8217;ve done before, but I&#8217;ve never paired it with wood-roasted cabbage. So yeah, a lot of it was just kind of improvising with what was available to me especially once we got to Italy, and just finding inspiration from the markets and then letting the market guide my menu.</p>
+<p>UCI PODCAST</p>
+<p>You grew up here in Southern California, and you mentioned that your family has milk tea every morning, and you started cooking at a very young age. So how did this region shape your cooking style?</p>
+<p>MELISSA</p>
+<p>I grew up specifically in the Hacienda Heights and the San Gabriel Valley, which is a very Chinese-populated community, or suburb, of Los Angeles. And it very much shaped my childhood and the flavors that I grew up on. But I don’t think until a few years ago I actually thought to marry the two and with my own career and the things I was learning in Michelin-starred kitchens. So I think my mission and my goal for this season was to really show my story and tell my story through my food about the places I’ve been and who I am as a Chinese American.</p>
+<p>UCI PODCAST</p>
+<p>Were there any particular moments during the show when you felt like you were really able to do that? Maybe any particular recipes that really exemplified that identity?</p>
+<p>MELISSA</p>
+<p>Certainly the finale menu was very much rooted in that mission. I know we were given four recipes, you could do four dishes and it could be anything you want. Typically, as you move through the show, there&#8217;s a bit of guidelines, you have to cook with prosciutto or you have to cook with parmesan. But in that moment, I was able to really curate a menu that felt 100 percent like me and very true to my style of cooking and true to my culture and who I am.</p>
+<p>UCI PODCAST</p>
+<p>And it was the most important menu of the season.</p>
+<p>MELISSA</p>
+<p>Yeah, I mean, they always say you&#8217;re going to cook the meal of your life.</p>
+<p>UCI PODCAST</p>
+<p>The season was set in LA. You were in season 12, as well, and that was set in Boston. Did the Los Angeles setting give you an advantage. Did you feel like you were able to leverage that?</p>
+<p>MELISSA</p>
+<p>I did feel comfortable here. There was a sense of comfort, because we had gone to the Getty Museum, which was my first kitchen job when I was 17. But I’d never come back here as a chef in the place that I am today in my career. And so even exploring the farmers markets and being able to cook with the Santa Monica Farmers Market ingredients, that was new to me. So I felt like I was exploring it just as much as everybody else because I’ve been living in San Francisco for the past 11 years.</p>
+<p>UCI PODCAST</p>
+<p>Before San Francisco and before culinary school, you were at UCI and you graduated from UCI in 2005 with a degree in cognitive science. So were you cooking at that time while you were at UCI?</p>
+<p>MELISSA</p>
+<p>I was. So summer breaks, winter breaks, I would work at the Getty, head that direction. I started as a pastry assistant when I was 17, but I worked my way into the savory side of the kitchen, and I remember I was leading the catering department.</p>
+<p>UCI PODCAST</p>
+<p>And were you cooking at all off the books, or for your classmates at all, or anything like that?</p>
+<p>MELISSA</p>
+<p>All the time. My roommates were very spoiled by me. And they were all on the hip hop dance teams and you see them, some of them went on to do those TV shows with the dancing cultures and dance crews. But I didn&#8217;t know how to dance, but I knew how to cook, so I fed everybody on those teams. And it was so much fun.</p>
+<p>UCI PODCAST</p>
+<p>I’m guessing that you have grown a lot as a cook and a chef since then. But have you grown as a dancer, since then?</p>
+<p>MELISSA</p>
+<p>I don’t know about that one. I’m a little rusty still.</p>
+<p>UCI PODCAST</p>
+<p>Like I mentioned, you studied cognitive science at UCI. So where do you think that cognitive science intersects with being a chef?</p>
+<p>MELISSA</p>
+<p>I had chosen cognitive science because I was always interested at an early age in biology. Anything science related, I felt that my brain just works that way. And food and science actually very much go hand-in-hand and are very similar. But if we&#8217;re talking specifically cognitive science, which is a little more psychology-based, neuroscience, I think it comes in handy in a kitchen, to be honest, when I&#8217;m around so many types of personalities, especially in a Top Chef scenario when a lot of it is psychology and being able to understand and adapt to people&#8217;s personalities and perspectives. I feel that’s where it has kind of come in handy.</p>
+<p>UCI PODCAST</p>
+<p>Navigating the different interpersonal dynamics.</p>
+<p>MELISSA</p>
+<p>Exactly</p>
+<p>UCI PODCAST</p>
+<p>One of the amazing things from this season was that you also won the fan award, the fan favorite award. And you&#8217;re donating that money, that prize money, to some charities. Can you tell us a bit more about what those charities are and why you’ve chosen to donate to them?</p>
+<p>MELISSA</p>
+<p>I just felt with everything that&#8217;s been happening with Black Lives Matter, it really hit me hard and I felt I need to be a better human and I need to be doing more. And so when the fan favorite competition started, I decided if I win and if I get the help of others to help me win, I want to donate this. And so amazingly enough, I did win and I&#8217;m so grateful for that. And so I&#8217;ll be donating to the <a href="https://www.blackvisionsmn.org/">Black Visions Collective</a>, <a href="https://www.aafe.org/">Asian Americans for Equality</a>, the <a href="https://www.aycla.org/about.html">Asian Youth Center</a> in Los Angeles, and also the <a href="https://www.thetrevorproject.org/">Trevor Project</a>. And each of those organizations, I feel it just kind of hits home to me. I wanted to support Black Lives Matter, but I also wanted to support Asian Americans right now, especially during COVID. We’ve been seeing, I know that I&#8217;ve been seeing anti-Asian racism happening. And then it&#8217;s Pride Month, and so I really want to celebrate my LGBTQ community and give back there. So, the Trevor Project is a national organization that provides suicide prevention and crisis support for LGBTQ youths. I really felt like if I&#8217;m going to help out this the way that I want to do it. I’m really grateful.</p>
+<p>UCI PODCAST</p>
+<p>And then with the prize money from the main competition, you&#8217;re planning, I think, to invest that in a restaurant, but the coronavirus has, I&#8217;m assuming, changed things a lot. What are your plans with that?</p>
+<p>MELISSA</p>
+<p>Things have shifted. I think goals and priorities have changed as well for everyone. I felt very inspired throughout quarantine and it motivated me to create a small-batch sauce line. And it kind of took off and I&#8217;ve been selling it on my website on <a href="http://www.chefmelissaking.com/">chefmelissaking.com</a>. And I started thinking I should be investing my money into this and really bring it into a larger scale and be able to bring my food to everyone. So I think I&#8217;ll be investing in that project. And a couple other things are happening or brewing.</p>
+<p>UCI PODCAST</p>
+<p>What are the flavors for the sauce line?</p>
+<p>MELISSA</p>
+<p>So I have four SKUs. I have a Sichuan chili sauce, which kind of goes on everything. It’s not too spicy, but has a lot of really deep flavors. And then I have a fish sauce caramel, which I had done on the show. And that is great for grilling and grilled items and just to lacquer on grilled chicken wings or ribs. And then I have a Mala chili oil, which is a bit more on the spicier end and it makes your tongue numb. It really has that Sichuan peppercorn numbing quality to it. And then last but not least is the XO sauce and that’s sort of this umami bomb of dried scallops and dried shrimp flavors in your mouth. But all of the sauces I had created on <em>Top Chef</em> and felt if I’m going to put this out there, I want it to be something that people feel is a part of me and part of my story. So I hope people have a chance to check that out.</p>
+<p>UCI PODCAST</p>
+<p>So by using those sauces in my own cooking I can appear to be a better cook than I am.</p>
+<p>MELISSA</p>
+<p>You can appear to be a Top Chef. You can cook like a Top Chef if you buy these sauces.</p>
+<p>UCI PODCAST</p>
+<p>So what have you been up to during these pandemic months? Obviously you haven’t been in the kitchen, at least at the restaurant, but what have you been doing?</p>
+<p>MELISSA</p>
+<p>A lot of my day work prior to COVID was very event-focused and people facing. And now that I can&#8217;t do that, I’ve sort of evolved the model to virtual cooking webinars and cooking experiences. I started a Patreon page where people can interact with me and get recipes directly from me. And then the cooking classes have been so much fun, too. And I&#8217;ve been tying those to some charitable organizations to donate and give back where I can. And then I created, kind of randomly created, a merchandise line, which actually started because of quarantine. Initially it was just for friends and family to wear during the show to support and then COVID happened, and I was like maybe I should just put this online and see what happens. And it ended up doing really well. And so I created a Pride hat that has a little rainbow side and $5 of each purchase goes towards supporting the Trevor Project.</p>
+<p>UCI PODCAST</p>
+<p>So you don’t currently have a restaurant. Do you hope to open one? And what kind of food would it serve if you did?</p>
+<p>MELISSA</p>
+<p>I currently don&#8217;t have any restaurants. But I never say never. I am very much open to the possibilities. I think it’s more a matter of where and and having the right timing for that. And if it did happen, I would love to do kind of what I did on the restaurant wars pitch episode, where we had to pitch to a restaurant tour what the concept of our dream restaurant would have been. And so mine would be a modern Californian restaurant bringing in a lot of those Asian flavors, similar to the style that you saw cook in the finale.</p>
+<p>UCI PODCAST</p>
+<p>Well, I hope that you do launch that restaurant so I can go and eat there. Let&#8217;s do a few rapid fire questions here to cap things off. What is your favorite dish to cook?</p>
+<p>MELISSA</p>
+<p>Seafood.</p>
+<p>UCI PODCAST</p>
+<p>Any kind of seafood?</p>
+<p>MELISSA</p>
+<p>I love just pan searing fish, and then making a salad. It’s just the simplest thing, but I get very happy just searing off a perfectly crispy piece of fish.</p>
+<p>UCI PODCAST</p>
+<p>And what is your favorite dish to eat?</p>
+<p>MELISSA</p>
+<p>Hamburgers. I love a good cheeseburger.</p>
+<p>UCI PODCAST</p>
+<p>In-N-Out?</p>
+<p>MELISSA</p>
+<p>Yeah, In-N-Out style, like American cheese. Sometimes I like bacon, caramelized onions, barbecue sauce and I kind of go bigger with it. But In-N-Out has my heart for sure. I ate there a lot during my UCI years. I was always at In-N-Out down the street.</p>
+<p>UCI PODCAST</p>
+<p>What is your opinion on sourdough bread baking?</p>
+<p>MELISSA</p>
+<p>I love it. I&#8217;m obsessed. And I feel like I was doing that before the trend got popular, but I love it so much. I think there&#8217;s a whole science behind it and it&#8217;s very challenging and difficult, but that&#8217;s why I like it.</p>
+<p>UCI PODCAST</p>
+<p>What is your favorite spot on the UCI campus?</p>
+<p>MELISSA</p>
+<p>Oh, wow, it’s been ages. Probably the In-N-Out. Honestly, I really spent a lot of time there. Or the Lee’s Sandwiches. I don&#8217;t even know if that&#8217;s still there anymore. It&#8217;s been a while since I’ve been back to campus. I remember spending a lot of time at the Panda Express, too, on campus.</p>
+<p>UCI PODCAST</p>
+<p>All right, this is a bit bigger of a rapid-fire question, but what are your top three tips for college students who are cooking in their apartments or dorms?</p>
+<p>MELISSA</p>
+<p>I always tell people, don&#8217;t be afraid to explore a new recipe or a new ingredient that you&#8217;ve never seen. If you see it at the grocery store, buy it, give it a try. Also, don&#8217;t be afraid to make mistakes. I think recipes are guidelines and we need to make mistakes in order to be stronger chefs and stronger home cooks. None of us on Top Chef would be where we are unless we made a million mistakes in our career to learn from. And then, have fun. I think, again, recipes are guidelines and if you want more spice add more spice. You don&#8217;t have to follow the recipe by the book. Go with what your mouth is telling you it needs. So remember to taste your food and then kind of dissect it from there about how to make it better.</p>
+<p>UCI PODCAST</p>
+<p>I wanted to ask you one more thing. For young people today who might look up to you as an Asian American queer woman who has achieved this tremendous success, what would you want to tell them? What would you want to share with them?</p>
+<p>MELISSA</p>
+<p>I would tell them to believe in themselves. I think a lot of times it’s easy to second guess, it’s easy to doubt yourself. So find your voice, find your strength, because it&#8217;s there and you got to dig for it and you got to take risks. And if something scares you, go for it and dig deep and lean into that fear, because I guarantee you, you will become a stronger person on the other side, once you take that leap. But find your inner strength. And that&#8217;s what&#8217;s going to carry you through the rest of everything else.</p>
+<p>UCI PODCAST</p>
+<p>Melissa, thank you for joining me today on the UCI Podcast.</p>
+<p>MELISSA</p>
+<p>Thank you so much for having me.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+Top+Chef+winner+and+UCI+alumna+Melissa+King+dishes+out+college+cooking+tips: https://news.uci.edu/2020/07/02/uci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F07%2F02%2Fuci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/07/02/uci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/07/02/uci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/07/02/uci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips/&title=UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: Top Chef winner and UCI alumna Melissa King dishes out college cooking tips&body=Hey, checkout this web page: - https://news.uci.edu/2020/07/02/uci-podcast-top-chef-winner-and-uci-alumna-melissa-king-dishes-out-college-cooking-tips/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2016/11/04/delayed-gratification-is-good-for-your-health-study-finds/"><img src="https://news.uci.edu/wp-content/uploads/2016/11/Matthew-Harding-1-270x180.jpg" alt="Delayed gratification is good for your health, study finds" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2016/11/04/delayed-gratification-is-good-for-your-health-study-finds/"><p class="media-heading">Delayed gratification is good for your health, study finds</p></a><p><time>November 4, 2016</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/04/10/uci-podcast-uci-health-response-to-covid-19-crisis/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="img-responsive" alt=""></body></html>
+</a></div><div class="media-body"><a href="https://news.uci.edu/2020/04/10/uci-podcast-uci-health-response-to-covid-19-crisis/"><p class="media-heading">UCI Podcast: UCI Health response to pandemic</p></a><p><time>April 10, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/08/14/uci-cognitive-scientist-will-use-nsf-grant-to-study-tie-between-math-skills-equity-understanding/"><img src="https://news.uci.edu/wp-content/uploads/2020/01/nadiachernyak_org-270x180.jpg" alt="Cognitive scientist will use NSF grant to study tie between math skills, equity understanding" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/08/14/uci-cognitive-scientist-will-use-nsf-grant-to-study-tie-between-math-skills-equity-understanding/"><p class="media-heading">Cognitive scientist will use NSF grant to study tie between math skills, equity understanding</p></a><p><time>August 14, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2017/10/12/social-sciences-dean-to-emcee-panel-at-20th-anniversary-meeting-of-national-behavioral-sciences-board/"><img src="https://news.uci.edu/wp-content/uploads/2017/10/Bill-Maurer_standing-270x180.jpg" alt="Bill Maurer to emcee panel at meeting of national behavioral sciences board" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2017/10/12/social-sciences-dean-to-emcee-panel-at-20th-anniversary-meeting-of-national-behavioral-sciences-board/"><p class="media-heading">Bill Maurer to emcee panel at meeting of national behavioral sciences board</p></a><p><time>October 12, 2017</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div>Aaron Orlowski</div><div></div><div>aaron.orlowski@uci.edu</div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="http://www.chefmelissaking.com/">Chef Melissa King</a>
+            </div>
+            <div class="list-url">http://www.chefmelissaking.com/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://news.uci.edu/2014/10/10/alumna-vies-to-be-top-chef/">Top Chef season 12 appearance</a>
+            </div>
+            <div class="list-url">https://news.uci.edu/2014/10/10/alumna-vies-to-be-top-chef/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://soundcloud.com/theucipodcast">UCI Podcast</a>
+            </div>
+            <div class="list-url">https://soundcloud.com/theucipodcast</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-4" href="https://www.socsci.uci.edu/">School of Social Sciences</a>
+            </div>
+            <div class="list-url">https://www.socsci.uci.edu/</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/alumni/" class="" rel="tag">alumni</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/cognitive-sciences/" class="" rel="tag">cognitive sciences</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/inclusive-excellence/" class="" rel="tag">Inclusive excellence</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/lgbtq/" class="" rel="tag">LGBTQ</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/melissa-king/" class="" rel="tag">Melissa King</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/social-sciences/" class="" rel="tag">social sciences</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/uci-podcast/" class="" rel="tag">UCI Podcast</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

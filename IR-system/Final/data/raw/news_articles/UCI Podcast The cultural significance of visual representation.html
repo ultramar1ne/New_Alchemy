@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="icon" type="image/x-icon" href="//web.communications.uci.edu/assets/2015/img/favicon.ico">
+    <link rel="apple-touch-icon" href="//web.communications.uci.edu/assets/2015/img/webclip-icon.png">
+
+    <title>UCI Podcast: The cultural significance of visual representation | UCI News | UCI</title>
+
+    <title>UCI Podcast: The cultural significance of visual representation &#8211; UCI News</title>
+<link rel='dns-prefetch' href='//uci.edu' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/wp-emoji.js?ver=5.2.3","twemoji":"https:\/\/news.uci.edu\/wp-includes\/js\/twemoji.js?ver=5.2.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Love is love.
+				 *
+				 * To test for Emoji 12 support, try to render a new emoji: men holding hands, with different skin
+				 * tone modifiers.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200D, 0xD83E, 0xDD1D, 0x200D, 0xD83D, 0xDC68, 0xD83C, 0xDFFC],
+					[0xD83D, 0xDC68, 0xD83C, 0xDFFE, 0x200B, 0xD83E, 0xDD1D, 0x200B, 0xD83D, 0xDC68, 0xD83C, 0xDFFC]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='uci-wp-video-embeder-styles-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.uci.edu/wp-includes/css/dist/block-library/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-authorship-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-authorship/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cj-rl-front-css'  href='https://news.uci.edu/wp-content/plugins/cj-related-links/css/front.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='so-flex-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-flex.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-legacy-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/front-legacy.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='so-comprehensive-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/css/so-comprehensive.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-child-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/uciseventeen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-uci-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap3-accessibility-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='main-style-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen-child/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-campaign-style-css'  href='https://uci.edu/js/campaign-button/campaign-button.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uciseventeen-css'  href='https://news.uci.edu/wp-content/themes/uciseventeen/style.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-frontend-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='uci-slideshow-no-bootstrap-css'  href='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow-no-bootstrap.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-video-embedder/video-embed.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen-child/assets/js/uciseventeen/height-matching.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://news.uci.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.uci.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.uci.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='UCI develops low-cost, accurate COVID-19 antibody detection platform' href='https://news.uci.edu/2020/08/19/uci-develops-low-cost-accurate-covid-19-antibody-detection-platform/' />
+<link rel='next' title='08/19 OT: It&#8217;s the 19th; Heeeyy 19' href='https://news.uci.edu/2020/08/19/08-19-ot-its-the-19th-heeeyy-19/' />
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://news.uci.edu/2020/08/19/uci-podcast-the-cultural-significance-of-visual-representation/" />
+<link rel='shortlink' href='https://news.uci.edu/?p=48819' />
+<link rel="alternate" type="application/json+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F19%2Fuci-podcast-the-cultural-significance-of-visual-representation%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.uci.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F19%2Fuci-podcast-the-cultural-significance-of-visual-representation%2F&#038;format=xml" />
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NP3KPCC');
+
+// Auto-wrap non-bootstrap code in a container
+jQuery(function($) {
+	if (!$('.page main .container').length && !$('.page main .container-fluid').length) {
+		$('main').addClass('container');
+	}
+});</script>
+	    <meta name="description" content="UCI professor Bridget Cooks speaks to the need for comprehensive, widespread change">
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 1.6.3 -->
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="UCI News"/>
+<meta property="og:title" content="UCI Podcast: The cultural significance of visual representation"/>
+<meta itemprop="name" content="UCI Podcast: The cultural significance of visual representation"/>
+<meta property="og:url" content="https://news.uci.edu/2020/08/19/uci-podcast-the-cultural-significance-of-visual-representation/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-19T11:39:04-07:00"/>
+	<meta property="article:modified_time" content="2021-02-03T09:43:03-07:00" />
+<meta property="og:updated_time" content="2021-02-03T09:43:03-07:00" />
+<meta property="article:section" content="Campus Life"/>
+<meta property="article:section" content="Campus News"/>
+<meta property="article:section" content="Faculty"/>
+<meta property="article:section" content="Humanities"/>
+<meta property="article:section" content="Podcasts"/>
+<meta property="og:description" content="UCI professor Bridget Cooks speaks to the need for comprehensive, widespread change"/>
+<meta itemprop="description" content="UCI professor Bridget Cooks speaks to the need for comprehensive, widespread change"/>
+<meta property="og:image" content="https://news.uci.edu/wp-content/uploads/2020/08/Bridget-Preferred_AH-Portrait-2015-color-614x480.jpg"/>
+<meta itemprop="image" content="https://news.uci.edu/wp-content/uploads/2020/08/Bridget-Preferred_AH-Portrait-2015-color-614x480.jpg"/>
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags -->
+
+</head>
+<body class="post">
+
+<!-- skip to main nav -->
+<nav aria-label="Skip to" id="skip-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="sr-only sr-only-focusable" href="#content-main">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- primary nav -->
+<nav aria-label="Primary navigation" class="navbar navbar-inverse" id="nav-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-primary-items"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle primary navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://uci.edu/">UCI <span class="sr-only">homepage</span></a>
+        </div>
+        <div id="nav-primary-items" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li  id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-69 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/art-and-humanities/">Arts & Humanities</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Arts & Humanities</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/arts/">Arts</a></li>
+<li><a href="https://news.uci.edu/category/humanities/">Humanities</a></li>
+</ul>
+</li>
+<li  id="menu-item-70" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70 nav-item btn-group clearfix link-only"><a class="btn" href="https://news.uci.edu/category/athletics/">Athletics</a></li>
+<li  id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-71 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/campus-life/">Campus Life</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Campus Life</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/campus-life/administration/">Administration</a></li>
+<li><a href="https://news.uci.edu/category/campus-life/students/">Students</a></li>
+</ul>
+</li>
+<li  id="menu-item-72" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-72 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/health/">Health</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Health</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/health/hospital/">Hospital</a></li>
+<li><a href="https://news.uci.edu/category/health/public-health/">Public Health</a></li>
+<li><a href="https://news.uci.edu/category/health/nursing/">Nursing</a></li>
+<li><a href="https://news.uci.edu/category/health/school-of-medicine/">School of Medicine</a></li>
+<li><a href="https://news.uci.edu/category/health/pharmaceutical-sciences/">Pharmaceutical Science</a></li>
+</ul>
+</li>
+<li  id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-73 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/science-and-tech/">Science & Tech</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Science & Tech</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/science-and-tech/environment-and-energy/">Environment/Energy</a></li>
+</ul>
+</li>
+<li  id="menu-item-74" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-74 nav-item btn-group clearfix link-dropdown"><a class="btn" href="https://news.uci.edu/category/society-and-community/">Society & Community</a><button aria-expanded="false" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" type="button"><span class="sr-only">Toggle dropdown: Society & Community</span><span class="toggle-container"><span aria-hidden="true" class="glyphicon toggle-icon"></span></span></button> 
+<ul class="dropdown-menu" >
+<li><a href="https://news.uci.edu/category/society-and-community/education/">Education</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</nav>
+
+<header>
+        <div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8" id="wordmark">
+                <a href="https://news.uci.edu"><img width="302" height="75" src="https://news.uci.edu/wp-content/uploads/2018/04/news-wordmark.png" class="attachment-full size-full" alt="UCI News" /></a>            </div>
+            <div class="col-sm-12 col-md-4" id="search">
+                <form action="https://search.uci.edu/" class="form-inline" method="get">
+    <input name="collection" type="hidden" value="uci_news">
+    <label class="sr-only" for="search-text">Search</label>
+    <input class="form-control" id="search-text" name="q" placeholder="Search..." type="text">
+    <div class="btn-group">
+        <button class="btn btn-default" name="type" type="submit" value="Web">Web</button>
+        <button class="btn btn-default" name="type" type="submit" value="People">People</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<hr>
+
+<!--<nav aria-label="breadcrumbs" id="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                            </div>
+        </div>
+    </div>
+</nav> -->
+
+<main id="content-main">
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8 clearfix article article-column-wrap">
+            <h1 class="page-heading">UCI Podcast: The cultural significance of visual representation</h1>
+
+            <h2 class="page-subheadline">UCI professor Bridget Cooks speaks to the need for comprehensive, widespread change</h2>
+
+            <div class="page-date">
+                
+                August 19, 2020            </div>
+
+                            <div class="portrait-header">
+                    <img src="https://news.uci.edu/wp-content/uploads/2020/08/Bridget-Preferred_AH-Portrait-2015-color.jpg" alt="UCI Podcast: The cultural significance of visual representation" class="img-responsive">												<div class="caption">“Addressing the optics of racism through visual images and brands is something corporations can do to appear engaged in contemporary politics, and removing these characters from these products is a start. But I think what’s even more important than that is the larger issue of Black equality and the corporations&#8217; relationships to Black lives socially, politically, and economically,” says Bridget R. Cooks, associate professor of African American studies and art history at UCI. School of Humanities / UCI</div>
+					                </div>
+            
+            <div class="page-content clearfix"><p><div style="text-align:center; width:100%;"><iframe width="100%" height="165" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftheucipodcast%2Fpodcast-with-bridget-r-cooks-081720-2&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false&amp;sharing=true&amp;download=true&amp;show_artwork=true&amp;color=FF4F00&amp;liking=false&amp;show_playcount=true"></iframe></div></p>
+<p>Major consumer brands across the country, from Disneyland to Quaker Oats, have announced plans to retire, evolve or review images used for marketing purposes, in response to complaints they perpetuate racial stereotypes. In today’s climate of heightened public awareness of the impact and legacy of images, Bridget R. Cooks, associate professor of African American studies and art history at UCI, speaks to the need for comprehensive, widespread change.</p>
+<p>To get the latest episodes of the UCI Podcast delivered automatically, subscribe at:</p>
+<p><a href="https://podcasts.apple.com/us/podcast/the-uci-podcast/id1462481242"><strong>Apple Podcasts</strong></a><strong> &#8211; </strong><a href="https://podcasts.google.com/feed/aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NjA3Nzk3NjQ4L3NvdW5kcy5yc3M"><strong>Google Podcasts</strong></a><strong> &#8211; </strong><a href="https://www.stitcher.com/podcast/the-uci-podcast"><strong>Stitcher</strong></a><strong> &#8211; </strong><a href="https://open.spotify.com/show/0qTyT9svCRUCGbDEQzKSmQ?si=8NUFAovyQwWrCVVGup36_A"><strong>Spotify</strong></a></p>
+<p><strong>PODCAST TRANSCRIPT</strong></p>
+<p>Hi, I’m Pat Harriman and this is the UCI Podcast.</p>
+<p>Joining me today is Bridget R. Cooks, associate professor of African American studies and art history at UCI. She is an expert on African American art and culture, Black visual culture and museum criticism. She has received numerous awards, grants and fellowships for her research and exhibitions. She most recently received a Ford Foundation grant to fund the forthcoming exhibition The Black Index, which she has organized and curated.</p>
+<p>We’ll be talking about the cultural significance of visual representation. This is a particularly relevant topic in today’s climate of heightened public awareness of the impact and legacy of images, and recognition of the need for comprehensive, widespread change.</p>
+<p>Professor Cooks, thank you for joining the UCI podcast.</p>
+<p><strong>Cooks:</strong>  Thanks so much for inviting me, Pat.</p>
+<p><strong>UCI Podcast:</strong>  Now please tell us about The Black Index. What it is, why it is important and what you hope to achieve?</p>
+<p><strong>Cooks:</strong>  I’m so excited about this exhibition and grateful for so much support that I’ve gotten for this show. <em>The Black Index </em>is an exhibition of six contemporary artists whose work builds upon the tradition of Black self-representation and thinking about self-representation as an antidote to colonial images. Through this work that they present, the artists are struggling, like so many of us do now with the barrage of images of Black death, incarceration, and anti-Black violence that continue the colonial project today. These kinds of images are circulated with such regularity that Black death has become normalized. The artists in <em>The Black Index</em> resist that normality. Through their work, they define death as loss, as something to resist and mourn. Their art creates a visual index to find Black people as valuable. Their insights provide an alternative to popular interpretations that do not consider Black lives worthy of living at all.</p>
+<p>The exhibition is important and it’s timely, because it resonates with the dilemma or the condition of being Black in America, which is to be physically alive, but socially perceived as worthless. The artists’ work addresses what it means to be a social abstraction—a distortion of the truth of who we know we are. The exhibition will give non-Black people insight into this condition. So my hope for the exhibition is to provide an opportunity for contemplation, for validation, and also inspiration.</p>
+<p><strong>UCI Podcast:</strong> Back in June, Disneyland announced its remake of Splash Mountain with a “Princess and</p>
+<p>The Frog” theme. The Disney Parks Blog described the concept as “inclusive.” What does visual inclusion look like to you and what is its importance at Disneyland and beyond?</p>
+<p><strong>Cooks:</strong>  Yeah, this is a really interesting question and I want to give some history here about Splash Mountain and then go through the question. So New Orleans Square is where Splash Mountain is. It&#8217;s the only representation of New Orleans I’ve ever seen without Black people. In reality it’s not possible for New Orleans to exist without Black people. But, this is Disney, so It is an idiosyncratic perspective that certainly has its exclusive preferences.</p>
+<p>The theme of the Splash Mountain at Disneyland is based on the Disney 1946 film titled <em>Song of the South</em> and that title has been banned for decades because of its nostalgic representation of slavery and its presentation of Black inferiority. <em>Song of the South </em>is based on the books of a White writer Joel Chandler Harris, who learned West African folktales from enslaved people living in and around the Laura plantation which is just outside of New Orleans. The folktales are morality tales that involve the trickster character named Brer Rabbit. These stories were known among enslaved people in the British Colonies and the US. Harris wrote them down, but he changed them by adapting them to the context of plantation life and he added a fictional uncle character named Uncle Remus. He published his versions of the stories in several popular books starting in the 1880s and that helped make him famous.</p>
+<p>A redesign of the theme and scenery of <em>Splash Mountain</em> is a tall order. It offers the opportunity to depart from the nostalgic theme of <em>Song of the South</em>. Thinking about your question of what racial inclusion would look like visually, I think at the very least, it would present Black figures as human instead of animals as in <em>Song of the South</em>, outside of the Uncle Remus character. The Uncle Remus character is a stereotype brought to life by the actor who plays him. The other Black characters are presented as racialized animals: Brer Rabbit, Brer Fox, Brer Bear, and the symbolic and enigmatic character named “<a href="https://www.youtube.com/watch?v=qpGL-mj-LEk">tar baby</a>.” So in a superficial way, showing Black people as human in the ride would be one form of visual inclusiveness.</p>
+<p>I think a more substantive idea of inclusion would go beyond that and recognize and incorporate the perspective of Black protagonists in human form. In other words, the narrative would be told from the point of view of Black characters and not follow the racist stereotypes of Black people that is celebrated in <em>Song of the South</em>.</p>
+<p>So, another layer of this. What’s tricky about choosing<em> The Princess and the Frog </em>narrative, is that story about Princess Tiana is troubled from start. Princess Tiana is the first Black Disney princess, and there are a lot of things going on in that film that differ from the other Disney princess films. So I’m going to recommend an insightful critique of the film that came out several years ago in 2010, in <em>The New University</em>, which is the UCI student paper. It’s called “<a href="https://www.newuniversity.org/2010/01/11/warts-and-all-disneys-first-black-princess/">Warts and All, Disney’s First Black Princess</a>” written by scholar James Bliss. He talks about some of the troubling aspects of <em>The Princess and the Frog</em> film. For instance, the dream of the Princess is to work hard which is also a departure from the other Disney princesses, and the curse that keeps Princess Tiana from the man she loves is marriage which is another way that the narrative differs from other Disney princess stories. So, I think it’s great that the imagineers want to approach Black representation in a different way, but they’ll also have to address some of the questionable things about the film. So will the ride replicate these differences that I’ve mentioned? Will the ride critique them? Or will it just replicate them and call it inclusiveness?</p>
+<p><strong>UCI Podcast:</strong>  Also this summer, major food brands announced plans to retire, evolve or review images used to market their products in response to complaints that they perpetuate racial stereotypes. These proposed and actualized changes to visual brand identities incited both praise and backlash. Can you tell us more about the power of images and the strong emotions they provoke?</p>
+<p><strong>Cooks:</strong>  Like Disney, these brands have widespread audiences. It makes them very powerful and influential. I think the question of visual representation at Disney and then also at your neighborhood grocery store is really important because they reach so many people. So I would say the removal of Aunt Jemima, the name and icon for Quaker Oats is a long time coming. For generations, that brand has profited from the racist desire to have a Black woman as slave and servant to Whites. So inherently she is a nostalgic character that represents a longing for the Old South. And, there’s a connection with Disneyland there also because when Disneyland opened, there was a woman who performed as Aunt Jemima, making pancakes on Main Street.</p>
+<p>So Quaker Oats has perpetuated the idea of Black women as inferior well into the twenty-first century. Several artists have been calling out the brand for their exploitation over the years. Joe Overstreet in<em> The New Aunt Jemima </em>from 1964, Betye Saar in many many artworks, but most famously in <em>The Liberation of Aunt Jemima</em> from 1972, and Renee Cox in her Raje series from the 1990s. These are just some of the many artists who have been criticizing these nostalgic representations of Black women as slaves. So, that Aunt Jemima is a racist symbol is not a new realization for Black people or for the company, and nor is the icon the only one. Uncle Ben&#8217;s products and Rastas on Cream of Wheat also fulfill racist fantasies of Blackness, showing Black people as servants, happily ready to serve. And removing these characters from these products is a start. But I think what’s even more important than that is the larger issue of Black equality and the corporations&#8217; relationships to Black lives socially, politically, and economically.</p>
+<p><strong>UCI Podcast:</strong>  We’re at a pivotal moment in time. The police killing of George Floyd has galvanized the world. Do you see a connection between this historical moment and a seemingly increased focus on visual representations?</p>
+<p><strong>Cooks:</strong>  Yeah, this is an interesting question. I think looking back to May, and all the things that have happened since the murder of George Floyd that apparently, for many people worldwide, the killing of a Black man in the street by police was really shocking. But for many Black people and others who have been paying attention to what’s been going on in terms of anti-Blackness in America, it really was not surprising. Other Black men were killed that day in America by police. They were killed the day before, they were killed day after. But there’s something about the fact that it was recorded and was able to circulate so quickly, that I think has really encouraged people to think about the messages that we receive about Black people and the way that we are valued or not valued in America. So addressing the optics of racism through visual images and brands is something that corporations can do to appear engaged in contemporary politics. But removing a symbol, again, is not an indicator of anti-racist behavior or corporate leaders really having a change of heart. Racist symbols that have been criticized for generations are removed when corporations start losing money because of their behavior. So it’s not an indication that racist people are thinking differently about Black people or our value in the world. It goes back to an age-old strategy of hitting people in their bank account to really make change happen.</p>
+<p>&nbsp;</p>
+<p><strong>UCI Podcast:</strong>  You’ve organized and curated several exhibitions; you’ve written books on Black artists; and now you’re writing books on the art of the civil rights movement. Is there one particular piece of art or series of works or even an artist that you think encapsulates either the moment we’re in or a hope for the future?</p>
+<p>&nbsp;</p>
+<p><strong>Cooks:</strong>  Yeah, you know, there are really about a dozen artists who are really speaking to this moment. They’ve been making work before this particular moment. Before the apocalypse of 2020 that speaks to the crisis that we’re in. I would say one of my favorites has to be Titus Kaphar whose painting title  <em>Analogous Colors </em>appeared on the cover of <em>Time </em>magazine in June of this year. His painting visualizes a Black mother’s loss of her child. It conveys a sense of helplessness of many Black mothers who are unable to protect their children in our anti-Black environment. So if you look at the painting, you’ll see that it’s framed by the names of 35 Black Americans whose lives were ended by racist violence. And I think what this combination of text and image, we’re focusing on the loss of Black people, but also looking at Black families, thinking about Black people with love, thinking about our murders as real loss. Going back to The Black Index question that you asked me about at the top, thinking about a whole cycle of love and violence and mourning and remembrance that America seems to be really trapped in. It’s a very powerful work to look at.</p>
+<p>Thank you, Professor Cooks. And thank you for listening to the UCI Podcast, which is a production of UCI Strategic Communications &amp; Public Affairs.</p>
+<div class="sharify-container"><ul><li class="sharify-btn-twitter">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text=UCI+Podcast%3A+The+cultural+significance+of+visual+representation: https://news.uci.edu/2020/08/19/uci-podcast-the-cultural-significance-of-visual-representation/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
+									<span class="sharify-title">Tweet</span>
+								</a>
+							</li><li class="sharify-btn-facebook">
+								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fnews.uci.edu%2F2020%2F08%2F19%2Fuci-podcast-the-cultural-significance-of-visual-representation%2F" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
+									<span class="sharify-title">Share</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-reddit">
+								<a title="Submit to Reddit" href="http://reddit.com/submit?url=https://news.uci.edu/2020/08/19/uci-podcast-the-cultural-significance-of-visual-representation/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=950,height=450,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
+								</a>
+							</li><li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=https://news.uci.edu/2020/08/19/uci-podcast-the-cultural-significance-of-visual-representation/" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
+								</a>
+							</li><li class="sharify-btn-linkedin">
+								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://news.uci.edu/2020/08/19/uci-podcast-the-cultural-significance-of-visual-representation/&title=UCI Podcast: The cultural significance of visual representation" onclick="if(!document.getElementById('td_social_networks_buttons')){window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;}" >
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">0</span>
+								</a>
+							</li><li class="sharify-btn-email">
+								<a title="Share via mail" href="mailto:?subject=UCI Podcast: The cultural significance of visual representation&body=Hey, checkout this web page: - https://news.uci.edu/2020/08/19/uci-podcast-the-cultural-significance-of-visual-representation/">
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
+								</a>
+							</li></ul></div></div>
+            <div class="related-posts"><h2>Related Posts</h2><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/10/15/pharmacy-and-pharmaceutical-sciences-dean-endows-founding-partners-scholarship/"><img src="https://news.uci.edu/wp-content/uploads/2020/10/Hirsch_022420_0397_sz-270x180.jpg" alt="Pharmacy and pharmaceutical sciences dean endows Founding Partners Scholarship" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/10/15/pharmacy-and-pharmaceutical-sciences-dean-endows-founding-partners-scholarship/"><p class="media-heading">Pharmacy and pharmaceutical sciences dean endows Founding Partners Scholarship</p></a><p><time>October 15, 2020</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2021/03/15/residents-in-waiting/"><img src="https://news.uci.edu/wp-content/uploads/2021/03/210309_Matchday_6004_sz-270x180.jpg" alt="For UCI&#8217;s med students, the future is now with Match Day" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2021/03/15/residents-in-waiting/"><p class="media-heading">For UCI&#8217;s med students, the future is now with Match Day</p></a><p><time>March 15, 2021</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2016/04/27/solving-problems/"><img src="https://news.uci.edu/wp-content/uploads/2016/04/033016_Mathceo_06_cn-e1462205168487-270x180.jpg" alt="Solving problems" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2016/04/27/solving-problems/"><p class="media-heading">Solving problems</p></a><p><time>April 27, 2016</div></div><div class="media"><div class="media-left"><a href="https://news.uci.edu/2020/08/24/uci-podcast-the-future-of-social-justice/"><img src="https://news.uci.edu/wp-content/uploads/2020/08/Haynes_190126_0362_sz-270x180.jpg" alt="UCI Podcast: The future of social justice" class="img-responsive"></a></div><div class="media-body"><a href="https://news.uci.edu/2020/08/24/uci-podcast-the-future-of-social-justice/"><p class="media-heading">UCI Podcast: The future of social justice</p></a><p><time>August 24, 2020</div></div></div>        </div>
+        <aside class="col-md-4 sidebar-right no-print">
+            
+
+<div class="widget"><h3 class="widget-title">Contact Information</h3><ul class="list-group"><li class="list-group-item"><div>Pat Harriman</div><div>949-501-1008</div><div>pharrima@uci.edu</div></li></ul></div><div class="widget widget_cj_related_links_widget" id="cj_related_links_widget-3"><div class="widget-text wp_widget_plugin_box">
+<h3 class="widget-title">Related Links</h3>    <ul class="list-group">
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-1" href="https://www.humanities.uci.edu/SOH/">School of Humanities</a>
+            </div>
+            <div class="list-url">https://www.humanities.uci.edu/SOH/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-2" href="https://www.humanities.uci.edu/afam/">Department of African American Studies</a>
+            </div>
+            <div class="list-url">https://www.humanities.uci.edu/afam/</div>
+        </li>
+                <li class="list-group-item">
+            <div>
+                <a id="related-link-3" href="https://www.humanities.uci.edu/SOH/calendar/story_details.php?recid=2109">UCI art historian Bridget R. Cooks receives Ford Foundation grant for The Black Index exhibition</a>
+            </div>
+            <div class="list-url">https://www.humanities.uci.edu/SOH/calendar/story_details.php?recid=2109</div>
+        </li>
+            </ul>
+</div>
+</div><div class="widget widget_neatly-recent-posts" id="neatly-recent-posts-2"><h3 class="widget-title">Recent Posts</h3>                    <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/vt-prisons-used-lockdowns-to-slow-coronavirus-but-prisoners-mental-health-suffered/">Vt. prisons used lockdowns to slow coronavirus, but prisoners&#8217; mental health suffered</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/orange-countys-daily-covid-19-case-rates-decrease/">Orange County&#8217;s daily COVID-19 case rates decrease</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/"><img src="https://news.uci.edu/wp-content/uploads/2021/06/Rap-on-Trail-Cover-REVISED-270x180.jpg" alt="UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials" class="media-object"></a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/09/uci-experts-produce-guide-for-defense-attorneys-fighting-use-of-rap-lyrics-in-trials/">UCI experts produce guide for defense attorneys fighting use of rap lyrics in trials</a></h5>
+                
+                                <p class="rp-date rp-info">June 9, 2021</p>
+                
+	                        </div>
+          </div>
+          
+                              <div class="media">
+            <div class="media-left">
+                <a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><img src="https://news.uci.edu/wp-content/uploads/2018/05/uci-news-placeholder-default-270x180.jpg" class="media-object" alt=""></body></html>
+</a>
+            </div>
+            <div class="media-body">
+                                <h5 class="media-heading rp-title"><a href="https://news.uci.edu/2021/06/08/town-hall-on-safety-at-uci/">Town Hall on Safety at UCI</a></h5>
+                
+                                <p class="rp-date rp-info">June 8, 2021</p>
+                
+	                        </div>
+          </div>
+          
+          </div><div class="widget widget_cj_tag_links" id="cj_tag_links-2"><h3 class="widget-title">Keywords</h3><ul class="list-group"><li class="list-group-item"><a href="https://news.uci.edu/tag/anti-black/" class="" rel="tag">Anti-Black</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/inclusion/" class="" rel="tag">inclusion</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/racial-justice/" class="" rel="tag">racial justice</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/uci/" class="" rel="tag">UCI</a></li><li class="list-group-item"><a href="https://news.uci.edu/tag/visual-representation/" class="" rel="tag">visual representation</a></li></ul></div>        </aside>
+    </div>
+</div>
+
+    
+    
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-one-container"><ul id="menu-footer-column-one"><li id="menu-item-84" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://www.facebook.com/UCIrvine">Facebook</a></li>
+<li id="menu-item-85" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-85"><a href="https://twitter.com/UCIrvine">Twitter</a></li>
+<li id="menu-item-86" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="https://www.youtube.com/user/ucirvine">YouTube</a></li>
+<li id="menu-item-87" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://www.flickr.com/photos/ucirvine/">Flickr</a></li>
+<li id="menu-item-40638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40638"><a href="https://medium.com/@UCIrvine">Medium</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                            <div class="menu-footer-column-two-container"><ul id="menu-footer-column-two"><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="http://today.uci.edu/">UCI Today</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="http://search.uci.edu/">UCI Search</a></li>
+</ul></div>                                                        </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                                        <div class="menu-footer-column-three-container"><ul id="menu-footer-column-three"><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="http://forms.communications.uci.edu/uci-feedback/">Feedback</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="http://uci.edu/privacy/">Privacy Notice</a></li>
+</ul></div>                                                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 pull-right">
+                    <address>
+                        <span>Strategic Communications & Public Affairs</span><br><span>120 Theory, Suite 100</span><br><span>Irvine, CA 92697-5615</span><br><span>949-824-6922</span><br>                    </address>
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a href="//uci.edu/copyright"><small>© 2021 UC Regents</small></a>
+        </div>
+    </div>
+</div>
+</footer>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/sharify/admin/inc/sharifycounts.js?ver=1.4'></script>
+<script type='text/javascript' src='https://uci.edu/js/campaign-button/campaign-button.js?ver=5.2.3'></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-2.1.4.min.js?ver=0.1'></script>
+<script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/themes/uciseventeen/assets/theme-styles/Bootstrap3-UCI-theme/js/bootstrap-uci-extensions.js?ver=0.1'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-content/plugins/uci-wp-slideshow/uci-slideshow/uci-slideshow.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://news.uci.edu/wp-includes/js/wp-embed.js?ver=5.2.3'></script>
+</body>
+</html>

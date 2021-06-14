@@ -1,0 +1,17 @@
+<heading> UCI mathematicians use machine intelligence to map gene interactions </heading>
+<sub_heading> Technique could help to find links between lung cells under coronavirus attack </sub_heading>
+<date> April 29, 2020 </date>
+<article> Irvine, Calif., April 29, 2020 — Researchers at the University of California, Irvine have developed a new mathematical machine-intelligence-based technique that spatially delineates highly complicated cell-to-cell and gene-gene interactions. The powerful method could help with the diagnosis and treatment of diseases ranging from cancer to COVID-19 through quantifying crosstalks between “good” cells and “bad” cells.
+By combining the mathematical concept known as “optimal transport” with machine learning and information theory, the scientists were able to equip unconnected single cells with spatial information, thereby highlighting communication links between cells or genes. The work is the subject of a new study published today in Nature Communications.
+“With this tool, we can identify cross-talk between virus-infected cells and immune cells,” said co-author Qing Nie, UCI professor of mathematics and the director of the National Science Foundation-Simons Center for Multiscale Cell Fate Research, which supported the project. “This novel approach may have an immediate application in finding critical cell-to-cell communication links in the lung when the COVID-19 virus attacks.”
+Nie said that accurate disease diagnosis and treatment requires both gene screening and tissue imaging. High-throughput gene profiling at single-cell resolution often requires dissociation of tissues into individual cells, leading to a loss of spatial information. But  imaging intact tissues only allows the measurement of a small number of genes.
+“This new mathematical machine-intelligence method greatly enriches our capability in integrating multiple biomedical datasets,” said Nie. “For the very first time, we can reveal how one gene in one cell –  for example, in a particular cancer cell – may influence another gene in an immune cell, for instance.”
+He said that he was partly inspired to look into the use of optimal transport, a tool with broad applications, including deep learning, after the 2018 Fields Medal (the mathematics equivalent to the Nobel Prize) was awarded on the topic.
+Zixuan Cang, a UCI postdoctoral scholar in mathematics and a CMCF research fellow, collaborated on this project which was funded by the National Institutes of Health, the National Science Foundation and the Simons Foundation.
+About the University of California, Irvine: Founded in 1965, UCI is the youngest member of the prestigious Association of American Universities. The campus has produced three Nobel laureates and is known for its academic achievement, premier research, innovation and anteater mascot. Led by Chancellor Howard Gillman, UCI has more than 36,000 students and offers 222 degree programs. It’s located in one of the world’s safest and most economically vibrant communities and is Orange County’s second-largest employer, contributing $5 billion annually to the local economy. For more on UCI, visit www.uci.edu.
+Media access: Radio programs/stations may, for a fee, use an on-campus ISDN line to interview UCI faculty and experts, subject to availability and university approval. For more UCI news, visit news.uci.edu. Additional resources for journalists may be found at communications.uci.edu/for-journalists.
+ 
+ 
+ 
+ 
+  </article>
